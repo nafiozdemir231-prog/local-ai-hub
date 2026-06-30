@@ -2,6 +2,9 @@
 
 # dependencies
 /node_modules
+!.prisma/client
+!.prisma/client-ng
+!node_modules/.prisma
 /.pnp
 .pnp.*
 .yarn/*
