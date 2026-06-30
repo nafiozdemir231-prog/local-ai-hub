@@ -1,0 +1,111 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String  @map("user_id")
+  type              String
+  provider          String
+  providerAccountId String  @map("provider_account_id")
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique @map("session_token")
+  userId       String   @map("user_id")
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@map("sessions")
+}
+
+model User {
+  id            String        @id @default(cuid())
+  name          String?
+  email         String?
+  emailVerified DateTime?     @map("email_verified")
+  image         String?
+  role          String        @default("user")
+  provider      String?       @default("email")
+  googleId      String?       @map("google_id")
+  githubId      String?       @map("github_id")
+  accounts      Account[]
+  sessions      Session[]
+  configs       LLMConfig[]
+  comments      Comment[]
+  votes         ConfigVote[]
+  modelRatings  ModelRating[]
+  @@map("users")
+}
+
+model LLMConfig {
+  id            String       @id @default(cuid())
+  createdAt     DateTime     @default(now()) @map("created_at")
+  updatedAt     DateTime     @updatedAt @map("updated_at")
+  platform      String       // "CUDA", "MLX", "ROCm", "Vulkan", "Multi-GPU"
+  vram          String       // "4","6","8","12","16","24","32","64","96","128+"
+  ram           String       // "8","16","24","32","48","64","96","128+"
+  hardwareModel String       @map("hardware_model")
+  modelName     String       @map("model_name")
+  quantization  String       // "Q4_0","Q4_K_M","Q4_K_S","Q5_0","Q5_K_M","Q6_K","Q8_0","F16","F32"
+  contextSize   Int          @map("context_size")
+  kvCache       String       @map("kv_cache") // "F16","Q8_0","Q4_0","Q5_0","Q5_1"
+  ppSpeed       Float        @map("pp_speed")
+  tgSpeed       Float        @map("tg_speed")
+  note          String?
+  llmRunner     String       @map("llm_runner")
+  generalSettings String?    @map("general_settings")
+  starCount     Int          @default(0) @map("star_count")
+  userId        String       @map("user_id")
+  user          User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  comments      Comment[]
+  votes         ConfigVote[]
+  ratings       ModelRating[]
+  @@map("llm_configs")
+}
+
+model Comment {
+  id        String    @id @default(cuid())
+  createdAt DateTime  @default(now()) @map("created_at")
+  content   String
+  configId  String    @map("config_id")
+  config    LLMConfig @relation(fields: [configId], references: [id], onDelete: Cascade)
+  userId    String    @map("user_id")
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@map("comments")
+}
+
+model ConfigVote {
+  id        String    @id @default(cuid())
+  createdAt DateTime  @default(now()) @map("created_at")
+  configId  String    @map("config_id")
+  config    LLMConfig @relation(fields: [configId], references: [id], onDelete: Cascade)
+  userId    String    @map("user_id")
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@unique([userId, configId])
+  @@map("config_votes")
+}
+
+model ModelRating {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now()) @map("created_at")
+  modelName String   @map("model_name")
+  configId  String?  @map("config_id")
+  category  String   // "Coding","Intelligence"
+  rating    Int      @default(0) // 1-5
+  userId    String   @map("user_id")
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  config    LLMConfig? @relation(fields: [configId], references: [id], onDelete: SetNull)
+  @@unique([userId, modelName, category])
+  @@map("model_ratings")
+}
