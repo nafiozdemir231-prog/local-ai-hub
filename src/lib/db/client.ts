@@ -21,6 +21,7 @@ export const prisma: PrismaClient =
     // PostgreSQL connection pool oluştur
     const pool = new Pool({
       connectionString: DATABASE_URL,
+      ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : undefined,
     });
 
     // Prisma adapter ile bağlan
