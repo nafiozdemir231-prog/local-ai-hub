@@ -1,10 +1,12 @@
-import { Download, Package, Server, Zap, Globe, Settings, Cpu, GitFork, ExternalLink } from "lucide-react";
+import { Download, Package, Server, Zap, Globe, Settings, Cpu, GitFork, ExternalLink, Code2 } from "lucide-react";
 
 export default function LLMRunnerAIO() {
   const githubRepo = "https://github.com/nafiozdemir231-prog/llm-runner-aio/tree/main";
   const hfPage = "https://huggingface.co/vincespeed/llm-runner-aio";
   const exeDownload = "https://huggingface.co/vincespeed/llm-runner-aio/resolve/main/LLM-Runner-AIO.exe";
   const rarDownload = "https://huggingface.co/vincespeed/llm-runner-aio/resolve/main/LLM-Runner-AIO.rar";
+  const nodeDownload = "https://nodejs.org/en/download";
+  const pythonDownload = "https://www.python.org/ftp/python/3.11.9/python-3.11.9-amd64.exe";
   
   const features = [
     { icon: Package, title: "Single File Deployment", desc: "2.5 GB .exe with all dependencies included" },
@@ -45,7 +47,7 @@ export default function LLMRunnerAIO() {
           </p>
           
           {/* Download Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
             <a
               href={exeDownload}
               target="_blank"
@@ -63,6 +65,28 @@ export default function LLMRunnerAIO() {
             >
               <Download className="h-5 w-5" />
               Download .RAR (2.3 GB)
+            </a>
+          </div>
+          
+          {/* Required Downloads */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
+            <a
+              href={nodeDownload}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 bg-green-600 text-white px-6 py-3 rounded-xl text-base font-semibold hover:bg-green-700 shadow-lg shadow-green-200 transition-all duration-200 hover:-translate-y-0.5"
+            >
+              <Code2 className="h-5 w-5" />
+              Download Node.js
+            </a>
+            <a
+              href={pythonDownload}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 bg-blue-600 text-white px-6 py-3 rounded-xl text-base font-semibold hover:bg-blue-700 shadow-lg shadow-blue-200 transition-all duration-200 hover:-translate-y-0.5"
+            >
+              <Code2 className="h-5 w-5" />
+              Download Python 3.11
             </a>
           </div>
           
