@@ -1,4 +1,4 @@
-import { Download, Package, Server, Zap, Globe, Settings, Cpu, Github, ExternalLink } from "lucide-react";
+import { Download, Package, Server, Zap, Globe, Settings, Cpu, GitFork, ExternalLink } from "lucide-react";
 
 export default function LLMRunnerAIO() {
   const githubRepo = "https://github.com/nafiozdemir231-prog/llm-runner-aio/tree/main";
@@ -74,7 +74,7 @@ export default function LLMRunnerAIO() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
             >
-              <Github className="h-5 w-5" />
+              <GitFork className="h-5 w-5" />
               View on GitHub
             </a>
             <span className="text-gray-300">|</span>
