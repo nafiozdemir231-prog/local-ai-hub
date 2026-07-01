@@ -44,15 +44,6 @@ export default function LLMRunnerAIO() {
             All Local LLM Tools — In a Single .exe File
           </p>
           
-          {/* Screenshot */}
-          <div className="mb-8">
-            <img
-              src="/2.png"
-              alt="LLM Runner AIO Screenshot"
-              className="max-w-full h-auto rounded-2xl shadow-2xl border border-gray-200"
-            />
-          </div>
-          
           {/* Download Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
             <a
@@ -146,6 +137,16 @@ export default function LLMRunnerAIO() {
         {/* Architecture Diagram */}
         <section className="mb-16">
           <h2 className="text-2xl font-bold text-gray-900 text-center mb-8">How It Works</h2>
+          
+          {/* Screenshot */}
+          <div className="mb-8">
+            <img
+              src="/2.png"
+              alt="LLM Runner AIO Screenshot"
+              className="max-w-full h-auto rounded-2xl shadow-2xl border border-gray-200"
+            />
+          </div>
+          
           <div className="rounded-xl border border-gray-200 bg-white p-8">
             <pre className="text-sm bg-gray-50 p-4 rounded-lg overflow-x-auto">
 {`┌─────────────────────────────────────────────┐
