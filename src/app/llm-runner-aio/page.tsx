@@ -44,6 +44,15 @@ export default function LLMRunnerAIO() {
             All Local LLM Tools — In a Single .exe File
           </p>
           
+          {/* Screenshot */}
+          <div className="mb-8">
+            <img
+              src="/2.png"
+              alt="LLM Runner AIO Screenshot"
+              className="max-w-full h-auto rounded-2xl shadow-2xl border border-gray-200"
+            />
+          </div>
+          
           {/* Download Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
             <a
