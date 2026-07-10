@@ -9,7 +9,7 @@ export default function Home() {
         {/* Bento Grid Layout */}
         <div className="max-w-7xl mx-auto p-6 grid grid-cols-1 md:grid-cols-4 gap-4 min-h-[600px]">
           
-          {/* Ana Hero - 2 sutun */}
+          {/* Hero Section - 2 columns */}
           <div className="md:col-span-2 row-span-2 relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-600 to-purple-700 p-8 flex flex-col justify-between text-white shadow-2xl">
             <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJub25lIi8+PGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iNDAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjwvc3ZnPg==')] opacity-30"></div>
             
@@ -20,40 +20,40 @@ export default function Home() {
               </div>
               
               <h1 className="text-5xl font-bold mb-4 leading-tight">
-                Keşfet.<br />
-                Paylaş.<br />
-                Optimize Et.
+                Discover.<br />
+                Share.<br />
+                Optimize.
               </h1>
               
               <p className="text-indigo-200 text-lg mb-8 max-w-md">
-                Yerel LLM yapılandırmalarını keşfet ve paylaş. Donanımın için mükemmel ayarları bul.
+                Explore and share local LLM configurations. Find the perfect settings for your hardware.
               </p>
             </div>
 
             <div className="flex flex-wrap gap-3">
               <Link href="/llm/configs" className="bg-white text-indigo-600 px-6 py-3 rounded-2xl font-semibold hover:bg-indigo-50 transition-all shadow-lg">
-                Yapılandırmalara Göz At
+                Browse Configurations
               </Link>
               <Link href="/llm/configs/share" className="bg-white/20 backdrop-blur-sm text-white px-6 py-3 rounded-2xl font-semibold hover:bg-white/30 transition-all border border-white/30">
-                Paylaş
+                Share
               </Link>
             </div>
           </div>
 
-          {/* Özellik Kartları - Satır 1 */}
+          {/* Feature Cards - Row 1 */}
           <div className="relative overflow-hidden rounded-3xl bg-white/70 backdrop-blur-md p-6 border border-white/50 shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1">
             <Search className="w-8 h-8 text-indigo-600 mb-4" />
             <Link href="/llm/configs">
               <h3 className="font-bold text-gray-900 mb-2">LLM Configs</h3>
-              <p className="text-sm text-gray-600">Yapılandırmaları ara ve filtrele</p>
+              <p className="text-sm text-gray-600">Search and filter configurations</p>
             </Link>
           </div>
 
           <div className="relative overflow-hidden rounded-3xl bg-white/70 backdrop-blur-md p-6 border border-white/50 shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1">
             <TrendingUp className="w-8 h-8 text-green-600 mb-4" />
             <Link href="/models/rankings">
-              <h3 className="font-bold text-gray-900 mb-2">Model Sıralaması</h3>
-              <p className="text-sm text-gray-600">Topluluk değerlendirmelerine göz at</p>
+              <h3 className="font-bold text-gray-900 mb-2">Model Rankings</h3>
+              <p className="text-sm text-gray-600">Community evaluations and rankings</p>
             </Link>
           </div>
 
@@ -61,7 +61,7 @@ export default function Home() {
             <MessageSquare className="w-8 h-8 text-purple-600 mb-4" />
             <Link href="/chat-clients">
               <h3 className="font-bold text-gray-900 mb-2">Chat Clients</h3>
-              <p className="text-sm text-gray-600">Yerel AI sohbet istemcileri</p>
+              <p className="text-sm text-gray-600">Local AI chat clients</p>
             </Link>
           </div>
 
@@ -69,45 +69,45 @@ export default function Home() {
             <ImageIcon className="w-8 h-8 text-orange-600 mb-4" />
             <Link href="/multimodal">
               <h3 className="font-bold text-gray-900 mb-2">Multimodal</h3>
-              <p className="text-sm text-gray-600">Metin, görüntü, ses modelleri</p>
+              <p className="text-sm text-gray-600">Text, image, and audio models</p>
             </Link>
           </div>
 
-          {/* Satır 2 - AIO + Multimodal */}
+          {/* Row 2 - AIO */}
           <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-orange-500 to-pink-600 p-6 text-white shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1">
             <Download className="w-8 h-8 mb-4" />
             <Link href="/llm-runner-aio">
               <h3 className="font-bold mb-2">LLM Runner AIO</h3>
-              <p className="text-sm text-orange-100">Tek dosyada her şey</p>
+              <p className="text-sm text-orange-100">Everything in one file</p>
             </Link>
           </div>
 
-          {/* Satır 2 - Runners + WebUI */}
+          {/* Row 2 - Runners + WebUI */}
           <div className="md:col-span-2 relative overflow-hidden rounded-3xl bg-gradient-to-r from-cyan-500 to-blue-600 p-6 text-white shadow-xl">
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <Code2 className="w-8 h-8 mb-4" />
                 <Link href="/local-llm-runners" className="block">
                   <h3 className="font-bold mb-2">LLM Runners</h3>
-                  <p className="text-sm text-cyan-100">En iyi yerel LLM çalıştırıcıları</p>
+                  <p className="text-sm text-cyan-100">Best local LLM runners</p>
                 </Link>
               </div>
               <div>
                 <Monitor className="w-8 h-8 mb-4" />
                 <Link href="/local-llm-webuis" className="block">
-                  <h3 className="font-bold mb-2">Web UI'lar</h3>
-                  <p className="text-sm text-cyan-100">Yerel LLM web arayüzleri</p>
+                  <h3 className="font-bold mb-2">Web UIs</h3>
+                  <p className="text-sm text-cyan-100">Local LLM web interfaces</p>
                 </Link>
               </div>
             </div>
           </div>
 
-          {/* Satır 2 - Multimodal geniş kart */}
+          {/* Row 2 - Multimodal wide card */}
           <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-500 to-teal-600 p-6 text-white shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1">
             <ImageIcon className="w-8 h-8 mb-4" />
             <Link href="/multimodal">
               <h3 className="font-bold mb-2">Multimodal</h3>
-              <p className="text-sm text-emerald-100">Metin, görüntü, ses modelleri</p>
+              <p className="text-sm text-emerald-100">Text, image, and audio models</p>
             </Link>
           </div>
         </div>
