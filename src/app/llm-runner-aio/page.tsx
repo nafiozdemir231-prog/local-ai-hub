@@ -31,18 +31,18 @@ export default function LLMRunnerAIO() {
   ];
 
   return (
-    <div className="flex flex-col flex-1 items-center min-h-screen bg-gradient-to-b from-gray-50 to-white">
+    <div className="flex flex-col flex-1 items-center min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-950">
       <main className="flex-1 w-full max-w-5xl mx-auto px-4 py-16">
         {/* Hero */}
         <section className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-indigo-100 text-indigo-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
+          <div className="inline-flex items-center gap-2 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-400 px-4 py-2 rounded-full text-sm font-medium mb-6">
             <Zap className="h-4 w-4" />
             All-in-One Package
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             LLM Runner AIO
           </h1>
-          <p className="text-xl text-gray-600 mb-8">
+          <p className="text-xl text-gray-600 dark:text-gray-400 mb-8">
             All Local LLM Tools — In a Single .exe File
           </p>
           
@@ -52,8 +52,7 @@ export default function LLMRunnerAIO() {
               href={exeDownload}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-indigo-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-indigo-700 shadow-lg shadow-indigo-200 transition-all duration-200 hover:-translate-y-0.5"
-            >
+              className="inline-flex items-center gap-3 bg-indigo-600 dark:bg-indigo-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-indigo-700 dark:hover:bg-indigo-700 shadow-lg shadow-indigo-200 dark:shadow-none transition-all duration-200 hover:-translate-y-0.5">
               <Download className="h-5 w-5" />
               Download LLM-Runner-AIO.exe (2.5 GB)
             </a>
@@ -61,8 +60,7 @@ export default function LLMRunnerAIO() {
               href={rarDownload}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-white dark:bg-gray-800 text-indigo-600 dark:text-indigo-400 border-2 border-indigo-600 dark:border-indigo-500 px-6 py-3 rounded-xl text-base font-semibold hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-all duration-200"
-            >
+              className="inline-flex items-center gap-3 bg-white dark:bg-gray-800 text-indigo-600 dark:text-indigo-400 border-2 border-indigo-600 dark:border-indigo-500 px-6 py-3 rounded-xl text-base font-semibold hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-all duration-200">
               <Download className="h-5 w-5" />
               Download .RAR (2.3 GB)
             </a>
@@ -74,8 +72,7 @@ export default function LLMRunnerAIO() {
               href={nodeDownload}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-green-600 text-white px-6 py-3 rounded-xl text-base font-semibold hover:bg-green-700 shadow-lg shadow-green-200 transition-all duration-200 hover:-translate-y-0.5"
-            >
+              className="inline-flex items-center gap-3 bg-green-600 dark:bg-green-700 text-white px-6 py-3 rounded-xl text-base font-semibold hover:bg-green-700 dark:hover:bg-green-800 shadow-lg shadow-green-200 dark:shadow-none transition-all duration-200 hover:-translate-y-0.5">
               <Code2 className="h-5 w-5" />
               Download Node.js
             </a>
@@ -83,8 +80,7 @@ export default function LLMRunnerAIO() {
               href={pythonDownload}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-blue-600 text-white px-6 py-3 rounded-xl text-base font-semibold hover:bg-blue-700 shadow-lg shadow-blue-200 transition-all duration-200 hover:-translate-y-0.5"
-            >
+              className="inline-flex items-center gap-3 bg-blue-600 dark:bg-blue-700 text-white px-6 py-3 rounded-xl text-base font-semibold hover:bg-blue-700 dark:hover:bg-blue-800 shadow-lg shadow-blue-200 dark:shadow-none transition-all duration-200 hover:-translate-y-0.5">
               <Code2 className="h-5 w-5" />
               Download Python 3.11
             </a>
@@ -96,29 +92,23 @@ export default function LLMRunnerAIO() {
               href={githubRepo}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
-            >
-              <GitFork className="h-5 w-5" />
-              View on GitHub
+              className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
             </a>
-            <span className="text-gray-300">|</span>
+            <span className="text-gray-300 dark:text-gray-600">|</span>
             <a
               href={hfPage}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
-            >
-              <ExternalLink className="h-5 w-5" />
-              Hugging Face Page
+              className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
             </a>
           </div>
         </section>
 
         {/* Overview */}
         <section className="mb-16">
-          <div className="rounded-xl border border-gray-200 bg-white p-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Overview</h2>
-            <p className="text-gray-600 leading-relaxed">
+          <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-8">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Overview</h2>
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
               LLM Runner AIO is a comprehensive, self-contained desktop application that bundles all the tools you need 
               to run local AI models on your own hardware. No complex setup, no dependency hell — just download, run, 
               and start chatting with AI locally.
@@ -128,15 +118,15 @@ export default function LLMRunnerAIO() {
 
         {/* Included */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-gray-900 text-center mb-8">What is Included</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-center mb-8">What is Included</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {components.map((c) => (
-              <div key={c.name} className="rounded-xl border border-gray-200 bg-white p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
+              <div key={c.name} className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-6 hover:shadow-lg dark:hover:shadow-none hover:-translate-y-1 transition-all duration-200">
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-lg font-bold text-gray-900">{c.name}</h3>
-                  <span className="text-xs font-medium bg-green-100 text-green-700 px-3 py-1 rounded-full">{c.license}</span>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white">{c.name}</h3>
+                  <span className="text-xs font-medium bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 px-3 py-1 rounded-full">{c.license}</span>
                 </div>
-                <p className="text-sm text-gray-600">{c.desc}</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400">{c.desc}</p>
               </div>
             ))}
           </div>
@@ -144,15 +134,15 @@ export default function LLMRunnerAIO() {
 
         {/* Features Grid */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-gray-900 text-center mb-8">Features</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-center mb-8">Features</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((f) => (
-              <div key={f.title} className="rounded-xl border border-gray-200 bg-white p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-indigo-100 mb-4">
-                  <f.icon className="h-6 w-6 text-indigo-600" />
+              <div key={f.title} className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-6 hover:shadow-lg dark:hover:shadow-none hover:-translate-y-1 transition-all duration-200">
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-indigo-100 dark:bg-indigo-900/30 mb-4">
+                  <f.icon className="h-6 w-6 text-indigo-600 dark:text-indigo-400" />
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{f.title}</h3>
-                <p className="text-sm text-gray-600">{f.desc}</p>
+                <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">{f.title}</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400">{f.desc}</p>
               </div>
             ))}
           </div>
@@ -160,19 +150,19 @@ export default function LLMRunnerAIO() {
 
         {/* Architecture Diagram */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-gray-900 text-center mb-8">How It Works</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-center mb-8">How It Works</h2>
           
           {/* Screenshot */}
           <div className="mb-8">
             <img
               src="/2.png"
               alt="LLM Runner AIO Screenshot"
-              className="max-w-full h-auto rounded-2xl shadow-2xl border border-gray-200"
+              className="max-w-full h-auto rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700"
             />
           </div>
           
-          <div className="rounded-xl border border-gray-200 bg-white p-8">
-            <pre className="text-sm bg-gray-50 p-4 rounded-lg overflow-x-auto">
+          <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-8">
+            <pre className="text-sm bg-gray-50 dark:bg-gray-900 dark:text-gray-100 p-4 rounded-lg overflow-x-auto font-mono">
 {`┌─────────────────────────────────────────────┐
 │           LLM Runner AIO Launcher           │
 ├─────────────────────────────────────────────┤
@@ -189,19 +179,19 @@ export default function LLMRunnerAIO() {
             <ul className="mt-6 space-y-3">
               <li className="flex items-start gap-3">
                 <div className="h-2 w-2 rounded-full bg-indigo-600 mt-2 flex-shrink-0" />
-                <span className="text-gray-700"><strong>llama.cpp</strong> runs the AI model inference engine</span>
+                <span className="text-gray-700 dark:text-gray-300"><strong>llama.cpp</strong> runs the AI model inference engine</span>
               </li>
               <li className="flex items-start gap-3">
                 <div className="h-2 w-2 rounded-full bg-indigo-600 mt-2 flex-shrink-0" />
-                <span className="text-gray-700"><strong>Open WebUI</strong> provides the chat interface at <code className="bg-gray-100 px-2 py-0.5 rounded text-sm">http://localhost:3000</code></span>
+                <span className="text-gray-700 dark:text-gray-300"><strong>Open WebUI</strong> provides the chat interface at <code className="bg-gray-100 dark:bg-gray-800 px-2 py-0.5 rounded text-sm">http://localhost:3000</code></span>
               </li>
               <li className="flex items-start gap-3">
                 <div className="h-2 w-2 rounded-full bg-indigo-600 mt-2 flex-shrink-0" />
-                <span className="text-gray-700"><strong>SearXNG</strong> enables local web search at <code className="bg-gray-100 px-2 py-0.5 rounded text-sm">http://localhost:8080</code></span>
+                <span className="text-gray-700 dark:text-gray-300"><strong>SearXNG</strong> enables local web search at <code className="bg-gray-100 dark:bg-gray-800 px-2 py-0.5 rounded text-sm">http://localhost:8080</code></span>
               </li>
               <li className="flex items-start gap-3">
                 <div className="h-2 w-2 rounded-full bg-indigo-600 mt-2 flex-shrink-0" />
-                <span className="text-gray-700"><strong>Vane</strong> handles browser automation at <code className="bg-gray-100 px-2 py-0.5 rounded text-sm">http://localhost:3001</code></span>
+                <span className="text-gray-700 dark:text-gray-300"><strong>Vane</strong> handles browser automation at <code className="bg-gray-100 dark:bg-gray-800 px-2 py-0.5 rounded text-sm">http://localhost:3001</code></span>
               </li>
             </ul>
           </div>
@@ -209,15 +199,15 @@ export default function LLMRunnerAIO() {
 
         {/* Installation Steps */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-gray-900 text-center mb-8">Installation</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-center mb-8">Installation</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {steps.map((s) => (
               <div key={s.num} className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-indigo-600 text-white text-2xl font-bold mb-4">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-indigo-600 dark:bg-indigo-600 text-white text-2xl font-bold mb-4">
                   {s.num}
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{s.title}</h3>
-                <p className="text-sm text-gray-600">{s.desc}</p>
+                <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">{s.title}</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -225,47 +215,47 @@ export default function LLMRunnerAIO() {
 
         {/* System Requirements */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-gray-900 text-center mb-8">System Requirements</h2>
-          <div className="rounded-xl border border-gray-200 bg-white p-6">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-center mb-8">System Requirements</h2>
+          <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-6">
             <div className="overflow-x-auto">
               <table className="w-full text-left">
                 <thead>
-                  <tr className="border-b border-gray-200">
-                    <th className="py-3 px-4 font-semibold text-gray-900">Requirement</th>
-                    <th className="py-3 px-4 font-semibold text-gray-900">Minimum</th>
-                    <th className="py-3 px-4 font-semibold text-gray-900">Recommended</th>
+                  <tr className="border-b border-gray-200 dark:border-gray-700">
+                    <th className="py-3 px-4 font-semibold text-gray-900 dark:text-white">Requirement</th>
+                    <th className="py-3 px-4 font-semibold text-gray-900 dark:text-white">Minimum</th>
+                    <th className="py-3 px-4 font-semibold text-gray-900 dark:text-white">Recommended</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className="border-b border-gray-100">
-                    <td className="py-3 px-4 text-gray-700">OS</td>
-                    <td className="py-3 px-4 text-gray-700">Windows 10/11</td>
-                    <td className="py-3 px-4 text-gray-700">Windows 11</td>
+                  <tr className="border-b border-gray-100 dark:border-gray-700">
+                    <td className="py-3 px-4 text-gray-700 dark:text-gray-300">OS</td>
+                    <td className="py-3 px-4 text-gray-700 dark:text-gray-300">Windows 10/11</td>
+                    <td className="py-3 px-4 text-gray-700 dark:text-gray-300">Windows 11</td>
                   </tr>
-                  <tr className="border-b border-gray-100">
-                    <td className="py-3 px-4 text-gray-700">RAM</td>
-                    <td className="py-3 px-4 text-gray-700">8 GB</td>
-                    <td className="py-3 px-4 text-gray-700">16 GB+</td>
+                  <tr className="border-b border-gray-100 dark:border-gray-700">
+                    <td className="py-3 px-4 text-gray-700 dark:text-gray-300">RAM</td>
+                    <td className="py-3 px-4 text-gray-700 dark:text-gray-300">8 GB</td>
+                    <td className="py-3 px-4 text-gray-700 dark:text-gray-300">16 GB+</td>
                   </tr>
-                  <tr className="border-b border-gray-100">
-                    <td className="py-3 px-4 text-gray-700">GPU</td>
-                    <td className="py-3 px-4 text-gray-700">CPU Only</td>
-                    <td className="py-3 px-4 text-gray-700">NVIDIA RTX 3060+</td>
+                  <tr className="border-b border-gray-100 dark:border-gray-700">
+                    <td className="py-3 px-4 text-gray-700 dark:text-gray-300">GPU</td>
+                    <td className="py-3 px-4 text-gray-700 dark:text-gray-300">CPU Only</td>
+                    <td className="py-3 px-4 text-gray-700 dark:text-gray-300">NVIDIA RTX 3060+</td>
                   </tr>
-                  <tr className="border-b border-gray-100">
-                    <td className="py-3 px-4 text-gray-700">VRAM</td>
-                    <td className="py-3 px-4 text-gray-700">N/A</td>
-                    <td className="py-3 px-4 text-gray-700">4 GB+</td>
+                  <tr className="border-b border-gray-100 dark:border-gray-700">
+                    <td className="py-3 px-4 text-gray-700 dark:text-gray-300">VRAM</td>
+                    <td className="py-3 px-4 text-gray-700 dark:text-gray-300">N/A</td>
+                    <td className="py-3 px-4 text-gray-700 dark:text-gray-300">4 GB+</td>
                   </tr>
                   <tr>
-                    <td className="py-3 px-4 text-gray-700">Python</td>
-                    <td className="py-3 px-4 text-gray-700">3.11 (bundled)</td>
-                    <td className="py-3 px-4 text-gray-700">3.11 (bundled)</td>
+                    <td className="py-3 px-4 text-gray-700 dark:text-gray-300">Python</td>
+                    <td className="py-3 px-4 text-gray-700 dark:text-gray-300">3.11 (bundled)</td>
+                    <td className="py-3 px-4 text-gray-700 dark:text-gray-300">3.11 (bundled)</td>
                   </tr>
                 </tbody>
               </table>
             </div>
-            <p className="mt-4 text-sm text-gray-500">
+            <p className="mt-4 text-sm text-gray-500 dark:text-gray-400">
               <strong>Note:</strong> Python 3.11 and Node.js are bundled inside the executable. No separate installation needed!
             </p>
           </div>
@@ -273,39 +263,39 @@ export default function LLMRunnerAIO() {
 
         {/* Data Privacy */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-gray-900 text-center mb-8">Data Privacy</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-center mb-8">Data Privacy</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="rounded-xl border border-gray-200 bg-white p-6">
+            <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-6">
               <ul className="space-y-3">
                 <li className="flex items-center gap-3">
                   <div className="h-2 w-2 rounded-full bg-green-500" />
-                  <span className="text-gray-700">No Cloud Dependencies — Everything runs locally</span>
+                  <span className="text-gray-700 dark:text-gray-300">No Cloud Dependencies — Everything runs locally</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <div className="h-2 w-2 rounded-full bg-green-500" />
-                  <span className="text-gray-700">No Telemetry — No data is sent anywhere</span>
+                  <span className="text-gray-700 dark:text-gray-300">No Telemetry — No data is sent anywhere</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <div className="h-2 w-2 rounded-full bg-green-500" />
-                  <span className="text-gray-700">Local Database — Chat history stored only on your machine</span>
+                  <span className="text-gray-700 dark:text-gray-300">Local Database — Chat history stored only on your machine</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <div className="h-2 w-2 rounded-full bg-green-500" />
-                  <span className="text-gray-700">No Account Required — No registration or login needed</span>
+                  <span className="text-gray-700 dark:text-gray-300">No Account Required — No registration or login needed</span>
                 </li>
               </ul>
             </div>
-            <div className="rounded-xl border border-gray-200 bg-white p-6">
-              <h3 className="font-bold text-gray-900 mb-3">Supported Languages</h3>
+            <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-6">
+              <h3 className="font-bold text-gray-900 dark:text-white mb-3">Supported Languages</h3>
               <div className="grid grid-cols-2 gap-2">
-                <span className="text-gray-700">🇹🇷 Turkish</span>
-                <span className="text-gray-700">🇬🇧 English</span>
-                <span className="text-gray-700">🇪🇸 Spanish</span>
-                <span className="text-gray-700">🇩🇪 German</span>
-                <span className="text-gray-700">🇫🇷 French</span>
-                <span className="text-gray-700">🇵🇹 Portuguese</span>
-                <span className="text-gray-700">🇨🇳 Chinese</span>
-                <span className="text-gray-700">🇯🇵 Japanese</span>
+                <span className="text-gray-700 dark:text-gray-300">🇹🇷 Turkish</span>
+                <span className="text-gray-700 dark:text-gray-300">🇬🇧 English</span>
+                <span className="text-gray-700 dark:text-gray-300">🇪🇸 Spanish</span>
+                <span className="text-gray-700 dark:text-gray-300">🇩🇪 German</span>
+                <span className="text-gray-700 dark:text-gray-300">🇫🇷 French</span>
+                <span className="text-gray-700 dark:text-gray-300">🇵🇹 Portuguese</span>
+                <span className="text-gray-700 dark:text-gray-300">🇨🇳 Chinese</span>
+                <span className="text-gray-700 dark:text-gray-300">🇯🇵 Japanese</span>
               </div>
             </div>
           </div>
@@ -313,12 +303,12 @@ export default function LLMRunnerAIO() {
 
         {/* Credits */}
         <section className="mb-16">
-          <div className="rounded-xl border border-gray-200 bg-white p-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Credits</h2>
-            <p className="text-gray-600 leading-relaxed mb-4">
+          <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-8">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Credits</h2>
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
               This project would not be possible without the incredible work of:
             </p>
-            <ul className="space-y-2 text-gray-700">
+            <ul className="space-y-2 text-gray-700 dark:text-gray-300">
               <li>• <strong>Georgi Gerganov</strong> — llama.cpp</li>
               <li>• <strong>Open WebUI Team</strong> — Open WebUI</li>
               <li>• <strong>SearXNG Contributors</strong> — SearXNG</li>
@@ -329,15 +319,14 @@ export default function LLMRunnerAIO() {
 
         {/* CTA */}
         <section className="text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Ready to Get Started?</h2>
-          <p className="text-gray-600 mb-8">Download LLM Runner AIO and start running local LLMs instantly.</p>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Ready to Get Started?</h2>
+          <p className="text-gray-600 dark:text-gray-400 mb-8">Download LLM Runner AIO and start running local LLMs instantly.</p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href={exeDownload}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-indigo-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-indigo-700 shadow-lg shadow-indigo-200 transition-all duration-200 hover:-translate-y-0.5"
-            >
+              className="inline-flex items-center gap-3 bg-indigo-600 dark:bg-indigo-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-indigo-700 dark:hover:bg-indigo-700 shadow-lg shadow-indigo-200 dark:shadow-none transition-all duration-200 hover:-translate-y-0.5">
               <Download className="h-5 w-5" />
               Download .exe (2.5 GB)
             </a>
@@ -345,8 +334,7 @@ export default function LLMRunnerAIO() {
               href={rarDownload}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-white text-indigo-600 border-2 border-indigo-600 px-6 py-3 rounded-xl text-base font-semibold hover:bg-indigo-50 transition-all duration-200"
-            >
+              className="inline-flex items-center gap-3 bg-white dark:bg-gray-800 text-indigo-600 dark:text-indigo-400 border-2 border-indigo-600 dark:border-indigo-500 px-6 py-3 rounded-xl text-base font-semibold hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-all duration-200">
               <Download className="h-5 w-5" />
               Download .RAR (2.3 GB)
             </a>
