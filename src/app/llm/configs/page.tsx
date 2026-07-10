@@ -252,20 +252,20 @@ export default function LLMConfigsPage() {
         <div className="mt-6 overflow-x-auto rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm">
           <table className="w-full border-collapse">
             <thead>
-              <tr className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-750">
-                <th className="border-b border-gray-200 dark:border-gray-600 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Rank</th>
-                <th className="border-b border-gray-200 dark:border-gray-600 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Model Name</th>
-                <th className="border-b border-gray-200 dark:border-gray-600 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Hardware Model</th>
-                <th className="border-b border-gray-200 dark:border-gray-600 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Platform</th>
-                <th className="border-b border-gray-200 dark:border-gray-600 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">LLM Runner</th>
-                <th className="border-b border-gray-200 dark:border-gray-600 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">VRAM</th>
-                <th className="border-b border-gray-200 dark:border-gray-600 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">RAM</th>
-                <th className="border-b border-gray-200 dark:border-gray-600 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Quantization</th>
-                <th className="border-b border-gray-200 dark:border-gray-600 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">PP</th>
-                <th className="border-b border-gray-200 dark:border-gray-600 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">TG</th>
-                <th className="border-b border-gray-200 dark:border-gray-600 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Votes</th>
-                <th className="border-b border-gray-200 dark:border-gray-600 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">User</th>
-                {(isAdmin || session) && <th className="border-b border-gray-200 dark:border-gray-600 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Actions</th>}
+              <tr className="bg-gradient-to-r from-gray-100 to-gray-50 dark:from-gray-800 dark:to-gray-900">
+                <th className="border-b border-gray-200 dark:border-gray-700 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Rank</th>
+                <th className="border-b border-gray-200 dark:border-gray-700 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Model Name</th>
+                <th className="border-b border-gray-200 dark:border-gray-700 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Hardware Model</th>
+                <th className="border-b border-gray-200 dark:border-gray-700 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Platform</th>
+                <th className="border-b border-gray-200 dark:border-gray-700 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">LLM Runner</th>
+                <th className="border-b border-gray-200 dark:border-gray-700 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">VRAM</th>
+                <th className="border-b border-gray-200 dark:border-gray-700 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">RAM</th>
+                <th className="border-b border-gray-200 dark:border-gray-700 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Quantization</th>
+                <th className="border-b border-gray-200 dark:border-gray-700 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">PP</th>
+                <th className="border-b border-gray-200 dark:border-gray-700 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">TG</th>
+                <th className="border-b border-gray-200 dark:border-gray-700 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Votes</th>
+                <th className="border-b border-gray-200 dark:border-gray-700 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">User</th>
+                {(isAdmin || session) && <th className="border-b border-gray-200 dark:border-gray-700 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Actions</th>}
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100 dark:divide-gray-700">
