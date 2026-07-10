@@ -94,52 +94,52 @@ export default function ProfilePage() {
   };
 
   return (
-    <div className="container mx-auto max-w-7xl p-4 md:p-6 lg:p-8">
+    <div className="container mx-auto max-w-7xl p-4 md:p-6 lg:p-8 bg-white dark:bg-gray-900 min-h-screen">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">Profile</h1>
-        <p className="mt-1 text-sm text-gray-500">
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Profile</h1>
+        <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
           {isAdmin ? "All configurations (Admin view)" : "Your shared configurations"}
         </p>
       </div>
 
       {loading ? (
-        <p className="text-gray-500">Loading...</p>
+        <p className="text-gray-500 dark:text-gray-400">Loading...</p>
       ) : configs.length === 0 ? (
-        <p className="text-gray-500">No configurations shared yet.</p>
+        <p className="text-gray-500 dark:text-gray-400">No configurations shared yet.</p>
       ) : (
         <div className="overflow-x-auto">
           <table className="w-full text-left">
             <thead>
-              <tr className="border-b border-gray-200">
-                <th className="px-4 py-3 text-sm font-semibold text-gray-700">Rank</th>
-                <th className="px-4 py-3 text-sm font-semibold text-gray-700">Model Name</th>
-                <th className="px-4 py-3 text-sm font-semibold text-gray-700">Hardware Model</th>
-                <th className="px-4 py-3 text-sm font-semibold text-gray-700">Platform</th>
-                <th className="px-4 py-3 text-sm font-semibold text-gray-700">VRAM</th>
-                <th className="px-4 py-3 text-sm font-semibold text-gray-700">RAM</th>
-                <th className="px-4 py-3 text-sm font-semibold text-gray-700">Quantization</th>
-                <th className="px-4 py-3 text-sm font-semibold text-gray-700">PP</th>
-                <th className="px-4 py-3 text-sm font-semibold text-gray-700">TG</th>
-                <th className="px-4 py-3 text-sm font-semibold text-gray-700">Votes</th>
-                {isAdmin && <th className="px-4 py-3 text-sm font-semibold text-gray-700">User</th>}
-                <th className="px-4 py-3 text-sm font-semibold text-gray-700">Actions</th>
+              <tr className="border-b border-gray-200 dark:border-gray-700">
+                <th className="px-4 py-3 text-sm font-semibold text-gray-700 dark:text-gray-300">Rank</th>
+                <th className="px-4 py-3 text-sm font-semibold text-gray-700 dark:text-gray-300">Model Name</th>
+                <th className="px-4 py-3 text-sm font-semibold text-gray-700 dark:text-gray-300">Hardware Model</th>
+                <th className="px-4 py-3 text-sm font-semibold text-gray-700 dark:text-gray-300">Platform</th>
+                <th className="px-4 py-3 text-sm font-semibold text-gray-700 dark:text-gray-300">VRAM</th>
+                <th className="px-4 py-3 text-sm font-semibold text-gray-700 dark:text-gray-300">RAM</th>
+                <th className="px-4 py-3 text-sm font-semibold text-gray-700 dark:text-gray-300">Quantization</th>
+                <th className="px-4 py-3 text-sm font-semibold text-gray-700 dark:text-gray-300">PP</th>
+                <th className="px-4 py-3 text-sm font-semibold text-gray-700 dark:text-gray-300">TG</th>
+                <th className="px-4 py-3 text-sm font-semibold text-gray-700 dark:text-gray-300">Votes</th>
+                {isAdmin && <th className="px-4 py-3 text-sm font-semibold text-gray-700 dark:text-gray-300">User</th>}
+                <th className="px-4 py-3 text-sm font-semibold text-gray-700 dark:text-gray-300">Actions</th>
               </tr>
             </thead>
             <tbody>
               {configs.map((config, index) => (
-                <tr key={config.id} className="border-b border-gray-100 hover:bg-gray-50">
-                  <td className="px-4 py-3 text-sm text-gray-900">{index + 1}</td>
-                  <td className="px-4 py-3 text-sm text-gray-900">{config.modelName}</td>
-                  <td className="px-4 py-3 text-sm text-gray-900">{config.hardwareModel}</td>
-                  <td className="px-4 py-3 text-sm text-gray-900">{config.platform}</td>
-                  <td className="px-4 py-3 text-sm text-gray-900">{config.vram}</td>
-                  <td className="px-4 py-3 text-sm text-gray-900">{config.ram}</td>
-                  <td className="px-4 py-3 text-sm text-gray-900">{config.quantization}</td>
-                  <td className="px-4 py-3 text-sm text-gray-900">{config.ppSpeed}</td>
-                  <td className="px-4 py-3 text-sm text-gray-900">{config.tgSpeed}</td>
-                  <td className="px-4 py-3 text-sm text-gray-900">{config.starCount}</td>
+                <tr key={config.id} className="border-b border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800">
+                  <td className="px-4 py-3 text-sm text-gray-900 dark:text-gray-100">{index + 1}</td>
+                  <td className="px-4 py-3 text-sm text-gray-900 dark:text-gray-100">{config.modelName}</td>
+                  <td className="px-4 py-3 text-sm text-gray-900 dark:text-gray-100">{config.hardwareModel}</td>
+                  <td className="px-4 py-3 text-sm text-gray-900 dark:text-gray-100">{config.platform}</td>
+                  <td className="px-4 py-3 text-sm text-gray-900 dark:text-gray-100">{config.vram}</td>
+                  <td className="px-4 py-3 text-sm text-gray-900 dark:text-gray-100">{config.ram}</td>
+                  <td className="px-4 py-3 text-sm text-gray-900 dark:text-gray-100">{config.quantization}</td>
+                  <td className="px-4 py-3 text-sm text-gray-900 dark:text-gray-100">{config.ppSpeed}</td>
+                  <td className="px-4 py-3 text-sm text-gray-900 dark:text-gray-100">{config.tgSpeed}</td>
+                  <td className="px-4 py-3 text-sm text-gray-900 dark:text-gray-100">{config.starCount}</td>
                   {isAdmin && (
-                    <td className="px-4 py-3 text-sm text-gray-900">
+                    <td className="px-4 py-3 text-sm text-gray-900 dark:text-gray-100">
                       {config.user?.name || config.user?.email || "Unknown"}
                     </td>
                   )}
@@ -147,15 +147,13 @@ export default function ProfilePage() {
                     <div className="flex gap-2">
                       <button
                         onClick={() => handleEdit(config.id)}
-                        className="rounded bg-blue-100 px-2 py-1 text-xs text-blue-600 hover:bg-blue-200"
-                      >
+                        className="rounded bg-blue-100 dark:bg-blue-900/30 px-2 py-1 text-xs text-blue-600 dark:text-blue-400 hover:bg-blue-200 dark:hover:bg-blue-900/50"
                         Edit
                       </button>
                       <button
                         onClick={() => handleDelete(config.id)}
                         disabled={deleting === config.id}
-                        className="rounded bg-red-100 px-2 py-1 text-xs text-red-600 hover:bg-red-200 disabled:opacity-50"
-                      >
+                        className="rounded bg-red-100 dark:bg-red-900/30 px-2 py-1 text-xs text-red-600 dark:text-red-400 hover:bg-red-200 dark:hover:bg-red-900/50 disabled:opacity-50"
                         {deleting === config.id ? "Deleting..." : "Delete"}
                       </button>
                     </div>

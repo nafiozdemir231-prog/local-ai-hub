@@ -2,11 +2,15 @@
 
 import Link from "next/link";
 import { signIn, signOut, useSession } from "next-auth/react";
-import { LogIn, LogOut, Shield, Menu, X } from "lucide-react";
+import { LogIn, LogOut, Shield, Menu, X, Sun, Moon } from "lucide-react";
 import { useState } from "react";
+import { useTheme } from "@/lib/theme-provider";
+import { usePathname } from "next/navigation";
 
 export function Navbar() {
   const { data: session } = useSession();
+  const { theme, toggleTheme } = useTheme();
+  const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
@@ -19,15 +23,33 @@ export function Navbar() {
     { href: "/multimodal", label: "Multimodal" },
   ];
 
+  const isActive = (href: string) => {
+    if (href === "/") return pathname === "/";
+    return pathname?.startsWith(href);
+  };
+
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/90 backdrop-blur-md shadow-sm">
+    <nav className="sticky top-0 z-50 w-full border-b border-gray-200 dark:border-gray-800 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-sm">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <span className="text-xl font-bold bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent">
+          <span className="text-xl font-bold bg-gradient-to-r from-indigo-600 to-blue-600 dark:from-indigo-400 dark:to-blue-400 bg-clip-text text-transparent">
             Local AI Hub
           </span>
         </Link>
+
+        {/* Theme Toggle Desktop */}
+        <button
+          onClick={toggleTheme}
+          className="rounded-lg p-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200"
+          title="Toggle theme"
+        >
+          {theme === "light" ? (
+            <Moon className="h-5 w-5" />
+          ) : (
+            <Sun className="h-5 w-5" />
+          )}
+        </button>
 
         {/* Desktop Navigation */}
         <div className="hidden items-center gap-1 md:flex">
@@ -35,7 +57,11 @@ export function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-lg px-3 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-all duration-200"
+              className={`rounded-lg px-3 py-2 text-sm font-medium transition-all duration-200 ${
+                isActive(link.href)
+                  ? "bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white font-semibold"
+                  : "text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white"
+              }`}
             >
               {link.label}
             </Link>
@@ -54,7 +80,11 @@ export function Navbar() {
           {session && (
             <Link
               href="/profile"
-              className="rounded-lg px-3 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-all duration-200"
+              className={`rounded-lg px-3 py-2 text-sm font-medium transition-all duration-200 ${
+                isActive("/profile")
+                  ? "bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white font-semibold"
+                  : "text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white"
+              }`}
             >
               Profile
             </Link>
@@ -64,7 +94,7 @@ export function Navbar() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="rounded-lg p-2 text-gray-600 hover:bg-gray-100 md:hidden"
+          className="rounded-lg p-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 md:hidden"
         >
           {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
@@ -78,18 +108,18 @@ export function Navbar() {
                   <img src={session.user.image} alt={session.user.name || "User"} className="h-full w-full object-cover" />
                 </div>
               )}
-              <span className="text-sm text-gray-700 font-medium">
+              <span className="text-sm text-gray-700 dark:text-gray-300 font-medium">
                 {session.user?.name}
               </span>
               {session.user?.role === "admin" && (
-                <span className="flex items-center gap-1 rounded-full bg-red-100 px-2.5 py-1 text-xs font-bold text-red-600 ring-1 ring-red-200">
+                <span className="flex items-center gap-1 rounded-full bg-red-100 dark:bg-red-900/30 px-2.5 py-1 text-xs font-bold text-red-600 dark:text-red-400 ring-1 ring-red-200 dark:ring-red-800">
                   <Shield className="h-3 w-3" />
                   ADMIN
                 </span>
               )}
               <button
                 onClick={() => signOut({ callbackUrl: "/" })}
-                className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm text-gray-600 hover:bg-gray-100 transition-colors"
+                className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
               >
                 <LogOut className="h-4 w-4" />
                 Sign out
@@ -99,14 +129,14 @@ export function Navbar() {
             <div className="flex items-center gap-2">
               <button
                 onClick={() => signIn("google", { callbackUrl: "/" })}
-                className="flex items-center gap-2 rounded-lg bg-gray-900 px-4 py-2 text-sm font-medium text-white hover:bg-gray-800 transition-all duration-200 hover:shadow-md"
+                className="flex items-center gap-2 rounded-lg bg-gray-900 dark:bg-gray-700 px-4 py-2 text-sm font-medium text-white hover:bg-gray-800 dark:hover:bg-gray-600 transition-all duration-200 hover:shadow-md"
               >
                 <LogIn className="h-4 w-4" />
                 Google
               </button>
               <button
                 onClick={() => signIn("github", { callbackUrl: "/" })}
-                className="flex items-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:border-gray-400 transition-all duration-200"
+                className="flex items-center gap-2 rounded-lg border border-gray-300 dark:border-gray-600 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-gray-400 dark:hover:border-gray-500 transition-all duration-200"
               >
                 <LogIn className="h-4 w-4" />
                 GitHub
@@ -118,14 +148,18 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="border-t border-gray-200 bg-white md:hidden">
+        <div className="border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 md:hidden">
           <div className="mx-auto max-w-7xl px-4 py-4 space-y-1">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="block rounded-lg px-3 py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors"
+                className={`block rounded-lg px-3 py-2.5 text-sm font-medium transition-colors ${
+                  isActive(link.href)
+                    ? "bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white font-semibold"
+                    : "text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white"
+                }`}
               >
                 {link.label}
               </Link>
@@ -142,7 +176,11 @@ export function Navbar() {
               <Link
                 href="/profile"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block rounded-lg px-3 py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors"
+                className={`block rounded-lg px-3 py-2.5 text-sm font-medium transition-colors ${
+                  isActive("/profile")
+                    ? "bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white font-semibold"
+                    : "text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white"
+                }`}
               >
                 Profile
               </Link>
@@ -151,14 +189,14 @@ export function Navbar() {
               <div className="flex gap-2 pt-2">
                 <button
                   onClick={() => { signIn("google", { callbackUrl: "/" }); setMobileMenuOpen(false); }}
-                  className="flex-1 flex items-center justify-center gap-2 rounded-lg bg-gray-900 px-4 py-2.5 text-sm font-medium text-white hover:bg-gray-800 transition-colors"
+                  className="flex-1 flex items-center justify-center gap-2 rounded-lg bg-gray-900 dark:bg-gray-700 px-4 py-2.5 text-sm font-medium text-white hover:bg-gray-800 dark:hover:bg-gray-600 transition-colors"
                 >
                   <LogIn className="h-4 w-4" />
                   Google
                 </button>
                 <button
                   onClick={() => { signIn("github", { callbackUrl: "/" }); setMobileMenuOpen(false); }}
-                  className="flex-1 flex items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors"
+                  className="flex-1 flex items-center justify-center gap-2 rounded-lg border border-gray-300 dark:border-gray-600 px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
                 >
                   <LogIn className="h-4 w-4" />
                   GitHub

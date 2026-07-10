@@ -60,7 +60,7 @@ export function CommentForm({ configId }: CommentFormProps) {
 
   if (!user) {
     return (
-      <p className="text-sm text-gray-500">
+      <p className="text-sm text-gray-500 dark:text-gray-400">
         Please sign in to comment.
       </p>
     );
@@ -69,23 +69,23 @@ export function CommentForm({ configId }: CommentFormProps) {
   return (
     <form onSubmit={handleSubmit} className="space-y-3">
       <div>
-        <p className="text-sm text-gray-500">
-          Commenting as <span className="font-medium text-gray-900">{user.name ?? user.email}</span>
+        <p className="text-sm text-gray-500 dark:text-gray-400">
+          Commenting as <span className="font-medium text-gray-900 dark:text-white">{user.name ?? user.email}</span>
         </p>
       </div>
       <textarea
         value={content}
         onChange={(e) => setContent(e.target.value)}
         placeholder="Write your comment..."
-        className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 placeholder:text-gray-400 focus:border-indigo-500 focus:outline-none"
+        className="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-indigo-500 focus:outline-none"
         rows={3}
         disabled={loading}
       />
       {success && (
-        <p className="text-sm text-green-600">Comment posted successfully!</p>
+        <p className="text-sm text-green-600 dark:text-green-400">Comment posted successfully!</p>
       )}
       {error && (
-        <p className="text-sm text-red-600">{error}</p>
+        <p className="text-sm text-red-600 dark:text-red-400">{error}</p>
       )}
       <div className="flex justify-end">
         <button

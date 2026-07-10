@@ -132,8 +132,8 @@ export default function ConfigPage() {
           <span className={`inline-block rounded px-3 py-1 text-sm font-semibold ${platformColor}`}>
             {config.platform}
           </span>
-          <h1 className="mt-3 text-3xl font-bold text-gray-900">{config.modelName}</h1>
-          <p className="mt-1 text-sm text-gray-500">{config.hardwareModel}</p>
+          <h1 className="mt-3 text-3xl font-bold text-gray-900 dark:text-white">{config.modelName}</h1>
+          <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">{config.hardwareModel}</p>
         </div>
         <button
           onClick={handleVote}
@@ -143,7 +143,7 @@ export default function ConfigPage() {
               ? "bg-yellow-400 text-yellow-900 ring-2 ring-yellow-500 ring-offset-2"
               : voteStatus === "down"
               ? "bg-red-400 text-red-900 ring-2 ring-red-500 ring-offset-2"
-              : "bg-yellow-100 text-yellow-800 hover:bg-yellow-200"
+              : "bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 hover:bg-yellow-200 dark:hover:bg-yellow-900/50"
           }`}
         >
           <svg className="h-5 w-5" fill={voteStatus === "up" ? "currentColor" : "none"} stroke="currentColor" strokeWidth={voteStatus === "up" ? 0 : 2} viewBox="0 0 20 20">
@@ -157,53 +157,53 @@ export default function ConfigPage() {
       <div className="grid gap-6 lg:grid-cols-3">
         {/* Sol: Parametreler tablosu */}
         <div className="lg:col-span-2">
-          <h2 className="mb-4 text-xl font-semibold text-gray-900">Parameters</h2>
-          <div className="rounded-lg border border-gray-200 bg-white">
+          <h2 className="mb-4 text-xl font-semibold text-gray-900 dark:text-white">Parameters</h2>
+          <div className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
             <table className="w-full table-auto">
               <tbody>
-                <tr className="border-b border-gray-100">
-                  <td className="w-48 border-r border-gray-100 bg-gray-50 px-4 py-3 text-sm font-medium text-gray-600">
+                <tr className="border-b border-gray-100 dark:border-gray-700">
+                  <td className="w-48 border-r border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 px-4 py-3 text-sm font-medium text-gray-600 dark:text-gray-400">
                     VRAM
                   </td>
-                  <td className="px-4 py-3 text-sm text-gray-900">{config.vram} GB</td>
+                  <td className="px-4 py-3 text-sm text-gray-900 dark:text-gray-100">{config.vram} GB</td>
                 </tr>
-                <tr className="border-b border-gray-100">
-                  <td className="border-r border-gray-100 bg-gray-50 px-4 py-3 text-sm font-medium text-gray-600">
+                <tr className="border-b border-gray-100 dark:border-gray-700">
+                  <td className="border-r border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 px-4 py-3 text-sm font-medium text-gray-600 dark:text-gray-400">
                     System RAM
                   </td>
-                  <td className="px-4 py-3 text-sm text-gray-900">{config.ram} GB</td>
+                  <td className="px-4 py-3 text-sm text-gray-900 dark:text-gray-100">{config.ram} GB</td>
                 </tr>
-                <tr className="border-b border-gray-100">
-                  <td className="border-r border-gray-100 bg-gray-50 px-4 py-3 text-sm font-medium text-gray-600">
+                <tr className="border-b border-gray-100 dark:border-gray-700">
+                  <td className="border-r border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 px-4 py-3 text-sm font-medium text-gray-600 dark:text-gray-400">
                     Quantization
                   </td>
-                  <td className="px-4 py-3 text-sm text-gray-900">{config.quantization}</td>
+                  <td className="px-4 py-3 text-sm text-gray-900 dark:text-gray-100">{config.quantization}</td>
                 </tr>
-                <tr className="border-b border-gray-100">
-                  <td className="border-r border-gray-100 bg-gray-50 px-4 py-3 text-sm font-medium text-gray-600">
+                <tr className="border-b border-gray-100 dark:border-gray-700">
+                  <td className="border-r border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 px-4 py-3 text-sm font-medium text-gray-600 dark:text-gray-400">
                     Context Size
                   </td>
-                  <td className="px-4 py-3 text-sm text-gray-900">
+                  <td className="px-4 py-3 text-sm text-gray-900 dark:text-gray-100">
                     {config.contextSize.toLocaleString()}
                   </td>
                 </tr>
-                <tr className="border-b border-gray-100">
-                  <td className="border-r border-gray-100 bg-gray-50 px-4 py-3 text-sm font-medium text-gray-600">
+                <tr className="border-b border-gray-100 dark:border-gray-700">
+                  <td className="border-r border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 px-4 py-3 text-sm font-medium text-gray-600 dark:text-gray-400">
                     KV Cache
                   </td>
-                  <td className="px-4 py-3 text-sm text-gray-900">{config.kvCache}</td>
+                  <td className="px-4 py-3 text-sm text-gray-900 dark:text-gray-100">{config.kvCache}</td>
                 </tr>
-                <tr className="border-b border-gray-100">
-                  <td className="border-r border-gray-100 bg-gray-50 px-4 py-3 text-sm font-medium text-gray-600">
+                <tr className="border-b border-gray-100 dark:border-gray-700">
+                  <td className="border-r border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 px-4 py-3 text-sm font-medium text-gray-600 dark:text-gray-400">
                     PP Speed
                   </td>
-                  <td className="px-4 py-3 text-sm text-gray-900">{config.ppSpeed} t/s</td>
+                  <td className="px-4 py-3 text-sm text-gray-900 dark:text-gray-100">{config.ppSpeed} t/s</td>
                 </tr>
                 <tr>
-                  <td className="border-r border-gray-100 bg-gray-50 px-4 py-3 text-sm font-medium text-gray-600">
+                  <td className="border-r border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 px-4 py-3 text-sm font-medium text-gray-600 dark:text-gray-400">
                     TG Speed
                   </td>
-                  <td className="px-4 py-3 text-sm text-green-600 font-semibold">
+                  <td className="px-4 py-3 text-sm text-green-600 dark:text-green-400 font-semibold">
                     {config.tgSpeed} t/s
                   </td>
                 </tr>
@@ -214,13 +214,13 @@ export default function ConfigPage() {
 
         {/* Sağ: Kullanıcı bilgisi */}
         <div>
-          <h2 className="mb-4 text-xl font-semibold text-gray-900">Shared by</h2>
-          <div className="rounded-lg border border-gray-200 bg-white p-4">
+          <h2 className="mb-4 text-xl font-semibold text-gray-900 dark:text-white">Shared by</h2>
+          <div className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-4">
             <div className="flex items-center gap-3">
-              <div className="h-12 w-12 rounded-full bg-gray-200" />
+              <div className="h-12 w-12 rounded-full bg-gray-200 dark:bg-gray-700" />
               <div>
-                <p className="font-medium text-gray-900">{config.user.name ?? "Anonymous"}</p>
-                <p className="text-sm text-gray-500">
+                <p className="font-medium text-gray-900 dark:text-white">{config.user.name ?? "Anonymous"}</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">
                   {config.user.email ?? "No email"}
                 </p>
               </div>
@@ -229,7 +229,7 @@ export default function ConfigPage() {
               <svg className="h-4 w-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
-              <span className="text-sm font-medium text-gray-700">{config.starCount}</span>
+              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{config.starCount}</span>
             </div>
           </div>
         </div>
@@ -238,9 +238,9 @@ export default function ConfigPage() {
       {/* General Settings */}
       {generalSettings.length > 0 && (
         <div className="mt-8">
-          <h2 className="mb-4 text-xl font-semibold text-gray-900">General Settings</h2>
-          <div className="rounded-lg border border-gray-200 bg-white p-4">
-            <pre className="whitespace-pre-wrap text-sm text-gray-600">{config.generalSettings}</pre>
+          <h2 className="mb-4 text-xl font-semibold text-gray-900 dark:text-white">General Settings</h2>
+          <div className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-4">
+            <pre className="whitespace-pre-wrap text-sm text-gray-600 dark:text-gray-300">{config.generalSettings}</pre>
           </div>
         </div>
       )}
@@ -248,35 +248,35 @@ export default function ConfigPage() {
       {/* Note */}
       {config.note && (
         <div className="mt-8">
-          <h2 className="mb-4 text-xl font-semibold text-gray-900">Note</h2>
-          <div className="rounded-lg border border-gray-200 bg-white p-4">
-            <p className="text-sm text-gray-600">{config.note}</p>
+          <h2 className="mb-4 text-xl font-semibold text-gray-900 dark:text-white">Note</h2>
+          <div className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-4">
+            <p className="text-sm text-gray-600 dark:text-gray-300">{config.note}</p>
           </div>
         </div>
       )}
 
       {/* Yorum Formu */}
       <div className="mt-8">
-        <h2 className="mb-4 text-xl font-semibold text-gray-900">Comment</h2>
-        <div className="rounded-lg border border-gray-200 bg-white p-4">
+        <h2 className="mb-4 text-xl font-semibold text-gray-900 dark:text-white">Comment</h2>
+        <div className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-4">
           <CommentForm configId={configId} />
         </div>
       </div>
 
       {/* Yorumlar */}
       <div className="mt-8">
-        <h2 className="mb-4 text-xl font-semibold text-gray-900">
+        <h2 className="mb-4 text-xl font-semibold text-gray-900 dark:text-white">
           Comments ({config.comments?.length ?? 0})
         </h2>
         <div className="space-y-4">
           {config.comments?.map((comment) => (
-            <div key={comment.id} className="rounded-lg border border-gray-200 bg-white p-4">
+            <div key={comment.id} className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="h-8 w-8 rounded-full bg-gray-200" />
                   <div>
-                    <p className="text-sm font-medium text-gray-900">{comment.user.name ?? "Anonymous"}</p>
-                    <p className="text-xs text-gray-500">
+                    <p className="text-sm font-medium text-gray-900 dark:text-white">{comment.user.name ?? "Anonymous"}</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">
                       {new Date(comment.createdAt).toLocaleDateString("en-US", {
                         year: "numeric",
                         month: "short",
@@ -300,13 +300,13 @@ export default function ConfigPage() {
                       }
                     }}
                     disabled={deletingComment === comment.id}
-                    className="rounded bg-red-100 px-2 py-1 text-xs text-red-600 hover:bg-red-200 disabled:opacity-50"
+                    className="rounded bg-red-100 dark:bg-red-900/30 px-2 py-1 text-xs text-red-600 dark:text-red-400 hover:bg-red-200 dark:hover:bg-red-900/50 disabled:opacity-50"
                   >
                     {deletingComment === comment.id ? "Deleting..." : "Delete"}
                   </button>
                 )}
               </div>
-              <p className="mt-2 text-sm text-gray-600">{comment.content}</p>
+              <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">{comment.content}</p>
             </div>
           ))}
         </div>

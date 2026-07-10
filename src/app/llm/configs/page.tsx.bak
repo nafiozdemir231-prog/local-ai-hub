@@ -39,21 +39,21 @@ const rams = ["8", "16", "24", "32", "48", "64", "96", "128+"];
 const quantizations = ["Q4_0", "Q4_K_M", "Q4_K_S", "Q5_0", "Q5_K_M", "Q6_K", "Q8_0", "F16", "F32"];
 
 function getSpeedColor(speed: number, min: number, max: number): string {
-  if (max === min) return "text-gray-600 dark:text-gray-400";
+  if (max === min) return "text-gray-600";
   const ratio = (speed - min) / (max - min);
-  if (ratio > 0.75) return "text-green-600 dark:text-green-400 font-semibold";
-  if (ratio > 0.5) return "text-lime-600 dark:text-lime-400 font-medium";
-  if (ratio > 0.25) return "text-yellow-600 dark:text-yellow-400 font-medium";
-  return "text-red-500 dark:text-red-400 font-medium";
+  if (ratio > 0.75) return "text-green-600 font-semibold";
+  if (ratio > 0.5) return "text-lime-600 font-medium";
+  if (ratio > 0.25) return "text-yellow-600 font-medium";
+  return "text-red-500 font-medium";
 }
 
 function getSpeedBg(speed: number, min: number, max: number): string {
   if (max === min) return "bg-transparent";
   const ratio = (speed - min) / (max - min);
-  if (ratio > 0.75) return "bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400";
-  if (ratio > 0.5) return "bg-lime-50 dark:bg-lime-900/30 text-lime-700 dark:text-lime-400";
-  if (ratio > 0.25) return "bg-yellow-50 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400";
-  return "bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400";
+  if (ratio > 0.75) return "bg-green-50 text-green-700";
+  if (ratio > 0.5) return "bg-lime-50 text-lime-700";
+  if (ratio > 0.25) return "bg-yellow-50 text-yellow-700";
+  return "bg-red-50 text-red-600";
 }
 
 export default function LLMConfigsPage() {
@@ -107,11 +107,11 @@ export default function LLMConfigsPage() {
   }, [selectedPlatforms, selectedVrams, selectedRams, selectedQuantizations, hardwareSearch, modelSearch, llmRunnerSearch, configs, sortOption]);
 
   const platformColors: Record<string, string> = {
-    CUDA: "bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-400 border border-blue-200 dark:border-blue-700",
-    MLX: "bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-400 border border-purple-200 dark:border-purple-700",
-    ROCm: "bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-400 border border-orange-200 dark:border-orange-700",
-    Vulkan: "bg-teal-100 dark:bg-teal-900/30 text-teal-800 dark:text-teal-400 border border-teal-200 dark:border-teal-700",
-    "Multi-GPU": "bg-pink-100 dark:bg-pink-900/30 text-pink-800 dark:text-pink-400 border border-pink-200 dark:border-pink-700",
+    CUDA: "bg-blue-100 text-blue-800 border border-blue-200",
+    MLX: "bg-purple-100 text-purple-800 border border-purple-200",
+    ROCm: "bg-orange-100 text-orange-800 border border-orange-200",
+    Vulkan: "bg-teal-100 text-teal-800 border border-teal-200",
+    "Multi-GPU": "bg-pink-100 text-pink-800 border border-pink-200",
   };
 
   const minPP = filteredConfigs.length > 0 ? Math.min(...filteredConfigs.map((c) => c.ppSpeed)) : 0;
@@ -120,9 +120,9 @@ export default function LLMConfigsPage() {
   const maxTG = filteredConfigs.length > 0 ? Math.max(...filteredConfigs.map((c) => c.tgSpeed)) : 0;
 
   return (
-    <div className="flex min-h-screen w-full bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-950">
+    <div className="flex min-h-screen w-full bg-gradient-to-b from-gray-50 to-white">
       {/* Filter Panel */}
-      <aside className="hidden w-72 border-r border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-4 md:block sticky top-0 h-screen overflow-y-auto">
+      <aside className="hidden w-72 border-r border-gray-200 bg-white p-4 md:block sticky top-0 h-screen overflow-y-auto">
         <FilterPanel
           platforms={platforms}
           vrams={vrams}
@@ -149,11 +149,11 @@ export default function LLMConfigsPage() {
       <div className="flex-1 p-4 md:p-8">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900 dark:text-white">LLM Configs</h1>
-            <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">Browse and filter local LLM configurations</p>
+            <h1 className="text-3xl font-bold text-gray-900">LLM Configs</h1>
+            <p className="mt-1 text-sm text-gray-500">Browse and filter local LLM configurations</p>
           </div>
           <div className="flex items-center gap-4">
-            <span className="text-sm text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full">{filteredConfigs.length} results</span>
+            <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">{filteredConfigs.length} results</span>
             <Link
               href="/llm/configs/share"
               className="rounded-lg bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-indigo-700 shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5"
@@ -165,13 +165,13 @@ export default function LLMConfigsPage() {
 
         {/* Sort Options */}
         <div className="mt-6 flex items-center gap-3">
-          <span className="text-sm text-gray-600 dark:text-gray-400 font-medium">Sort by:</span>
+          <span className="text-sm text-gray-600 font-medium">Sort by:</span>
           <button
             onClick={() => setSortOption("votes")}
             className={`rounded-lg px-4 py-2 text-sm font-medium transition-all duration-200 ${
               sortOption === "votes"
                 ? "bg-indigo-600 text-white shadow-sm"
-                : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600"
+                : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-200"
             }`}
           >
             Votes
@@ -181,7 +181,7 @@ export default function LLMConfigsPage() {
             className={`rounded-lg px-4 py-2 text-sm font-medium transition-all duration-200 ${
               sortOption === "pp"
                 ? "bg-indigo-600 text-white shadow-sm"
-                : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600"
+                : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-200"
             }`}
           >
             PP Speed
@@ -191,7 +191,7 @@ export default function LLMConfigsPage() {
             className={`rounded-lg px-4 py-2 text-sm font-medium transition-all duration-200 ${
               sortOption === "tg"
                 ? "bg-indigo-600 text-white shadow-sm"
-                : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600"
+                : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-200"
             }`}
           >
             TG Speed
@@ -201,8 +201,8 @@ export default function LLMConfigsPage() {
 
         {/* Mobile Filter Button */}
         <div className="mt-4 md:hidden">
-          <details className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-4">
-            <summary className="cursor-pointer font-medium text-gray-700 dark:text-gray-300">Filters</summary>
+          <details className="rounded-lg border border-gray-200 bg-white p-4">
+            <summary className="cursor-pointer font-medium text-gray-700">Filters</summary>
             <FilterPanel
               platforms={platforms}
               vrams={vrams}
@@ -227,14 +227,14 @@ export default function LLMConfigsPage() {
         </div>
 
         {/* LLM Runner AIO Banner */}
-        <div className="mt-6 rounded-xl border-2 border-indigo-200 dark:border-indigo-800 bg-gradient-to-r from-indigo-50 to-white dark:from-indigo-950 dark:to-gray-800 p-6">
+        <div className="mt-6 rounded-xl border-2 border-indigo-200 bg-gradient-to-r from-indigo-50 to-white p-6">
           <div className="flex flex-col md:flex-row items-center gap-6">
             <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-indigo-600 flex-shrink-0">
               <Download className="h-8 w-8 text-white" />
             </div>
             <div className="flex-1 text-center md:text-left">
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white">LLM Runner AIO — All-in-One Package</h3>
-              <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
+              <h3 className="text-xl font-bold text-gray-900">LLM Runner AIO — All-in-One Package</h3>
+              <p className="mt-1 text-sm text-gray-600">
                 Open WebUI, llama.cpp, Vane & SearXNG in a single 2.5 GB .exe. Automatic setup, 7 languages, Windows integration.
               </p>
             </div>
@@ -249,55 +249,55 @@ export default function LLMConfigsPage() {
         </div>
 
         {/* Config Table */}
-        <div className="mt-6 overflow-x-auto rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm">
+        <div className="mt-6 overflow-x-auto rounded-xl border border-gray-200 bg-white shadow-sm">
           <table className="w-full border-collapse">
             <thead>
-              <tr className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-750">
-                <th className="border-b border-gray-200 dark:border-gray-600 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Rank</th>
-                <th className="border-b border-gray-200 dark:border-gray-600 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Model Name</th>
-                <th className="border-b border-gray-200 dark:border-gray-600 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Hardware Model</th>
-                <th className="border-b border-gray-200 dark:border-gray-600 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Platform</th>
-                <th className="border-b border-gray-200 dark:border-gray-600 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">LLM Runner</th>
-                <th className="border-b border-gray-200 dark:border-gray-600 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">VRAM</th>
-                <th className="border-b border-gray-200 dark:border-gray-600 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">RAM</th>
-                <th className="border-b border-gray-200 dark:border-gray-600 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Quantization</th>
-                <th className="border-b border-gray-200 dark:border-gray-600 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">PP</th>
-                <th className="border-b border-gray-200 dark:border-gray-600 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">TG</th>
-                <th className="border-b border-gray-200 dark:border-gray-600 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Votes</th>
-                <th className="border-b border-gray-200 dark:border-gray-600 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">User</th>
-                {(isAdmin || session) && <th className="border-b border-gray-200 dark:border-gray-600 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Actions</th>}
+              <tr className="bg-gradient-to-r from-gray-50 to-gray-100">
+                <th className="border-b border-gray-200 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-500">Rank</th>
+                <th className="border-b border-gray-200 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-500">Model Name</th>
+                <th className="border-b border-gray-200 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-500">Hardware Model</th>
+                <th className="border-b border-gray-200 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-500">Platform</th>
+                <th className="border-b border-gray-200 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-500">LLM Runner</th>
+                <th className="border-b border-gray-200 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-500">VRAM</th>
+                <th className="border-b border-gray-200 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-500">RAM</th>
+                <th className="border-b border-gray-200 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-500">Quantization</th>
+                <th className="border-b border-gray-200 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-500">PP</th>
+                <th className="border-b border-gray-200 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-500">TG</th>
+                <th className="border-b border-gray-200 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-500">Votes</th>
+                <th className="border-b border-gray-200 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-500">User</th>
+                {(isAdmin || session) && <th className="border-b border-gray-200 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-500">Actions</th>}
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-100 dark:divide-gray-700">
+            <tbody className="divide-y divide-gray-100">
               {filteredConfigs.map((config, index) => (
-                <tr key={config.id} className="transition-all duration-150 hover:bg-indigo-50/50 dark:hover:bg-indigo-900/20">
+                <tr key={config.id} className="transition-all duration-150 hover:bg-indigo-50/50">
                   <td className="px-5 py-4">
                     <span className={`inline-flex items-center justify-center w-8 h-8 rounded-full text-sm font-bold ${
-                      index === 0 ? "bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400 ring-2 ring-yellow-300 dark:ring-yellow-700" :
-                      index === 1 ? "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 ring-2 ring-gray-300 dark:ring-gray-600" :
-                      index === 2 ? "bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400 ring-2 ring-orange-300 dark:ring-orange-700" :
-                      "bg-gray-50 dark:bg-gray-800 text-gray-500 dark:text-gray-400"
+                      index === 0 ? "bg-yellow-100 text-yellow-700 ring-2 ring-yellow-300" :
+                      index === 1 ? "bg-gray-100 text-gray-700 ring-2 ring-gray-300" :
+                      index === 2 ? "bg-orange-100 text-orange-700 ring-2 ring-orange-300" :
+                      "bg-gray-50 text-gray-500"
                     }`}>
                       {index + 1}
                     </span>
                   </td>
                   <td className="px-5 py-4">
-                    <Link href={`/llm/${config.id}`} className="text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 hover:underline transition-colors">
+                    <Link href={`/llm/${config.id}`} className="text-sm font-semibold text-indigo-600 hover:text-indigo-800 hover:underline transition-colors">
                       {config.modelName}
                     </Link>
                   </td>
-                  <td className="px-5 py-4 text-sm text-gray-700 dark:text-gray-300 font-mono">{config.hardwareModel}</td>
+                  <td className="px-5 py-4 text-sm text-gray-700 font-mono">{config.hardwareModel}</td>
                   <td className="px-5 py-4">
                     <span className={`inline-block rounded-md px-2.5 py-1 text-xs font-medium ${
-                      platformColors[config.platform] || "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-600"
+                      platformColors[config.platform] || "bg-gray-100 text-gray-700 border border-gray-200"
                     }`}>
                       {config.platform}
                     </span>
                   </td>
-                  <td className="px-5 py-4 text-sm text-gray-600 dark:text-gray-400">{config.llmRunner || "-"}</td>
-                  <td className="px-5 py-4 text-sm text-gray-700 dark:text-gray-300 font-mono">{config.vram}GB</td>
-                  <td className="px-5 py-4 text-sm text-gray-700 dark:text-gray-300 font-mono">{config.ram}GB</td>
-                  <td className="px-5 py-4 text-sm text-gray-600 dark:text-gray-400 font-mono">{config.quantization}</td>
+                  <td className="px-5 py-4 text-sm text-gray-600">{config.llmRunner || "-"}</td>
+                  <td className="px-5 py-4 text-sm text-gray-700 font-mono">{config.vram}GB</td>
+                  <td className="px-5 py-4 text-sm text-gray-700 font-mono">{config.ram}GB</td>
+                  <td className="px-5 py-4 text-sm text-gray-600 font-mono">{config.quantization}</td>
                   <td className="px-5 py-4">
                     <span className={`inline-block rounded-md px-2.5 py-1 text-sm font-mono ${getSpeedBg(config.ppSpeed, minPP, maxPP)} ${getSpeedColor(config.ppSpeed, minPP, maxPP)}`}>
                       {config.ppSpeed}
@@ -308,14 +308,14 @@ export default function LLMConfigsPage() {
                       {config.tgSpeed}
                     </span>
                   </td>
-                  <td className="px-5 py-4 text-sm font-semibold text-gray-800 dark:text-gray-200">{config.starCount}</td>
-                  <td className="px-5 py-4 text-sm text-gray-600 dark:text-gray-400">{config.user.name || config.user.email || "Anonymous"}</td>
+                  <td className="px-5 py-4 text-sm font-semibold text-gray-800">{config.starCount}</td>
+                  <td className="px-5 py-4 text-sm text-gray-600">{config.user.name || config.user.email || "Anonymous"}</td>
                   {(isAdmin || isOwner(config.userId)) && (
                     <td className="px-5 py-4">
                       <div className="flex gap-2">
                         <Link
                           href={`/llm/configs/edit/${config.id}`}
-                          className="rounded-md bg-blue-50 dark:bg-blue-900/30 px-3 py-1.5 text-xs font-medium text-blue-600 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors"
+                          className="rounded-md bg-blue-50 px-3 py-1.5 text-xs font-medium text-blue-600 hover:bg-blue-100 transition-colors"
                         >
                           Edit
                         </Link>
@@ -333,7 +333,7 @@ export default function LLMConfigsPage() {
                             }
                           }}
                           disabled={deleting === config.id}
-                          className="rounded-md bg-red-50 dark:bg-red-900/30 px-3 py-1.5 text-xs font-medium text-red-600 dark:text-red-400 hover:bg-red-100 dark:hover:bg-red-900/50 transition-colors disabled:opacity-50"
+                          className="rounded-md bg-red-50 px-3 py-1.5 text-xs font-medium text-red-600 hover:bg-red-100 transition-colors disabled:opacity-50"
                         >
                           {deleting === config.id ? "Deleting..." : "Delete"}
                         </button>
@@ -348,7 +348,7 @@ export default function LLMConfigsPage() {
 
         {filteredConfigs.length === 0 && (
           <div className="mt-12 text-center">
-            <p className="text-lg text-gray-500 dark:text-gray-400">No configs found matching your filters.</p>
+            <p className="text-lg text-gray-500">No configs found matching your filters.</p>
           </div>
         )}
       </div>

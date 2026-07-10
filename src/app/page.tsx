@@ -11,7 +11,7 @@ export default function Home() {
           
           {/* Hero Section - 2 columns */}
           <div className="md:col-span-2 row-span-2 relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-600 to-purple-700 p-8 flex flex-col justify-between text-white shadow-2xl">
-            <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJub25lIi8+PGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iNDAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjwvc3ZnPg==')] opacity-30"></div>
+            <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJub25lIi8+PGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iNDAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjwvc3ZnPg==')] opacity-30 pointer-events-none"></div>
             
             <div>
               <div className="flex items-center gap-2 mb-4">
@@ -31,10 +31,10 @@ export default function Home() {
             </div>
 
             <div className="flex flex-wrap gap-3">
-              <Link href="/llm/configs" className="bg-white text-indigo-600 px-6 py-3 rounded-2xl font-semibold hover:bg-indigo-50 transition-all shadow-lg">
+              <Link href="/llm/configs" className="bg-white text-indigo-600 px-6 py-3 rounded-2xl font-semibold hover:bg-indigo-50 transition-all shadow-lg relative z-10">
                 Browse Configurations
               </Link>
-              <Link href="/llm/configs/share" className="bg-white/20 backdrop-blur-sm text-white px-6 py-3 rounded-2xl font-semibold hover:bg-white/30 transition-all border border-white/30">
+              <Link href="/llm/configs/share" className="bg-white/20 backdrop-blur-sm text-white px-6 py-3 rounded-2xl font-semibold hover:bg-white/30 transition-all border border-white/30 relative z-10">
                 Share
               </Link>
             </div>
@@ -44,32 +44,32 @@ export default function Home() {
           <div className="relative overflow-hidden rounded-3xl bg-white/70 backdrop-blur-md p-6 border border-white/50 shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1">
             <Search className="w-8 h-8 text-indigo-600 mb-4" />
             <Link href="/llm/configs">
-              <h3 className="font-bold text-gray-900 mb-2">LLM Configs</h3>
-              <p className="text-sm text-gray-600">Search and filter configurations</p>
+              <h3 className="font-bold text-gray-900 dark:text-white mb-2">LLM Configs</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400">Search and filter configurations</p>
             </Link>
           </div>
 
           <div className="relative overflow-hidden rounded-3xl bg-white/70 backdrop-blur-md p-6 border border-white/50 shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1">
             <TrendingUp className="w-8 h-8 text-green-600 mb-4" />
             <Link href="/models/rankings">
-              <h3 className="font-bold text-gray-900 mb-2">Model Rankings</h3>
-              <p className="text-sm text-gray-600">Community evaluations and rankings</p>
+              <h3 className="font-bold text-gray-900 dark:text-white mb-2">Model Rankings</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400">Community evaluations and rankings</p>
             </Link>
           </div>
 
           <div className="relative overflow-hidden rounded-3xl bg-white/70 backdrop-blur-md p-6 border border-white/50 shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1">
             <MessageSquare className="w-8 h-8 text-purple-600 mb-4" />
             <Link href="/chat-clients">
-              <h3 className="font-bold text-gray-900 mb-2">Chat Clients</h3>
-              <p className="text-sm text-gray-600">Local AI chat clients</p>
+              <h3 className="font-bold text-gray-900 dark:text-white mb-2">Chat Clients</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400">Local AI chat clients</p>
             </Link>
           </div>
 
           <div className="relative overflow-hidden rounded-3xl bg-white/70 backdrop-blur-md p-6 border border-white/50 shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1">
             <ImageIcon className="w-8 h-8 text-orange-600 mb-4" />
             <Link href="/multimodal">
-              <h3 className="font-bold text-gray-900 mb-2">Multimodal</h3>
-              <p className="text-sm text-gray-600">Text, image, and audio models</p>
+              <h3 className="font-bold text-gray-900 dark:text-white mb-2">Multimodal</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400">Text, image, and audio models</p>
             </Link>
           </div>
 
