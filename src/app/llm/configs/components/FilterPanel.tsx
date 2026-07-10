@@ -64,37 +64,37 @@ export function FilterPanel({
     <div className="space-y-6">
       {/* Hardware Model Search */}
       <div>
-        <h3 className="mb-2 text-sm font-semibold text-gray-700">Hardware Model</h3>
+        <h3 className="mb-2 text-sm font-semibold text-gray-700 dark:text-gray-200">Hardware Model</h3>
         <input
           type="text"
           value={hardwareSearch}
           onChange={(e) => setHardwareSearch(e.target.value)}
           placeholder="Search hardware..."
-          className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-gray-500 focus:outline-none"
+          className="w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-indigo-500 dark:focus:border-indigo-400 focus:outline-none"
         />
       </div>
 
       {/* Model Name Search */}
       <div>
-        <h3 className="mb-2 text-sm font-semibold text-gray-700">Model Name</h3>
+        <h3 className="mb-2 text-sm font-semibold text-gray-700 dark:text-gray-200">Model Name</h3>
         <input
           type="text"
           value={modelSearch}
           onChange={(e) => setModelSearch(e.target.value)}
           placeholder="Search model..."
-          className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-gray-500 focus:outline-none"
+          className="w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-indigo-500 dark:focus:border-indigo-400 focus:outline-none"
         />
       </div>
 
       {/* LLM Runner Search */}
       <div>
-        <h3 className="mb-2 text-sm font-semibold text-gray-700">LLM Runner</h3>
+        <h3 className="mb-2 text-sm font-semibold text-gray-700 dark:text-gray-200">LLM Runner</h3>
         <input
           type="text"
           value={llmRunnerSearch}
           onChange={(e) => setLlmRunnerSearch(e.target.value)}
           placeholder="Search runner (e.g., llama.cpp, Ollama)..."
-          className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-gray-500 focus:outline-none"
+          className="w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-indigo-500 dark:focus:border-indigo-400 focus:outline-none"
         />
       </div>
 
@@ -102,7 +102,7 @@ export function FilterPanel({
       <div>
         <button
           onClick={() => setExpandedPlatforms(!expandedPlatforms)}
-          className="mb-2 flex w-full items-center justify-between text-sm font-semibold text-gray-700"
+          className="mb-2 flex w-full items-center justify-between text-sm font-semibold text-gray-700 dark:text-gray-200"
         >
           Platform
           <svg className={`h-4 w-4 transition-transform ${expandedPlatforms ? "rotate-180" : ""}`} fill="currentColor" viewBox="0 0 20 20">
@@ -119,7 +119,7 @@ export function FilterPanel({
                   onChange={() => toggleSelect(selectedPlatforms, platform, setSelectedPlatforms)}
                   className="rounded border-gray-300 text-gray-900 focus:ring-gray-500"
                 />
-                <span className="text-sm text-gray-600">{platform}</span>
+                <span className="text-sm text-gray-600 dark:text-gray-300">{platform}</span>
               </label>
             ))}
           </div>
@@ -130,7 +130,7 @@ export function FilterPanel({
       <div>
         <button
           onClick={() => setExpandedVrams(!expandedVrams)}
-          className="mb-2 flex w-full items-center justify-between text-sm font-semibold text-gray-700"
+          className="mb-2 flex w-full items-center justify-between text-sm font-semibold text-gray-700 dark:text-gray-200"
         >
           VRAM (GB)
           <svg className={`h-4 w-4 transition-transform ${expandedVrams ? "rotate-180" : ""}`} fill="currentColor" viewBox="0 0 20 20">
@@ -147,7 +147,7 @@ export function FilterPanel({
                   onChange={() => toggleSelect(selectedVrams, vram, setSelectedVrams)}
                   className="rounded border-gray-300 text-gray-900 focus:ring-gray-500"
                 />
-                <span className="text-sm text-gray-600">{vram}</span>
+                <span className="text-sm text-gray-600 dark:text-gray-300">{vram}</span>
               </label>
             ))}
           </div>
@@ -158,7 +158,7 @@ export function FilterPanel({
       <div>
         <button
           onClick={() => setExpandedRams(!expandedRams)}
-          className="mb-2 flex w-full items-center justify-between text-sm font-semibold text-gray-700"
+          className="mb-2 flex w-full items-center justify-between text-sm font-semibold text-gray-700 dark:text-gray-200"
         >
           RAM (GB)
           <svg className={`h-4 w-4 transition-transform ${expandedRams ? "rotate-180" : ""}`} fill="currentColor" viewBox="0 0 20 20">
@@ -175,7 +175,7 @@ export function FilterPanel({
                   onChange={() => toggleSelect(selectedRams, ram, setSelectedRams)}
                   className="rounded border-gray-300 text-gray-900 focus:ring-gray-500"
                 />
-                <span className="text-sm text-gray-600">{ram}</span>
+                <span className="text-sm text-gray-600 dark:text-gray-300">{ram}</span>
               </label>
             ))}
           </div>
@@ -186,7 +186,7 @@ export function FilterPanel({
       <div>
         <button
           onClick={() => setExpandedQuantizations(!expandedQuantizations)}
-          className="mb-2 flex w-full items-center justify-between text-sm font-semibold text-gray-700"
+          className="mb-2 flex w-full items-center justify-between text-sm font-semibold text-gray-700 dark:text-gray-200"
         >
           Quantization
           <svg className={`h-4 w-4 transition-transform ${expandedQuantizations ? "rotate-180" : ""}`} fill="currentColor" viewBox="0 0 20 20">
@@ -203,7 +203,7 @@ export function FilterPanel({
                   onChange={() => toggleSelect(selectedQuantizations, quant, setSelectedQuantizations)}
                   className="rounded border-gray-300 text-gray-900 focus:ring-gray-500"
                 />
-                <span className="text-sm text-gray-600">{quant}</span>
+                <span className="text-sm text-gray-600 dark:text-gray-300">{quant}</span>
               </label>
             ))}
           </div>
