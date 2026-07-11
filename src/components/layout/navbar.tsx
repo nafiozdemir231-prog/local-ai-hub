@@ -52,7 +52,7 @@ export function Navbar() {
         </button>
 
         {/* Desktop Navigation */}
-        <div className="hidden items-center gap-1 md:flex">
+        <div className="hidden items-center gap-2 md:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -149,7 +149,7 @@ export function Navbar() {
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="border-t border-indigo-200 dark:border-indigo-800 bg-gradient-to-b from-white to-indigo-50/50 dark:from-indigo-950/90 dark:to-indigo-900/70 md:hidden">
-          <div className="mx-auto max-w-7xl px-4 py-4 space-y-1">
+          <div className="mx-auto max-w-7xl px-4 py-4 space-y-2">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
