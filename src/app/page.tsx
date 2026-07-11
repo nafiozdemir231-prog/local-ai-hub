@@ -83,7 +83,7 @@ export default function Home() {
           </div>
 
           {/* Row 2 - LLM Runners */}
-          <div className="md:col-span-2 relative overflow-hidden rounded-3xl bg-gradient-to-r from-cyan-500 to-blue-600 dark:from-cyan-600 dark:to-blue-700 p-6 text-white shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-cyan-500 to-blue-600 dark:from-cyan-600 dark:to-blue-700 p-6 text-white shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1">
             <Code2 className="w-8 h-8 mb-4" />
             <Link href="/local-llm-runners" className="block">
               <h3 className="font-bold mb-2">LLM Runners</h3>
@@ -92,7 +92,7 @@ export default function Home() {
           </div>
 
           {/* Row 2 - WebUIs */}
-          <div className="md:col-span-2 relative overflow-hidden rounded-3xl bg-gradient-to-r from-violet-500 to-purple-600 dark:from-violet-600 dark:to-purple-700 p-6 text-white shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-violet-500 to-purple-600 dark:from-violet-600 dark:to-purple-700 p-6 text-white shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1">
             <Monitor className="w-8 h-8 mb-4" />
             <Link href="/local-llm-webuis" className="block">
               <h3 className="font-bold mb-2">Web UIs</h3>
