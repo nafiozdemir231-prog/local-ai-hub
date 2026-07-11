@@ -7,10 +7,10 @@ export default function Home() {
     <div className="flex flex-col flex-1 items-center">
       <main className="flex-1 w-full">
         {/* Bento Grid Layout */}
-        <div className="max-w-7xl mx-auto p-6 grid grid-cols-1 md:grid-cols-4 gap-4 min-h-[600px]">
+        <div className="max-w-7xl mx-auto p-6 grid grid-cols-1 md:grid-cols-4 gap-4 min-h-[600px] dark:gap-3">
           
           {/* Hero Section - 2 columns */}
-          <div className="md:col-span-2 row-span-2 relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-600 to-purple-700 p-8 flex flex-col justify-between text-white shadow-2xl">
+          <div className="md:col-span-2 row-span-2 relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-600 to-purple-700 dark:from-indigo-700 dark:to-purple-800 p-8 flex flex-col justify-between text-white shadow-2xl">
             <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJub25lIi8+PGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iNDAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjwvc3ZnPg==')] opacity-30 pointer-events-none"></div>
             
             <div>
@@ -41,32 +41,32 @@ export default function Home() {
           </div>
 
           {/* Feature Cards - Row 1 */}
-          <div className="relative overflow-hidden rounded-3xl bg-white/70 backdrop-blur-md p-6 border border-white/50 shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1">
-            <Search className="w-8 h-8 text-indigo-600 mb-4" />
+          <div className="relative overflow-hidden rounded-3xl bg-white/70 dark:bg-gray-800/90 backdrop-blur-md p-6 border border-white/50 dark:border-gray-700/50 shadow-xl dark:shadow-none hover:shadow-2xl dark:hover:shadow-lg dark:hover:shadow-gray-900/50 transition-all hover:-translate-y-1">
+            <Search className="w-8 h-8 text-indigo-600 dark:text-indigo-400 mb-4" />
             <Link href="/llm/configs">
               <h3 className="font-bold text-gray-900 dark:text-white mb-2">LLM Configs</h3>
               <p className="text-sm text-gray-600 dark:text-gray-400">Search and filter configurations</p>
             </Link>
           </div>
 
-          <div className="relative overflow-hidden rounded-3xl bg-white/70 backdrop-blur-md p-6 border border-white/50 shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1">
-            <TrendingUp className="w-8 h-8 text-green-600 mb-4" />
+          <div className="relative overflow-hidden rounded-3xl bg-white/70 dark:bg-gray-800/90 backdrop-blur-md p-6 border border-white/50 dark:border-gray-700/50 shadow-xl dark:shadow-none hover:shadow-2xl dark:hover:shadow-lg dark:hover:shadow-gray-900/50 transition-all hover:-translate-y-1">
+            <TrendingUp className="w-8 h-8 text-green-600 dark:text-green-400 mb-4" />
             <Link href="/models/rankings">
               <h3 className="font-bold text-gray-900 dark:text-white mb-2">Model Rankings</h3>
               <p className="text-sm text-gray-600 dark:text-gray-400">Community evaluations and rankings</p>
             </Link>
           </div>
 
-          <div className="relative overflow-hidden rounded-3xl bg-white/70 backdrop-blur-md p-6 border border-white/50 shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1">
-            <MessageSquare className="w-8 h-8 text-purple-600 mb-4" />
+          <div className="relative overflow-hidden rounded-3xl bg-white/70 dark:bg-gray-800/90 backdrop-blur-md p-6 border border-white/50 dark:border-gray-700/50 shadow-xl dark:shadow-none hover:shadow-2xl dark:hover:shadow-lg dark:hover:shadow-gray-900/50 transition-all hover:-translate-y-1">
+            <MessageSquare className="w-8 h-8 text-purple-600 dark:text-purple-400 mb-4" />
             <Link href="/chat-clients">
               <h3 className="font-bold text-gray-900 dark:text-white mb-2">Chat Clients</h3>
               <p className="text-sm text-gray-600 dark:text-gray-400">Local AI chat clients</p>
             </Link>
           </div>
 
-          <div className="relative overflow-hidden rounded-3xl bg-white/70 backdrop-blur-md p-6 border border-white/50 shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1">
-            <ImageIcon className="w-8 h-8 text-orange-600 mb-4" />
+          <div className="relative overflow-hidden rounded-3xl bg-white/70 dark:bg-gray-800/90 backdrop-blur-md p-6 border border-white/50 dark:border-gray-700/50 shadow-xl dark:shadow-none hover:shadow-2xl dark:hover:shadow-lg dark:hover:shadow-gray-900/50 transition-all hover:-translate-y-1">
+            <ImageIcon className="w-8 h-8 text-orange-600 dark:text-orange-400 mb-4" />
             <Link href="/multimodal">
               <h3 className="font-bold text-gray-900 dark:text-white mb-2">Multimodal</h3>
               <p className="text-sm text-gray-600 dark:text-gray-400">Text, image, and audio models</p>
@@ -74,7 +74,7 @@ export default function Home() {
           </div>
 
           {/* Row 2 - AIO */}
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-orange-500 to-pink-600 p-6 text-white shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-orange-500 to-pink-600 dark:from-orange-600 dark:to-pink-700 p-6 text-white shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1">
             <Download className="w-8 h-8 mb-4" />
             <Link href="/llm-runner-aio">
               <h3 className="font-bold mb-2">LLM Runner AIO</h3>
@@ -83,7 +83,7 @@ export default function Home() {
           </div>
 
           {/* Row 2 - Runners + WebUI */}
-          <div className="md:col-span-2 relative overflow-hidden rounded-3xl bg-gradient-to-r from-cyan-500 to-blue-600 p-6 text-white shadow-xl">
+          <div className="md:col-span-2 relative overflow-hidden rounded-3xl bg-gradient-to-r from-cyan-500 to-blue-600 dark:from-cyan-600 dark:to-blue-700 p-6 text-white shadow-xl">
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <Code2 className="w-8 h-8 mb-4" />
@@ -103,7 +103,7 @@ export default function Home() {
           </div>
 
           {/* Row 2 - Multimodal wide card */}
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-500 to-teal-600 p-6 text-white shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-500 to-teal-600 dark:from-emerald-600 dark:to-teal-700 p-6 text-white shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1">
             <ImageIcon className="w-8 h-8 mb-4" />
             <Link href="/multimodal">
               <h3 className="font-bold mb-2">Multimodal</h3>
