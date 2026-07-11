@@ -31,10 +31,10 @@ export default function Home() {
             </div>
 
             <div className="flex flex-wrap gap-3">
-              <Link href="/llm/configs" className="bg-white text-indigo-600 px-6 py-3 rounded-2xl font-semibold hover:bg-indigo-50 transition-all shadow-lg relative z-10">
+              <Link href="/llm/configs" className="bg-white text-indigo-600 px-6 py-3 rounded-2xl font-semibold hover:bg-indigo-50 transition-all shadow-lg relative z-10 dark:bg-indigo-600 dark:text-white dark:hover:bg-indigo-700">
                 Browse Configurations
               </Link>
-              <Link href="/llm/configs/share" className="bg-white/20 backdrop-blur-sm text-white px-6 py-3 rounded-2xl font-semibold hover:bg-white/30 transition-all border border-white/30 relative z-10">
+              <Link href="/llm/configs/share" className="bg-white/30 backdrop-blur-sm text-white px-6 py-3 rounded-2xl font-semibold hover:bg-white/40 transition-all border border-white/50 relative z-10 dark:bg-indigo-800/60 dark:border-indigo-400/30">
                 Share
               </Link>
             </div>

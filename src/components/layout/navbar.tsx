@@ -29,7 +29,7 @@ export function Navbar() {
   };
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-gray-200 dark:border-gray-800 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-sm">
+    <nav className="sticky top-0 z-50 w-full border-b border-indigo-200 dark:border-indigo-800 bg-gradient-to-r from-white via-indigo-50/30 to-white dark:from-indigo-950/90 dark:via-indigo-900/70 dark:to-indigo-950/90 backdrop-blur-md shadow-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
@@ -59,8 +59,8 @@ export function Navbar() {
               href={link.href}
               className={`rounded-lg px-3 py-2 text-sm font-medium transition-all duration-200 ${
                 isActive(link.href)
-                  ? "bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white font-semibold"
-                  : "text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white"
+                  ? "bg-indigo-100 dark:bg-indigo-800 text-indigo-900 dark:text-indigo-100 font-semibold shadow-sm"
+                  : "text-gray-700 dark:text-gray-300 hover:bg-indigo-100/50 dark:hover:bg-indigo-800/50 hover:text-indigo-700 dark:hover:text-indigo-200"
               }`}
             >
               {link.label}
@@ -148,7 +148,7 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 md:hidden">
+        <div className="border-t border-indigo-200 dark:border-indigo-800 bg-gradient-to-b from-white to-indigo-50/50 dark:from-indigo-950/90 dark:to-indigo-900/70 md:hidden">
           <div className="mx-auto max-w-7xl px-4 py-4 space-y-1">
             {navLinks.map((link) => (
               <Link
@@ -157,8 +157,8 @@ export function Navbar() {
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block rounded-lg px-3 py-2.5 text-sm font-medium transition-colors ${
                   isActive(link.href)
-                    ? "bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white font-semibold"
-                    : "text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white"
+                    ? "bg-indigo-100 dark:bg-indigo-800 text-indigo-900 dark:text-indigo-100 font-semibold shadow-sm"
+                    : "text-gray-700 dark:text-gray-300 hover:bg-indigo-100/50 dark:hover:bg-indigo-800/50 hover:text-indigo-700 dark:hover:text-indigo-200"
                 }`}
               >
                 {link.label}
@@ -178,8 +178,8 @@ export function Navbar() {
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block rounded-lg px-3 py-2.5 text-sm font-medium transition-colors ${
                   isActive("/profile")
-                    ? "bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white font-semibold"
-                    : "text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white"
+                    ? "bg-indigo-100 dark:bg-indigo-800 text-indigo-900 dark:text-indigo-100 font-semibold shadow-sm"
+                    : "text-gray-700 dark:text-gray-300 hover:bg-indigo-100/50 dark:hover:bg-indigo-800/50 hover:text-indigo-700 dark:hover:text-indigo-200"
                 }`}
               >
                 Profile
