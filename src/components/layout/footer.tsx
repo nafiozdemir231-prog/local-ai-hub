@@ -1,6 +1,6 @@
 export function Footer() {
   return (
-    <footer className="mt-auto w-full border-t border-gray-200 bg-gradient-to-b from-gray-50 to-gray-100 py-8">
+    <footer className="mt-auto w-full border-t border-gray-200 dark:border-gray-800 bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-950 py-8">
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-6 px-4 sm:px-6 lg:px-8">
         <a
           href="https://ko-fi.com/vincespeed"
@@ -17,7 +17,7 @@ export function Footer() {
             <span className="relative inline-flex h-full w-full rounded-full bg-yellow-400"></span>
           </span>
         </a>
-        <p className="text-sm text-gray-500">
+        <p className="text-sm text-gray-500 dark:text-gray-400">
           © {new Date().getFullYear()} Local AI Hub. All rights reserved.
         </p>
       </div>
