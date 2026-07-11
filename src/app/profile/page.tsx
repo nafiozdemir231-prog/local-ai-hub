@@ -148,12 +148,14 @@ export default function ProfilePage() {
                       <button
                         onClick={() => handleEdit(config.id)}
                         className="rounded bg-blue-100 dark:bg-blue-900/30 px-2 py-1 text-xs text-blue-600 dark:text-blue-400 hover:bg-blue-200 dark:hover:bg-blue-900/50"
+                      >
                         Edit
                       </button>
                       <button
                         onClick={() => handleDelete(config.id)}
                         disabled={deleting === config.id}
                         className="rounded bg-red-100 dark:bg-red-900/30 px-2 py-1 text-xs text-red-600 dark:text-red-400 hover:bg-red-200 dark:hover:bg-red-900/50 disabled:opacity-50"
+                      >
                         {deleting === config.id ? "Deleting..." : "Delete"}
                       </button>
                     </div>
