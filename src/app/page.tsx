@@ -41,35 +41,35 @@ export default function Home() {
           </div>
 
           {/* Feature Cards - Row 1 */}
-          <div className="relative overflow-hidden rounded-3xl bg-white/70 dark:bg-gray-800/90 backdrop-blur-md p-6 border border-white/50 dark:border-gray-700/50 shadow-xl dark:shadow-none hover:shadow-2xl dark:hover:shadow-lg dark:hover:shadow-gray-900/50 transition-all hover:-translate-y-1">
-            <Search className="w-8 h-8 text-indigo-600 dark:text-indigo-400 mb-4" />
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-50 to-blue-100 dark:from-indigo-950/80 dark:to-indigo-900/60 backdrop-blur-md p-6 border border-indigo-200/50 dark:border-indigo-700/50 shadow-lg dark:shadow-none hover:shadow-2xl dark:hover:shadow-lg dark:hover:shadow-indigo-900/40 transition-all hover:-translate-y-1">
+            <Search className="w-8 h-8 text-indigo-600 dark:text-indigo-300 mb-4" />
             <Link href="/llm/configs">
-              <h3 className="font-bold text-gray-900 dark:text-white mb-2">LLM Configs</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400">Search and filter configurations</p>
+              <h3 className="font-bold text-indigo-900 dark:text-indigo-100 mb-2">LLM Configs</h3>
+              <p className="text-sm text-indigo-700/80 dark:text-indigo-300/80">Search and filter configurations</p>
             </Link>
           </div>
 
-          <div className="relative overflow-hidden rounded-3xl bg-white/70 dark:bg-gray-800/90 backdrop-blur-md p-6 border border-white/50 dark:border-gray-700/50 shadow-xl dark:shadow-none hover:shadow-2xl dark:hover:shadow-lg dark:hover:shadow-gray-900/50 transition-all hover:-translate-y-1">
-            <TrendingUp className="w-8 h-8 text-green-600 dark:text-green-400 mb-4" />
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-green-50 to-emerald-100 dark:from-green-950/80 dark:to-green-900/60 backdrop-blur-md p-6 border border-green-200/50 dark:border-green-700/50 shadow-lg dark:shadow-none hover:shadow-2xl dark:hover:shadow-lg dark:hover:shadow-green-900/40 transition-all hover:-translate-y-1">
+            <TrendingUp className="w-8 h-8 text-green-600 dark:text-green-300 mb-4" />
             <Link href="/models/rankings">
-              <h3 className="font-bold text-gray-900 dark:text-white mb-2">Model Rankings</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400">Community evaluations and rankings</p>
+              <h3 className="font-bold text-green-900 dark:text-green-100 mb-2">Model Rankings</h3>
+              <p className="text-sm text-green-700/80 dark:text-green-300/80">Community evaluations and rankings</p>
             </Link>
           </div>
 
-          <div className="relative overflow-hidden rounded-3xl bg-white/70 dark:bg-gray-800/90 backdrop-blur-md p-6 border border-white/50 dark:border-gray-700/50 shadow-xl dark:shadow-none hover:shadow-2xl dark:hover:shadow-lg dark:hover:shadow-gray-900/50 transition-all hover:-translate-y-1">
-            <MessageSquare className="w-8 h-8 text-purple-600 dark:text-purple-400 mb-4" />
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-purple-50 to-violet-100 dark:from-purple-950/80 dark:to-purple-900/60 backdrop-blur-md p-6 border border-purple-200/50 dark:border-purple-700/50 shadow-lg dark:shadow-none hover:shadow-2xl dark:hover:shadow-lg dark:hover:shadow-purple-900/40 transition-all hover:-translate-y-1">
+            <MessageSquare className="w-8 h-8 text-purple-600 dark:text-purple-300 mb-4" />
             <Link href="/chat-clients">
-              <h3 className="font-bold text-gray-900 dark:text-white mb-2">Chat Clients</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400">Local AI chat clients</p>
+              <h3 className="font-bold text-purple-900 dark:text-purple-100 mb-2">Chat Clients</h3>
+              <p className="text-sm text-purple-700/80 dark:text-purple-300/80">Local AI chat clients</p>
             </Link>
           </div>
 
-          <div className="relative overflow-hidden rounded-3xl bg-white/70 dark:bg-gray-800/90 backdrop-blur-md p-6 border border-white/50 dark:border-gray-700/50 shadow-xl dark:shadow-none hover:shadow-2xl dark:hover:shadow-lg dark:hover:shadow-gray-900/50 transition-all hover:-translate-y-1">
-            <ImageIcon className="w-8 h-8 text-orange-600 dark:text-orange-400 mb-4" />
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-orange-50 to-amber-100 dark:from-orange-950/80 dark:to-orange-900/60 backdrop-blur-md p-6 border border-orange-200/50 dark:border-orange-700/50 shadow-lg dark:shadow-none hover:shadow-2xl dark:hover:shadow-lg dark:hover:shadow-orange-900/40 transition-all hover:-translate-y-1">
+            <ImageIcon className="w-8 h-8 text-orange-600 dark:text-orange-300 mb-4" />
             <Link href="/multimodal">
-              <h3 className="font-bold text-gray-900 dark:text-white mb-2">Multimodal</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400">Text, image, and audio models</p>
+              <h3 className="font-bold text-orange-900 dark:text-orange-100 mb-2">Multimodal</h3>
+              <p className="text-sm text-orange-700/80 dark:text-orange-300/80">Text, image, and audio models</p>
             </Link>
           </div>
 
