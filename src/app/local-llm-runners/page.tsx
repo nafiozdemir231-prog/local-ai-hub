@@ -16,13 +16,13 @@ export default function LocalLLMRunnersPage() {
         <div className="overflow-x-auto rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm">
           <table className="w-full border-collapse">
             <thead>
-              <tr className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-750">
-                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Rank</th>
-                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-gray-500">App Name</th>
-                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-gray-500">OS</th>
-                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-gray-500">Platform</th>
-                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-gray-500">Supported</th>
-                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-gray-500">Explanation</th>
+              <tr className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900">
+                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Rank</th>
+                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">App Name</th>
+                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">OS</th>
+                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Platform</th>
+                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Supported</th>
+                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Explanation</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100 dark:divide-gray-700">

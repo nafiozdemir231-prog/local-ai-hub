@@ -68,15 +68,15 @@ export default function ModelRankingsPage() {
         <div className="overflow-x-auto rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm">
           <table className="w-full border-collapse">
             <thead>
-              <tr className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-750">
-                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Rank</th>
-                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Model Name</th>
-                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Model Creator</th>
-                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Intelligence</th>
-                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Parameters</th>
-                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Context Window</th>
-                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Price</th>
-                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Output Speed</th>
+              <tr className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900">
+                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Rank</th>
+                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Model Name</th>
+                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Model Creator</th>
+                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Intelligence</th>
+                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Parameters</th>
+                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Context Window</th>
+                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Price</th>
+                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Output Speed</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100 dark:divide-gray-700">
