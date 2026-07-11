@@ -82,24 +82,22 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* Row 2 - Runners + WebUI */}
-          <div className="md:col-span-2 relative overflow-hidden rounded-3xl bg-gradient-to-r from-cyan-500 to-blue-600 dark:from-cyan-600 dark:to-blue-700 p-6 text-white shadow-xl">
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <Code2 className="w-8 h-8 mb-4" />
-                <Link href="/local-llm-runners" className="block">
-                  <h3 className="font-bold mb-2">LLM Runners</h3>
-                  <p className="text-sm text-cyan-100">Best local LLM runners</p>
-                </Link>
-              </div>
-              <div>
-                <Monitor className="w-8 h-8 mb-4" />
-                <Link href="/local-llm-webuis" className="block">
-                  <h3 className="font-bold mb-2">Web UIs</h3>
-                  <p className="text-sm text-cyan-100">Local LLM web interfaces</p>
-                </Link>
-              </div>
-            </div>
+          {/* Row 2 - LLM Runners */}
+          <div className="md:col-span-2 relative overflow-hidden rounded-3xl bg-gradient-to-r from-cyan-500 to-blue-600 dark:from-cyan-600 dark:to-blue-700 p-6 text-white shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1">
+            <Code2 className="w-8 h-8 mb-4" />
+            <Link href="/local-llm-runners" className="block">
+              <h3 className="font-bold mb-2">LLM Runners</h3>
+              <p className="text-sm text-cyan-100">Best local LLM runners for your hardware</p>
+            </Link>
+          </div>
+
+          {/* Row 2 - WebUIs */}
+          <div className="md:col-span-2 relative overflow-hidden rounded-3xl bg-gradient-to-r from-violet-500 to-purple-600 dark:from-violet-600 dark:to-purple-700 p-6 text-white shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1">
+            <Monitor className="w-8 h-8 mb-4" />
+            <Link href="/local-llm-webuis" className="block">
+              <h3 className="font-bold mb-2">Web UIs</h3>
+              <p className="text-sm text-violet-100">Local LLM web interfaces for easy access</p>
+            </Link>
           </div>
 
           {/* Row 2 - Multimodal wide card */}
