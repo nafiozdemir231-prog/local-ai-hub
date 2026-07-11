@@ -29,6 +29,7 @@ export default function LoginPage() {
 
         {/* Google Sign In */}
         <button
+          type="button"
           onClick={async () => {
             setError("");
             await signIn("google", { callbackUrl: "/" });
@@ -47,6 +48,7 @@ export default function LoginPage() {
 
         {/* GitHub Sign In */}
         <button
+          type="button"
           onClick={async () => {
             setError("");
             await signIn("github", { callbackUrl: "/" });
