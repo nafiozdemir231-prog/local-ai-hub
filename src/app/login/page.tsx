@@ -33,6 +33,7 @@ export default function LoginPage() {
             setError("");
             await signIn("google", { callbackUrl: "/" });
           }}
+          style={{ cursor: "pointer" }}
           className="flex w-full items-center justify-center gap-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-4 py-3 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer"
         >
           <svg className="h-5 w-5" viewBox="0 0 24 24">
@@ -50,6 +51,7 @@ export default function LoginPage() {
             setError("");
             await signIn("github", { callbackUrl: "/" });
           }}
+          style={{ cursor: "pointer" }}
           className="flex w-full items-center justify-center gap-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-4 py-3 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer"
         >
           <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
