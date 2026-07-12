@@ -3,12 +3,12 @@ import { prisma } from "@/lib/db/client";
 
 export async function GET() {
   try {
-    const feedbacks = await prisma.runnerFeedback.findMany({
-      orderBy: {
-        createdAt: "desc",
-      },
-      take: 50,
-    });
+    const feedbacks = await prisma.$queryRaw<any[]>`
+      SELECT id, created_at AS "createdAt", name, content
+      FROM runner_feedback
+      ORDER BY created_at DESC
+      LIMIT 50
+    `;
     return NextResponse.json(feedbacks);
   } catch (error) {
     console.error("Failed to fetch runner feedback:", error);
@@ -31,14 +31,12 @@ export async function POST(request: Request) {
       );
     }
 
-    const feedback = await prisma.runnerFeedback.create({
-      data: {
-        name: name?.trim() || "Anonymous",
-        content: content.trim(),
-      },
-    });
+    const result = await prisma.$executeRaw`
+      INSERT INTO runner_feedback (name, content)
+      VALUES (${name?.trim() || "Anonymous"}, ${content.trim()})
+    `;
 
-    return NextResponse.json(feedback, { status: 201 });
+    return NextResponse.json({ success: true }, { status: 201 });
   } catch (error) {
     console.error("Failed to create runner feedback:", error);
     return NextResponse.json(
