@@ -86,6 +86,12 @@ export default function LLMRunnerAIO() {
             </a>
           </div>
           
+          {/* Bundled Note */}
+          <p className="text-sm text-gray-500 dark:text-gray-400 flex items-center justify-center gap-2">
+            <span className="inline-flex h-2 w-2 rounded-full bg-green-500"></span>
+            Node.js and Python are already bundled inside the .exe — these links are for development or manual installation only.
+          </p>
+          
           {/* GitHub & HuggingFace Links */}
           <div className="flex items-center justify-center gap-4">
             <a
