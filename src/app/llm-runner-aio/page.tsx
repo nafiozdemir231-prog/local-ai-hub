@@ -1,4 +1,7 @@
-import { Download, Package, Server, Zap, Globe, Settings, Cpu, GitFork, ExternalLink, Code2 } from "lucide-react";
+"use client";
+
+import { Download, Package, Server, Zap, Globe, Settings, Cpu, GitFork, ExternalLink, Code2, MessageSquare, Send, User } from "lucide-react";
+import { useState, useEffect } from "react";
 
 export default function LLMRunnerAIO() {
   const githubRepo = "https://github.com/nafiozdemir231-prog/llm-runner-aio/tree/main";
@@ -346,7 +349,153 @@ export default function LLMRunnerAIO() {
             </a>
           </div>
         </section>
+
+        {/* Feedback Section */}
+        <section className="mb-16">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-center mb-8">
+            <MessageSquare className="inline-block h-6 w-6 mr-2" />
+            Share Your Feedback
+          </h2>
+          
+          <FeedbackForm />
+        </section>
       </main>
+    </div>
+  );
+}
+
+function FeedbackForm() {
+  const [name, setName] = useState("");
+  const [content, setContent] = useState("");
+  const [feedbacks, setFeedbacks] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [submitting, setSubmitting] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    fetch("/api/runner-feedback")
+      .then((res) => res.json())
+      .then((data) => {
+        setFeedbacks(data);
+        setLoading(false);
+      })
+      .catch(() => {
+        setLoading(false);
+      });
+  }, []);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!content.trim()) return;
+
+    setSubmitting(true);
+    setSuccess(false);
+    setError(false);
+
+    try {
+      await fetch("/api/runner-feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: name || "Anonymous", content }),
+      });
+      setContent("");
+      setName("");
+      setSuccess(true);
+      setTimeout(() => setSuccess(false), 3000);
+      
+      const res = await fetch("/api/runner-feedback");
+      const data = await res.json();
+      setFeedbacks(data);
+    } catch {
+      setError(true);
+      setTimeout(() => setError(false), 3000);
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  const formatDate = (dateStr: string) => {
+    const date = new Date(dateStr);
+    return date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  };
+
+  return (
+    <div className="max-w-2xl mx-auto space-y-8">
+      {/* Form */}
+      <form onSubmit={handleSubmit} className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-6 space-y-4">
+        <div>
+          <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+            Name <span className="text-gray-400">(optional)</span>
+          </label>
+          <div className="relative">
+            <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+            <input
+              id="name"
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Anonymous"
+              className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder:text-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all"
+            />
+          </div>
+        </div>
+        
+        <div>
+          <label htmlFor="content" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+            Feedback <span className="text-red-500">*</span>
+          </label>
+          <textarea
+            id="content"
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+            placeholder="Share your experience with LLM Runner AIO..."
+            rows={4}
+            className="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder:text-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all resize-none"
+            required
+          />
+        </div>
+
+        <button
+          type="submit"
+          disabled={submitting || !content.trim()}
+          className="w-full flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 disabled:bg-gray-400 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 disabled:cursor-not-allowed cursor-pointer">
+          <Send className="h-4 w-4" />
+          {submitting ? "Sending..." : "Submit Feedback"}
+        </button>
+
+        {success && (
+          <p className="text-sm text-green-600 dark:text-green-400 text-center">✓ Thank you! Your feedback has been submitted.</p>
+        )}
+        {error && (
+          <p className="text-sm text-red-600 dark:text-red-400 text-center">✗ Something went wrong. Please try again.</p>
+        )}
+      </form>
+
+      {/* Feedback List */}
+      <div className="space-y-4">
+        {loading ? (
+          <p className="text-center text-gray-500 dark:text-gray-400">Loading feedback...</p>
+        ) : feedbacks.length === 0 ? (
+          <p className="text-center text-gray-500 dark:text-gray-400">No feedback yet. Be the first to share!</p>
+        ) : (
+          feedbacks.map((fb) => (
+            <div key={fb.id} className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-5">
+              <div className="flex items-center justify-between mb-2">
+                <span className="font-medium text-gray-900 dark:text-white">{fb.name}</span>
+                <span className="text-xs text-gray-500 dark:text-gray-400">{formatDate(fb.createdAt)}</span>
+              </div>
+              <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">{fb.content}</p>
+            </div>
+          ))
+        )}
+      </div>
     </div>
   );
 }

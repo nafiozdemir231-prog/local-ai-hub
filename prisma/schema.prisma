@@ -113,3 +113,11 @@ model ModelRating {
   @@unique([userId, modelName, category])
   @@map("model_ratings")
 }
+
+model RunnerFeedback {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now()) @map("created_at")
+  name      String   @default("Anonymous")
+  content   String
+  @@map("runner_feedback")
+}
