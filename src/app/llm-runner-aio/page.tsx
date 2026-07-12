@@ -86,10 +86,10 @@ export default function LLMRunnerAIO() {
             </a>
           </div>
           
-          {/* Bundled Note */}
+          {/* Required Note */}
           <p className="text-sm text-gray-500 dark:text-gray-400 flex items-center justify-center gap-2">
-            <span className="inline-flex h-2 w-2 rounded-full bg-green-500"></span>
-            Node.js and Python are already bundled inside the .exe — these links are for development or manual installation only.
+            <span className="inline-flex h-2 w-2 rounded-full bg-yellow-500"></span>
+            Node.js and Python 3.11 must be installed on your system before running the app.
           </p>
           
           {/* GitHub & HuggingFace Links */}
@@ -255,14 +255,14 @@ export default function LLMRunnerAIO() {
                   </tr>
                   <tr>
                     <td className="py-3 px-4 text-gray-700 dark:text-gray-300">Python</td>
-                    <td className="py-3 px-4 text-gray-700 dark:text-gray-300">3.11 (bundled)</td>
-                    <td className="py-3 px-4 text-gray-700 dark:text-gray-300">3.11 (bundled)</td>
+                    <td className="py-3 px-4 text-gray-700 dark:text-gray-300">3.11 (required)</td>
+                    <td className="py-3 px-4 text-gray-700 dark:text-gray-300">3.11 (required)</td>
                   </tr>
                 </tbody>
               </table>
             </div>
             <p className="mt-4 text-sm text-gray-500 dark:text-gray-400">
-              <strong>Note:</strong> Python 3.11 and Node.js are bundled inside the executable. No separate installation needed!
+              <strong>Note:</strong> Python 3.11 and Node.js must be installed on your system before running the app.
             </p>
           </div>
         </section>
