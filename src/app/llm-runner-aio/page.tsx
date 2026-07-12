@@ -241,11 +241,7 @@ export default function LLMRunnerAIO() {
                     <td className="py-3 px-4 text-gray-700 dark:text-gray-300">8 GB</td>
                     <td className="py-3 px-4 text-gray-700 dark:text-gray-300">16 GB+</td>
                   </tr>
-                  <tr className="border-b border-gray-100 dark:border-gray-700">
-                    <td className="py-3 px-4 text-gray-700 dark:text-gray-300">GPU</td>
-                    <td className="py-3 px-4 text-gray-700 dark:text-gray-300">CPU Only</td>
-                    <td className="py-3 px-4 text-gray-700 dark:text-gray-300">NVIDIA RTX 3060+</td>
-                  </tr>
+
                   <tr className="border-b border-gray-100 dark:border-gray-700">
                     <td className="py-3 px-4 text-gray-700 dark:text-gray-300">VRAM</td>
                     <td className="py-3 px-4 text-gray-700 dark:text-gray-300">N/A</td>
