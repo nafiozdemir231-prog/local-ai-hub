@@ -95,6 +95,14 @@ export default function LLMRunnerAIO() {
             Node.js and Python 3.11 must be installed on your system before running the app.
           </p>
           
+          {/* Feedback CTA */}
+          <a
+            href="#feedback"
+            className="inline-flex items-center gap-2 text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors font-medium">
+            <MessageSquare className="h-4 w-4" />
+            Share Your Feedback
+          </a>
+          
           {/* GitHub & HuggingFace Links */}
           <div className="flex items-center justify-center gap-4">
             <a
