@@ -43,7 +43,7 @@ export function FilterPanel({
   llmRunnerSearch,
   setLlmRunnerSearch,
 }: FilterPanelProps) {
-  const [expandedPlatforms, setExpandedPlatforms] = useState(true);
+  const [expandedPlatforms, setExpandedPlatforms] = useState(false);
   const [expandedVrams, setExpandedVrams] = useState(false);
   const [expandedRams, setExpandedRams] = useState(false);
   const [expandedQuantizations, setExpandedQuantizations] = useState(false);
