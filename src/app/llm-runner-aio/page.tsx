@@ -13,11 +13,11 @@ export default function LLMRunnerAIO() {
   
   const features = [
     { icon: Package, title: "Single File Deployment", desc: "2.03 GB .exe with all dependencies included" },
-    { icon: Server, title: "4 Core Services", desc: "Open WebUI, llama.cpp, Vane, SearXNG" },
-    { icon: Zap, title: "Automatic Setup", desc: "No installs needed — Python and Node.js are bundled" },
-    { icon: Cpu, title: "Windows Integration", desc: "Runs in system tray on startup" },
-    { icon: Globe, title: "8 Language Support", desc: "Turkish, English, Spanish, German, French, Portuguese, Chinese, Japanese" },
-    { icon: Settings, title: "Advanced Settings", desc: "Hardware detection, port config, auto-start" },
+    { icon: Server, title: "5 Core Services", desc: "Open WebUI, llama.cpp, Vane, SearXNG, Pi Coding" },
+    { icon: Zap, title: "Automatic Setup", desc: "After Python and Node.js are installed, run the .exe file" },
+    { icon: Cpu, title: "Pre-configured Connections", desc: "Connection settings between all applications are pre-configured by default" },
+    { icon: Globe, title: "Optimized Inference", desc: "Loop issues have been resolved and optimized for maximum speed" },
+    { icon: Settings, title: "Pi Coding Integration", desc: "Dedicated area to add consultant model URLs for Pi Coding" },
   ];
 
   const components = [
@@ -25,12 +25,14 @@ export default function LLMRunnerAIO() {
     { name: "llama.cpp", desc: "High-performance C++ inference engine", license: "MIT" },
     { name: "SearXNG", desc: "Privacy-respecting metasearch engine", license: "GPLv3" },
     { name: "Vane", desc: "AI-powered browser automation tool", license: "Open Source" },
+    { name: "Pi Coding", desc: "AI coding assistant with consultant model support", license: "Open Source" },
   ];
 
   const steps = [
     { num: "1", title: "Download", desc: "Download LLM-Runner-AIO.exe (2.03 GB) from Hugging Face" },
-    { num: "2", title: "Run", desc: "Double-click to execute — no installation needed" },
-    { num: "3", title: "Ready", desc: "Access Open WebUI at http://localhost:3000" },
+    { num: "2", title: "Run", desc: "Double-click to execute — wait for required dependencies to install" },
+    { num: "3", title: "Detect & Download Models", desc: "Click System Detection, then Model Download — models are auto-configured for your VRAM" },
+    { num: "4", title: "Start Servers", desc: "Launch all services and access at http://localhost:3000" },
   ];
 
   return (
@@ -169,38 +171,15 @@ export default function LLMRunnerAIO() {
           </div>
         </section>
 
-        {/* Architecture Diagram */}
+        {/* Services List */}
         <section className="mb-16">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-center mb-8">How It Works</h2>
-          
-          {/* Screenshot */}
-          <div className="mb-8">
-            <img
-              src="/2.png"
-              alt="LLM Runner AIO Screenshot"
-              className="max-w-full h-auto rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700"
-            />
-          </div>
-          
+
           <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-8">
-            <pre className="text-sm bg-gray-50 dark:bg-gray-900 dark:text-gray-100 p-4 rounded-lg overflow-x-auto font-mono">
-{`┌─────────────────────────────────────────────┐
-│           LLM Runner AIO Launcher           │
-├─────────────────────────────────────────────┤
-│  ┌──────────┐  ┌──────────┐                │
-│  │ SearXNG  │  │ llama.cpp│                │
-│  │ :8080    │  │ :8000    │                │
-│  └──────────┘  └──────────┘                │
-│  ┌──────────┐  ┌──────────┐                │
-│  │OpenWebUI │  │  Vane    │                │
-│  │ :3000    │  │ :3001    │                │
-│  └──────────┘  └──────────┘                │
-└─────────────────────────────────────────────┘`}
-            </pre>
-            <ul className="mt-6 space-y-3">
+            <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <div className="h-2 w-2 rounded-full bg-indigo-600 mt-2 flex-shrink-0" />
-                <span className="text-gray-700 dark:text-gray-300"><strong>llama.cpp</strong> runs the AI model inference engine</span>
+                <span className="text-gray-700 dark:text-gray-300"><strong>llama.cpp</strong> runs the AI model inference engine at <code className="bg-gray-100 dark:bg-gray-800 px-2 py-0.5 rounded text-sm">http://localhost:1234</code></span>
               </li>
               <li className="flex items-start gap-3">
                 <div className="h-2 w-2 rounded-full bg-indigo-600 mt-2 flex-shrink-0" />
