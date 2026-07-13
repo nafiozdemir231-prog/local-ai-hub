@@ -61,40 +61,40 @@ export function FilterPanel({
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="lg:grid lg:grid-cols-7 gap-4">
       {/* Hardware Model Search */}
-      <div>
-        <h3 className="mb-2 text-sm font-semibold text-gray-700 dark:text-gray-200">Hardware Model</h3>
+      <div className="lg:col-span-1">
+        <h3 className="mb-2 text-xs font-semibold text-gray-700 dark:text-gray-200">Hardware</h3>
         <input
           type="text"
           value={hardwareSearch}
           onChange={(e) => setHardwareSearch(e.target.value)}
-          placeholder="Search hardware..."
-          className="w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-indigo-500 dark:focus:border-indigo-400 focus:outline-none"
+          placeholder="Search..."
+          className="w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-2 py-1.5 text-xs text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-indigo-500 dark:focus:border-indigo-400 focus:outline-none"
         />
       </div>
 
       {/* Model Name Search */}
-      <div>
-        <h3 className="mb-2 text-sm font-semibold text-gray-700 dark:text-gray-200">Model Name</h3>
+      <div className="lg:col-span-1">
+        <h3 className="mb-2 text-xs font-semibold text-gray-700 dark:text-gray-200">Model</h3>
         <input
           type="text"
           value={modelSearch}
           onChange={(e) => setModelSearch(e.target.value)}
-          placeholder="Search model..."
-          className="w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-indigo-500 dark:focus:border-indigo-400 focus:outline-none"
+          placeholder="Search..."
+          className="w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-2 py-1.5 text-xs text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-indigo-500 dark:focus:border-indigo-400 focus:outline-none"
         />
       </div>
 
       {/* LLM Runner Search */}
-      <div>
-        <h3 className="mb-2 text-sm font-semibold text-gray-700 dark:text-gray-200">LLM Runner</h3>
+      <div className="lg:col-span-1">
+        <h3 className="mb-2 text-xs font-semibold text-gray-700 dark:text-gray-200">Runner</h3>
         <input
           type="text"
           value={llmRunnerSearch}
           onChange={(e) => setLlmRunnerSearch(e.target.value)}
-          placeholder="Search runner (e.g., llama.cpp, Ollama)..."
-          className="w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-indigo-500 dark:focus:border-indigo-400 focus:outline-none"
+          placeholder="Search..."
+          className="w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-2 py-1.5 text-xs text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-indigo-500 dark:focus:border-indigo-400 focus:outline-none"
         />
       </div>
 
@@ -123,27 +123,27 @@ export function FilterPanel({
       </div>
 
       {/* Platform */}
-      <div>
+      <div className="lg:col-span-1">
         <button
           onClick={() => setExpandedPlatforms(!expandedPlatforms)}
-          className="mb-2 flex w-full items-center justify-between text-sm font-semibold text-gray-700 dark:text-gray-200"
+          className="mb-2 flex w-full items-center justify-between text-xs font-semibold text-gray-700 dark:text-gray-200"
         >
           Platform
-          <svg className={`h-4 w-4 transition-transform ${expandedPlatforms ? "rotate-180" : ""}`} fill="currentColor" viewBox="0 0 20 20">
+          <svg className={`h-3 w-3 transition-transform ${expandedPlatforms ? "rotate-180" : ""}`} fill="currentColor" viewBox="0 0 20 20">
             <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
           </svg>
         </button>
         {expandedPlatforms && (
-          <div className="space-y-2">
+          <div className="space-y-1">
             {platforms.map((platform) => (
-              <label key={platform} className="flex items-center gap-2">
+              <label key={platform} className="flex items-center gap-1.5">
                 <input
                   type="checkbox"
                   checked={selectedPlatforms.includes(platform)}
                   onChange={() => toggleSelect(selectedPlatforms, platform, setSelectedPlatforms)}
                   className="rounded border-gray-300 text-gray-900 focus:ring-gray-500"
                 />
-                <span className="text-sm text-gray-600 dark:text-gray-300">{platform}</span>
+                <span className="text-xs text-gray-600 dark:text-gray-300">{platform}</span>
               </label>
             ))}
           </div>
@@ -151,27 +151,27 @@ export function FilterPanel({
       </div>
 
       {/* VRAM */}
-      <div>
+      <div className="lg:col-span-1">
         <button
           onClick={() => setExpandedVrams(!expandedVrams)}
-          className="mb-2 flex w-full items-center justify-between text-sm font-semibold text-gray-700 dark:text-gray-200"
+          className="mb-2 flex w-full items-center justify-between text-xs font-semibold text-gray-700 dark:text-gray-200"
         >
           VRAM (GB)
-          <svg className={`h-4 w-4 transition-transform ${expandedVrams ? "rotate-180" : ""}`} fill="currentColor" viewBox="0 0 20 20">
+          <svg className={`h-3 w-3 transition-transform ${expandedVrams ? "rotate-180" : ""}`} fill="currentColor" viewBox="0 0 20 20">
             <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
           </svg>
         </button>
         {expandedVrams && (
-          <div className="space-y-2">
+          <div className="space-y-1">
             {vrams.map((vram) => (
-              <label key={vram} className="flex items-center gap-2">
+              <label key={vram} className="flex items-center gap-1.5">
                 <input
                   type="checkbox"
                   checked={selectedVrams.includes(vram)}
                   onChange={() => toggleSelect(selectedVrams, vram, setSelectedVrams)}
                   className="rounded border-gray-300 text-gray-900 focus:ring-gray-500"
                 />
-                <span className="text-sm text-gray-600 dark:text-gray-300">{vram}</span>
+                <span className="text-xs text-gray-600 dark:text-gray-300">{vram}</span>
               </label>
             ))}
           </div>
@@ -179,27 +179,27 @@ export function FilterPanel({
       </div>
 
       {/* RAM */}
-      <div>
+      <div className="lg:col-span-1">
         <button
           onClick={() => setExpandedRams(!expandedRams)}
-          className="mb-2 flex w-full items-center justify-between text-sm font-semibold text-gray-700 dark:text-gray-200"
+          className="mb-2 flex w-full items-center justify-between text-xs font-semibold text-gray-700 dark:text-gray-200"
         >
           RAM (GB)
-          <svg className={`h-4 w-4 transition-transform ${expandedRams ? "rotate-180" : ""}`} fill="currentColor" viewBox="0 0 20 20">
+          <svg className={`h-3 w-3 transition-transform ${expandedRams ? "rotate-180" : ""}`} fill="currentColor" viewBox="0 0 20 20">
             <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
           </svg>
         </button>
         {expandedRams && (
-          <div className="space-y-2">
+          <div className="space-y-1">
             {rams.map((ram) => (
-              <label key={ram} className="flex items-center gap-2">
+              <label key={ram} className="flex items-center gap-1.5">
                 <input
                   type="checkbox"
                   checked={selectedRams.includes(ram)}
                   onChange={() => toggleSelect(selectedRams, ram, setSelectedRams)}
                   className="rounded border-gray-300 text-gray-900 focus:ring-gray-500"
                 />
-                <span className="text-sm text-gray-600 dark:text-gray-300">{ram}</span>
+                <span className="text-xs text-gray-600 dark:text-gray-300">{ram}</span>
               </label>
             ))}
           </div>
@@ -207,27 +207,27 @@ export function FilterPanel({
       </div>
 
       {/* Quantization */}
-      <div>
+      <div className="lg:col-span-1">
         <button
           onClick={() => setExpandedQuantizations(!expandedQuantizations)}
-          className="mb-2 flex w-full items-center justify-between text-sm font-semibold text-gray-700 dark:text-gray-200"
+          className="mb-2 flex w-full items-center justify-between text-xs font-semibold text-gray-700 dark:text-gray-200"
         >
           Quantization
-          <svg className={`h-4 w-4 transition-transform ${expandedQuantizations ? "rotate-180" : ""}`} fill="currentColor" viewBox="0 0 20 20">
+          <svg className={`h-3 w-3 transition-transform ${expandedQuantizations ? "rotate-180" : ""}`} fill="currentColor" viewBox="0 0 20 20">
             <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
           </svg>
         </button>
         {expandedQuantizations && (
-          <div className="space-y-2">
+          <div className="space-y-1">
             {quantizations.map((quant) => (
-              <label key={quant} className="flex items-center gap-2">
+              <label key={quant} className="flex items-center gap-1.5">
                 <input
                   type="checkbox"
                   checked={selectedQuantizations.includes(quant)}
                   onChange={() => toggleSelect(selectedQuantizations, quant, setSelectedQuantizations)}
                   className="rounded border-gray-300 text-gray-900 focus:ring-gray-500"
                 />
-                <span className="text-sm text-gray-600 dark:text-gray-300">{quant}</span>
+                <span className="text-xs text-gray-600 dark:text-gray-300">{quant}</span>
               </label>
             ))}
           </div>

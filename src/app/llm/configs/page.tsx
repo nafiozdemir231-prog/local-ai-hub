@@ -121,30 +121,6 @@ export default function LLMConfigsPage() {
 
   return (
     <div className="flex min-h-screen w-full bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-950">
-      {/* Filter Panel */}
-      <aside className="hidden w-72 border-r border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-4 md:block sticky top-0 h-screen overflow-y-auto">
-        <FilterPanel
-          platforms={platforms}
-          vrams={vrams}
-          rams={rams}
-          quantizations={quantizations}
-          selectedPlatforms={selectedPlatforms}
-          setSelectedPlatforms={setSelectedPlatforms}
-          selectedVrams={selectedVrams}
-          setSelectedVrams={setSelectedVrams}
-          selectedRams={selectedRams}
-          setSelectedRams={setSelectedRams}
-          selectedQuantizations={selectedQuantizations}
-          setSelectedQuantizations={setSelectedQuantizations}
-          hardwareSearch={hardwareSearch}
-          setHardwareSearch={setHardwareSearch}
-          modelSearch={modelSearch}
-          setModelSearch={setModelSearch}
-          llmRunnerSearch={llmRunnerSearch}
-          setLlmRunnerSearch={setLlmRunnerSearch}
-        />
-      </aside>
-
       {/* Main Content */}
       <div className="flex-1 p-4 md:p-8">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
@@ -161,6 +137,30 @@ export default function LLMConfigsPage() {
               Share Config
             </Link>
           </div>
+        </div>
+
+        {/* Filter Panel - Horizontal */}
+        <div className="mt-6">
+          <FilterPanel
+            platforms={platforms}
+            vrams={vrams}
+            rams={rams}
+            quantizations={quantizations}
+            selectedPlatforms={selectedPlatforms}
+            setSelectedPlatforms={setSelectedPlatforms}
+            selectedVrams={selectedVrams}
+            setSelectedVrams={setSelectedVrams}
+            selectedRams={selectedRams}
+            setSelectedRams={setSelectedRams}
+            selectedQuantizations={selectedQuantizations}
+            setSelectedQuantizations={setSelectedQuantizations}
+            hardwareSearch={hardwareSearch}
+            setHardwareSearch={setHardwareSearch}
+            modelSearch={modelSearch}
+            setModelSearch={setModelSearch}
+            llmRunnerSearch={llmRunnerSearch}
+            setLlmRunnerSearch={setLlmRunnerSearch}
+          />
         </div>
 
         {/* Sort Options */}
@@ -198,33 +198,6 @@ export default function LLMConfigsPage() {
           </button>
         </div>
 
-
-        {/* Mobile Filter Button */}
-        <div className="mt-4 md:hidden">
-          <details className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-4">
-            <summary className="cursor-pointer font-medium text-gray-700 dark:text-gray-300">Filters</summary>
-            <FilterPanel
-              platforms={platforms}
-              vrams={vrams}
-              rams={rams}
-              quantizations={quantizations}
-              selectedPlatforms={selectedPlatforms}
-              setSelectedPlatforms={setSelectedPlatforms}
-              selectedVrams={selectedVrams}
-              setSelectedVrams={setSelectedVrams}
-              selectedRams={selectedRams}
-              setSelectedRams={setSelectedRams}
-              selectedQuantizations={selectedQuantizations}
-              setSelectedQuantizations={setSelectedQuantizations}
-              hardwareSearch={hardwareSearch}
-              setHardwareSearch={setHardwareSearch}
-              modelSearch={modelSearch}
-              setModelSearch={setModelSearch}
-              llmRunnerSearch={llmRunnerSearch}
-              setLlmRunnerSearch={setLlmRunnerSearch}
-            />
-          </details>
-        </div>
 
         {/* LLM Runner AIO Banner */}
         <div className="mt-6 rounded-xl border-2 border-indigo-200 dark:border-indigo-800 bg-gradient-to-r from-indigo-50 to-white dark:from-indigo-950 dark:to-gray-800 p-6">
