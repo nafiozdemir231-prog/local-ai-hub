@@ -171,9 +171,18 @@ export default function LLMRunnerAIO() {
           </div>
         </section>
 
-        {/* Services List */}
+        {/* How It Works */}
         <section className="mb-16">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-center mb-8">How It Works</h2>
+          
+          {/* Screenshot */}
+          <div className="mb-8">
+            <img
+              src="/2.png"
+              alt="LLM Runner AIO Screenshot"
+              className="max-w-full h-auto rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700"
+            />
+          </div>
 
           <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-8">
             <ul className="space-y-4">
