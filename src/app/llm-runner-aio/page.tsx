@@ -257,6 +257,11 @@ export default function LLMRunnerAIO() {
                     <td className="py-3 px-4 text-gray-700 dark:text-gray-300">3.11 (required)</td>
                     <td className="py-3 px-4 text-gray-700 dark:text-gray-300">3.11 (required)</td>
                   </tr>
+                  <tr>
+                    <td className="py-3 px-4 text-gray-700 dark:text-gray-300">Node.js</td>
+                    <td className="py-3 px-4 text-gray-700 dark:text-gray-300">Latest (required)</td>
+                    <td className="py-3 px-4 text-gray-700 dark:text-gray-300">Latest LTS (recommended)</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
