@@ -234,6 +234,7 @@ export default function LLMConfigsPage() {
                 <th className="border-b border-gray-200 dark:border-gray-700 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">VRAM</th>
                 <th className="border-b border-gray-200 dark:border-gray-700 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">RAM</th>
                 <th className="border-b border-gray-200 dark:border-gray-700 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Quantization</th>
+                <th className="border-b border-gray-200 dark:border-gray-700 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Context</th>
                 <th className="border-b border-gray-200 dark:border-gray-700 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">PP</th>
                 <th className="border-b border-gray-200 dark:border-gray-700 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">TG</th>
                 <th className="border-b border-gray-200 dark:border-gray-700 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Votes</th>
@@ -271,6 +272,7 @@ export default function LLMConfigsPage() {
                   <td className="px-5 py-4 text-sm text-gray-700 dark:text-gray-300 font-mono">{config.vram}GB</td>
                   <td className="px-5 py-4 text-sm text-gray-700 dark:text-gray-300 font-mono">{config.ram}GB</td>
                   <td className="px-5 py-4 text-sm text-gray-600 dark:text-gray-400 font-mono">{config.quantization}</td>
+                  <td className="px-5 py-4 text-sm text-gray-600 dark:text-gray-400 font-mono">{config.contextSize}</td>
                   <td className="px-5 py-4">
                     <span className={`inline-block rounded-md px-2.5 py-1 text-sm font-mono ${getSpeedBg(config.ppSpeed, minPP, maxPP)} ${getSpeedColor(config.ppSpeed, minPP, maxPP)}`}>
                       {config.ppSpeed}
