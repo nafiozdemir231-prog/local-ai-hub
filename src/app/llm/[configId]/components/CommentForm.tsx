@@ -70,7 +70,7 @@ export function CommentForm({ configId }: CommentFormProps) {
     <form onSubmit={handleSubmit} className="space-y-3">
       <div>
         <p className="text-sm text-gray-500 dark:text-gray-400">
-          Commenting as <span className="font-medium text-gray-900 dark:text-white">{user.name ?? user.email}</span>
+          Commenting as <span className="font-medium text-gray-900 dark:text-white">{user.name ?? "Anonymous"}</span>
         </p>
       </div>
       <textarea

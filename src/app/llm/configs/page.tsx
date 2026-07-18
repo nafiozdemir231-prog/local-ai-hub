@@ -284,7 +284,7 @@ export default function LLMConfigsPage() {
                     </span>
                   </td>
                   <td className="px-5 py-4 text-sm font-semibold text-gray-800 dark:text-gray-200">{config.starCount}</td>
-                  <td className="px-5 py-4 text-sm text-gray-600 dark:text-gray-400">{config.user.name || config.user.email || "Anonymous"}</td>
+                  <td className="px-5 py-4 text-sm text-gray-600 dark:text-gray-400">{config.user.name || "Anonymous"}</td>
                   {(isAdmin || isOwner(config.userId)) && (
                     <td className="px-5 py-4">
                       <div className="flex gap-2">
