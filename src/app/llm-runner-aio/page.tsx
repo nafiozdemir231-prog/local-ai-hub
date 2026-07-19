@@ -6,8 +6,8 @@ import { useState, useEffect } from "react";
 export default function LLMRunnerAIO() {
   const githubRepo = "https://github.com/nafiozdemir231-prog/llm-runner-aio/tree/main";
   const hfPage = "https://huggingface.co/vincespeed/llm-runner-aio";
-  const exeDownload = "https://huggingface.co/vincespeed/llm-runner-aio/resolve/main/LLM-Runner-AIO.exe";
-  const rarDownload = "https://huggingface.co/vincespeed/llm-runner-aio/resolve/main/LLM-Runner-AIO.rar";
+  const exeDownload = "https://huggingface.co/vincespeed/llm-runner-aio/resolve/main/LLM-Runner-AIOv1.exe";
+  const rarDownload = "https://huggingface.co/vincespeed/llm-runner-aio/resolve/main/LLM-Runner-AIOv1.rar";
   const nodeDownload = "https://nodejs.org/en/download";
   const pythonDownload = "https://www.python.org/ftp/python/3.11.9/python-3.11.9-amd64.exe";
   
