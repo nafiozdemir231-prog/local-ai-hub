@@ -1,9 +1,9 @@
 "use client";
 
-import { modelRankings } from "@/data/model-rankings";
-import { TrendingUp, Zap, DollarSign } from "lucide-react";
+import { modelRankings, type ModelRanking } from "@/data/model-rankings";
+import { TrendingUp, Zap, DollarSign, BookOpen } from "lucide-react";
 
-function ModelRow({ model, index }: { model: { name: string; creator: string; intelligence: number; parameters: string; contextWindow: string; price: string; speed: string }; index: number }) {
+function ModelRow({ model, index }: { model: ModelRanking; index: number }) {
   const medalColors = {
     0: "bg-gradient-to-br from-yellow-400 to-amber-500 text-white shadow-lg shadow-yellow-200",
     1: "bg-gradient-to-br from-gray-300 to-gray-400 text-white shadow-lg shadow-gray-200",
@@ -50,6 +50,18 @@ function ModelRow({ model, index }: { model: { name: string; creator: string; in
           {model.speed}
         </span>
       </td>
+      <td className="py-4 px-5">
+        {model.weights ? (
+          <span className="inline-flex items-center gap-1.5 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 px-3 py-1.5 rounded-full text-xs font-medium">
+            <BookOpen className="h-3.5 w-3.5" />
+            Open Weights
+          </span>
+        ) : (
+          <span className="inline-flex items-center gap-1.5 bg-gray-100 dark:bg-gray-700/50 text-gray-500 dark:text-gray-400 px-3 py-1.5 rounded-full text-xs font-medium">
+            Closed
+          </span>
+        )}
+      </td>
     </tr>
   );
 }
@@ -77,6 +89,7 @@ export default function ModelRankingsPage() {
                 <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Context Window</th>
                 <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Price</th>
                 <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Output Speed</th>
+                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Weights</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100 dark:divide-gray-700">
