@@ -60,7 +60,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Dynamic pages: shared LLM config detail pages (/llm/<id>)
   let configPages: MetadataRoute.Sitemap = [];
   try {
-    const configs = await prisma.llmConfig.findMany({
+    const configs = await prisma.lLMConfig.findMany({
       select: { id: true, updatedAt: true },
     });
     configPages = configs.map((config) => ({
