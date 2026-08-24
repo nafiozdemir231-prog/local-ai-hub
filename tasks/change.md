@@ -31,3 +31,8 @@ All filters visible horizontally above Sort By (Votes / PP Speed / TG Speed).
 ### Notes
 - No GitHub push performed (user instructed local-only changes)
 - Local dev server confirmed working on port 3005
+
+## 2026-08-23 - Google Search Console Verification File
+- **File:** `public/google2c508fadb43db832.html` (new)
+- **Reason:** User verifying domain ownership in Google Search Console (HTML file method). File copied byte-exact from `tasks/google/` download.
+- **Commit:** `561d225` — pushed, deployed to production. Verified live: `GET /google2c508fadb43db832.html` → 200 with exact content.

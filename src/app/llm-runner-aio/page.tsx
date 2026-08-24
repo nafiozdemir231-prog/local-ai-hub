@@ -1,36 +1,50 @@
 "use client";
 
-import { Download, Package, Server, Zap, Globe, Settings, Cpu, GitFork, ExternalLink, Code2, MessageSquare, Send, User } from "lucide-react";
+import { Download, Package, Zap, Settings, Cpu, GitFork, ExternalLink, Code2, MessageSquare, Send, User } from "lucide-react";
 import { useState, useEffect } from "react";
 
 export default function LLMRunnerAIO() {
   const githubRepo = "https://github.com/nafiozdemir231-prog/llm-runner-aio/tree/main";
   const hfPage = "https://huggingface.co/vincespeed/llm-runner-aio";
-  const exeDownload = "https://huggingface.co/vincespeed/llm-runner-aio/resolve/main/LLM-Runner-AIOv1.exe";
-  const rarDownload = "https://huggingface.co/vincespeed/llm-runner-aio/resolve/main/LLM-Runner-AIOv1.rar";
+  const exeDownload = "https://huggingface.co/vincespeed/llm-runner-aio/resolve/main/LLM-Runner-AIOv1.3.exe";
+  const rarDownload = "https://huggingface.co/vincespeed/llm-runner-aio/resolve/main/LLM-Runner-AIOv1.3.rar";
   const nodeDownload = "https://nodejs.org/en/download";
   const pythonDownload = "https://www.python.org/ftp/python/3.11.9/python-3.11.9-amd64.exe";
   
   const features = [
-    { icon: Package, title: "Single File Deployment", desc: "2.03 GB .exe with all dependencies included" },
-    { icon: Server, title: "5 Core Services", desc: "Open WebUI, llama.cpp, Vane, SearXNG, Pi Coding" },
-    { icon: Zap, title: "Automatic Setup", desc: "After Python and Node.js are installed, run the .exe file" },
-    { icon: Cpu, title: "Pre-configured Connections", desc: "Connection settings between all applications are pre-configured by default" },
-    { icon: Globe, title: "Optimized Inference", desc: "Loop issues have been resolved and optimized for maximum speed" },
-    { icon: Settings, title: "Pi Coding Integration", desc: "Dedicated area to add consultant model URLs for Pi Coding" },
+    { icon: Package, title: "No Manual Installation Required", desc: "A single 2 GB .exe file — double-click and wait. Everything is set up automatically within a local virtual environment (venv)." },
+    { icon: Cpu, title: "Automatic Hardware Detection", desc: "Detects your GPU/VRAM and applies the matching hardware profile (VRAM options: 4, 6, 8, 12, 16, 24, 32 GB)." },
+    { icon: Download, title: "Smart Model Downloader", desc: "Select your auto-detection profile and click Model Download — only models that fit your VRAM are downloaded and configured." },
+    { icon: Settings, title: "GUI Model Manager", desc: "Add, edit, or remove models straight from the System tab. Preset INIs are rewritten safely and download URLs stay in sync." },
+    { icon: Zap, title: "Built-in Video Generation", desc: "Wan2GP: install, start, stop and monitor the AI image/video server from the same screen (default port 7860)." },
+    { icon: Code2, title: "Optimized for Coding Agents", desc: "Parameters fine-tuned for Qwen and Gemma models to maximize token speed and eliminate formatting or context loop issues." },
+    { icon: GitFork, title: "100% Open Source", desc: "You can review the entire source code on GitHub." },
   ];
 
   const components = [
-    { name: "Open WebUI", desc: "Beautiful web interface for chatting with local LLMs", license: "MIT" },
-    { name: "llama.cpp", desc: "High-performance C++ inference engine", license: "MIT" },
-    { name: "SearXNG", desc: "Privacy-respecting metasearch engine", license: "GPLv3" },
-    { name: "Vane", desc: "AI-powered browser automation tool", license: "Open Source" },
-    { name: "Pi Coding", desc: "AI coding assistant with consultant model support", license: "Open Source" },
+    { name: "Open WebUI", desc: "Frontend interface for chatting with local LLMs", license: "MIT", link: "https://github.com/open-webui/open-webui" },
+    { name: "llama.cpp", desc: "Pre-compiled CUDA 13 + Vulkan inference engine", license: "MIT", link: "https://github.com/ggml-org/llama.cpp" },
+    { name: "SearXNG", desc: "Completely private local web search", license: "GPLv3", link: "https://github.com/searxng/searxng" },
+    { name: "Pi Coding", desc: "Minimal agent harness — Web search & Advisor pre-installed (bring your own API key)", license: "Open Source", link: "https://github.com/earendil-works/pi" },
+    { name: "Vane", desc: "Web search integration — llama.cpp & SearXNG settings pre-configured", license: "Open Source", link: "https://github.com/ItzCrazyKns/Vane" },
+    { name: "Wan2GP", desc: "Optional AI image/video generation, runs locally — one-click Setup from the System tab", license: "Open Source", link: "https://github.com/deepbeepmeep/Wan2GP" },
+  ];
+
+  const presets = [
+    { vram: "4 / 6 GB", ram: "32 GB", models: "qwen3.6-35B-A3B · gemma-4-26B · gemma-4-E4B" },
+    { vram: "8 GB", ram: "32 GB", models: "qwen3.6-35B-A3B · gemma-4-26B · gemma-4-E4B · qwen3.8-27B" },
+    { vram: "10 GB", ram: "32 GB", models: "qwen3.6-35B-A3B · gemma-4-26B · qwen3.8-27B" },
+    { vram: "12 GB", ram: "32 GB", models: "qwen3.6-35B-A3B · gemma-4-26B · qwen3.8-27B" },
+    { vram: "16 GB", ram: "32 GB", models: "qwen3.6-35B-A3B · gemma-4-26B · qwen3.8-27B" },
+    { vram: "24 GB", ram: "32 GB", models: "qwen3.8-27B · gemma-4-26B" },
+    { vram: "32 GB", ram: "32 GB", models: "qwen3.8-27B · gemma-4-31B" },
+    { vram: "4 GB", ram: "16 GB", models: "gemma-4-E4B · qwen3.5-4B · Ling-3.0-tiny" },
+    { vram: "6 GB", ram: "16 GB", models: "gemma-4-E4B · qwen3.5-9B · Ling-3.0-tiny" },
   ];
 
   const steps = [
     { num: "1", title: "Download", desc: "Download LLM-Runner-AIO.exe (2.03 GB) from Hugging Face" },
-    { num: "2", title: "Run", desc: "Double-click to execute — wait for required dependencies to install" },
+    { num: "2", title: "Run", desc: ".exe: double-click to execute. .RAR: extract, then run run.bat first — it installs dependencies, configures Pi Coding and creates a desktop shortcut" },
     { num: "3", title: "Detect & Download Models", desc: "Click System Detection, then Model Download — models are auto-configured for your VRAM" },
     { num: "4", title: "Start Servers", desc: "Launch all services and access at http://localhost:3000" },
   ];
@@ -132,9 +146,10 @@ export default function LLMRunnerAIO() {
           <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-8">
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Overview</h2>
             <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-              LLM Runner AIO is a comprehensive, self-contained desktop application that bundles all the tools you need 
-              to run local AI models on your own hardware. No complex setup, no dependency hell — just download, run, 
-              and start chatting with AI locally.
+              LLM Runner AIO is a comprehensive, self-contained desktop application that bundles every tool you need 
+              to run local AI models on your own hardware: Open WebUI, llama.cpp, SearXNG, Pi Coding, Vane and 
+              optional Wan2GP video generation. No complex setup, no dependency hell — just download, run, and start 
+              using AI locally. 100% open source.
             </p>
           </div>
         </section>
@@ -146,12 +161,51 @@ export default function LLMRunnerAIO() {
             {components.map((c) => (
               <div key={c.name} className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-6 hover:shadow-lg dark:hover:shadow-none hover:-translate-y-1 transition-all duration-200">
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white">{c.name}</h3>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+                    {c.link ? (
+                      <a href={c.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+                        {c.name}
+                        <ExternalLink className="h-4 w-4" />
+                      </a>
+                    ) : (
+                      c.name
+                    )}
+                  </h3>
                   <span className="text-xs font-medium bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 px-3 py-1 rounded-full">{c.license}</span>
                 </div>
                 <p className="text-sm text-gray-600 dark:text-gray-400">{c.desc}</p>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* Configured Model Presets */}
+        <section className="mb-16">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-center mb-8">Configured Model Presets</h2>
+          <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-6">
+            <div className="overflow-x-auto">
+              <table className="w-full text-left">
+                <thead>
+                  <tr className="border-b border-gray-200 dark:border-gray-700">
+                    <th className="py-3 px-4 font-semibold text-gray-900 dark:text-white">VRAM</th>
+                    <th className="py-3 px-4 font-semibold text-gray-900 dark:text-white">RAM</th>
+                    <th className="py-3 px-4 font-semibold text-gray-900 dark:text-white">Models</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {presets.map((p) => (
+                    <tr key={`${p.vram}-${p.ram}`} className="border-b border-gray-100 dark:border-gray-700">
+                      <td className="py-3 px-4 text-gray-700 dark:text-gray-300">{p.vram}</td>
+                      <td className="py-3 px-4 text-gray-700 dark:text-gray-300">{p.ram}</td>
+                      <td className="py-3 px-4 text-sm text-gray-700 dark:text-gray-300">{p.models}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-4 text-sm text-gray-500 dark:text-gray-400">
+              Every model ships with <strong>chat, vision and coding</strong> profiles. All presets can be added, edited, or removed directly from the GUI — no manual INI editing needed.
+            </p>
           </div>
         </section>
 
@@ -200,7 +254,11 @@ export default function LLMRunnerAIO() {
               </li>
               <li className="flex items-start gap-3">
                 <div className="h-2 w-2 rounded-full bg-indigo-600 mt-2 flex-shrink-0" />
-                <span className="text-gray-700 dark:text-gray-300"><strong>Vane</strong> handles browser automation at <code className="bg-gray-100 dark:bg-gray-800 px-2 py-0.5 rounded text-sm">http://localhost:3001</code></span>
+                <span className="text-gray-700 dark:text-gray-300"><strong>Vane</strong> handles web search at <code className="bg-gray-100 dark:bg-gray-800 px-2 py-0.5 rounded text-sm">http://localhost:3001</code></span>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="h-2 w-2 rounded-full bg-indigo-600 mt-2 flex-shrink-0" />
+                <span className="text-gray-700 dark:text-gray-300"><strong>Wan2GP</strong> (optional) serves AI image/video generation at <code className="bg-gray-100 dark:bg-gray-800 px-2 py-0.5 rounded text-sm">http://localhost:7860</code></span>
               </li>
             </ul>
           </div>
@@ -262,11 +320,16 @@ export default function LLMRunnerAIO() {
                     <td className="py-3 px-4 text-gray-700 dark:text-gray-300">Latest (required)</td>
                     <td className="py-3 px-4 text-gray-700 dark:text-gray-300">Latest LTS (recommended)</td>
                   </tr>
+                  <tr>
+                    <td className="py-3 px-4 text-gray-700 dark:text-gray-300">Wan2GP (optional)</td>
+                    <td className="py-3 px-4 text-gray-700 dark:text-gray-300">N/A</td>
+                    <td className="py-3 px-4 text-gray-700 dark:text-gray-300">Few extra GB disk + CUDA/driver matching your GPU generation</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
             <p className="mt-4 text-sm text-gray-500 dark:text-gray-400">
-              <strong>Note:</strong> Python 3.11 and Node.js must be installed on your system before running the app.
+              <strong>Note:</strong> Python 3.11 and Node.js must be installed on your system before running the app. The optional Wan2GP video service needs a few extra GB of disk space and the CUDA/driver version matching your GPU generation (exact requirements are shown in the setup confirmation window).
             </p>
           </div>
         </section>
