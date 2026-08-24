@@ -47,3 +47,10 @@ All filters visible horizontally above Sort By (Votes / PP Speed / TG Speed).
 - **Reason:** ThemeProvider rendered `{mounted ? children : null}` — every page's prerendered HTML was an empty shell (~11 KB). Browsers showed full UI (JS hydration) but non-JS fetchers (curl, SearXNG web-reader, some AI crawlers) received EMPTY pages. This was the true root cause behind "AI models using searxng cannot read aihublocal.com". Removed the mounted gate (children always render) and added a pre-paint inline script in layout to apply saved/system dark theme without flash.
 - **Result:** llm-runner-aio.html 11 KB → 59 KB, index.html 10 KB → 28 KB, models/rankings.html 11 KB → 257 KB (all 79 models now in raw HTML). Verified live via curl (no JS): Wan2GP present, rankings 257 KB.
 - **Commit:** `c5b7af9` — pushed, deployed, verified live.
+
+## 2026-08-24 - Post-Fix Readability Test Results
+- `web_reader_read_url` (previously failing with "Sayfa okunamadı"): NOW SUCCESS
+  - `/` → full hero + bento grid text
+  - `/models/rankings` → complete 79-model table extracted
+  - `/llm-runner-aio` → full page incl. Wan2GP, presets table, run.bat flow
+- `web_reader_search_web` for "aihublocal.com" → still not surfaced (aggregator index lag; expected, sitemap submitted 2026-08-23). Re-test in a few days.
