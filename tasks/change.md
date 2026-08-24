@@ -36,3 +36,14 @@ All filters visible horizontally above Sort By (Votes / PP Speed / TG Speed).
 - **File:** `public/google2c508fadb43db832.html` (new)
 - **Reason:** User verifying domain ownership in Google Search Console (HTML file method). File copied byte-exact from `tasks/google/` download.
 - **Commit:** `561d225` — pushed, deployed to production. Verified live: `GET /google2c508fadb43db832.html` → 200 with exact content.
+
+## 2026-08-24 - LLM Runner AIO Page Content Update
+- **File:** `src/app/llm-runner-aio/page.tsx`
+- **Reason:** Sync page with latest README: Wan2GP (optional video/image gen) in components/features/how-it-works/system requirements, new "Configured Model Presets" table (VRAM/RAM/model matrix), GitHub links on all core components, `.RAR` → `run.bat` install flow, refreshed feature list, Vane description corrected (web search integration, not browser automation).
+- **Commit:** `9b73343` — pushed, deployed, verified live (Chrome + raw HTML).
+
+## 2026-08-24 - Full SSR Restoration (Critical SEO Fix)
+- **Files:** `src/lib/theme-provider.tsx`, `src/app/layout.tsx`
+- **Reason:** ThemeProvider rendered `{mounted ? children : null}` — every page's prerendered HTML was an empty shell (~11 KB). Browsers showed full UI (JS hydration) but non-JS fetchers (curl, SearXNG web-reader, some AI crawlers) received EMPTY pages. This was the true root cause behind "AI models using searxng cannot read aihublocal.com". Removed the mounted gate (children always render) and added a pre-paint inline script in layout to apply saved/system dark theme without flash.
+- **Result:** llm-runner-aio.html 11 KB → 59 KB, index.html 10 KB → 28 KB, models/rankings.html 11 KB → 257 KB (all 79 models now in raw HTML). Verified live via curl (no JS): Wan2GP present, rankings 257 KB.
+- **Commit:** `c5b7af9` — pushed, deployed, verified live.
