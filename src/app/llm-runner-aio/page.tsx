@@ -1,6 +1,6 @@
 "use client";
 
-import { Download, Package, Zap, Settings, Cpu, GitFork, ExternalLink, Code2, MessageSquare, Send, User } from "lucide-react";
+import { Download, Package, Zap, Settings, Cpu, GitFork, ExternalLink, Code2, MessageSquare, Send, User, Gauge } from "lucide-react";
 import { useState, useEffect } from "react";
 
 export default function LLMRunnerAIO() {
@@ -12,19 +12,20 @@ export default function LLMRunnerAIO() {
   const pythonDownload = "https://www.python.org/ftp/python/3.11.9/python-3.11.9-amd64.exe";
   
   const features = [
-    { icon: Package, title: "No Manual Installation Required", desc: "A single 2 GB .exe file — double-click and wait. Everything is set up automatically within a local virtual environment (venv)." },
+    { icon: Package, title: "No Manual Installation Required", desc: "A single 2.29 GB .exe file — double-click and wait. Everything is set up automatically within a local virtual environment (venv)." },
     { icon: Cpu, title: "Automatic Hardware Detection", desc: "Detects your GPU/VRAM and applies the matching hardware profile (VRAM options: 4, 6, 8, 12, 16, 24, 32 GB)." },
     { icon: Download, title: "Smart Model Downloader", desc: "Select your auto-detection profile and click Model Download — only models that fit your VRAM are downloaded and configured." },
-    { icon: Settings, title: "GUI Model Manager", desc: "Add, edit, or remove models straight from the System tab. Preset INIs are rewritten safely and download URLs stay in sync." },
+    { icon: Settings, title: "GUI Model Manager", desc: "Add, edit, or remove models straight from the System tab — including draft/speculative URLs. Preset INIs are rewritten safely and download URLs stay in sync." },
     { icon: Zap, title: "Built-in Video Generation", desc: "Wan2GP: install, start, stop and monitor the AI image/video server from the same screen (default port 7860)." },
     { icon: Code2, title: "Optimized for Coding Agents", desc: "Parameters fine-tuned for Qwen and Gemma models to maximize token speed and eliminate formatting or context loop issues." },
+    { icon: Gauge, title: "Speculative Decoding", desc: "qwen3.8-27B ships with a DFlash2 draft model for higher token speed in supported presets." },
     { icon: GitFork, title: "100% Open Source", desc: "You can review the entire source code on GitHub." },
   ];
 
   const components = [
     { name: "Open WebUI", desc: "Frontend interface for chatting with local LLMs", license: "MIT", link: "https://github.com/open-webui/open-webui" },
     { name: "llama.cpp", desc: "Pre-compiled CUDA 13 + Vulkan inference engine", license: "MIT", link: "https://github.com/ggml-org/llama.cpp" },
-    { name: "SearXNG", desc: "Completely private local web search", license: "GPLv3", link: "https://github.com/searxng/searxng" },
+    { name: "SearXNG", desc: "Completely private local web search — Yandex engine included", license: "GPLv3", link: "https://github.com/searxng/searxng" },
     { name: "Pi Coding", desc: "Minimal agent harness — Web search & Advisor pre-installed (bring your own API key)", license: "Open Source", link: "https://github.com/earendil-works/pi" },
     { name: "Vane", desc: "Web search integration — llama.cpp & SearXNG settings pre-configured", license: "Open Source", link: "https://github.com/ItzCrazyKns/Vane" },
     { name: "Wan2GP", desc: "Optional AI image/video generation, runs locally — one-click Setup from the System tab", license: "Open Source", link: "https://github.com/deepbeepmeep/Wan2GP" },
@@ -35,11 +36,11 @@ export default function LLMRunnerAIO() {
     { vram: "8 GB", ram: "32 GB", models: "qwen3.6-35B-A3B · gemma-4-26B · gemma-4-E4B · qwen3.8-27B" },
     { vram: "10 GB", ram: "32 GB", models: "qwen3.6-35B-A3B · gemma-4-26B · qwen3.8-27B" },
     { vram: "12 GB", ram: "32 GB", models: "qwen3.6-35B-A3B · gemma-4-26B · qwen3.8-27B" },
-    { vram: "16 GB", ram: "32 GB", models: "qwen3.6-35B-A3B · gemma-4-26B · qwen3.8-27B" },
+    { vram: "16 GB", ram: "32 GB", models: "qwen3.6-35B-A3B · gemma-4-26B · qwen3.8-27B (DFlash2 draft)" },
     { vram: "24 GB", ram: "32 GB", models: "qwen3.8-27B · gemma-4-26B" },
     { vram: "32 GB", ram: "32 GB", models: "qwen3.8-27B · gemma-4-31B" },
-    { vram: "4 GB", ram: "16 GB", models: "gemma-4-E4B · qwen3.5-4B · Ling-3.0-tiny" },
-    { vram: "6 GB", ram: "16 GB", models: "gemma-4-E4B · qwen3.5-9B · Ling-3.0-tiny" },
+    { vram: "4 GB", ram: "16 GB", models: "gemma-4-E4B · qwen3.5-4B · Ling-3.0-tiny · MiniCPM5-2B · Spark-X2.5-4B" },
+    { vram: "6 GB", ram: "16 GB", models: "gemma-4-E4B · qwen3.5-9B · Ling-3.0-tiny · MiniCPM5-2B · Spark-X2.5-4B" },
   ];
 
   const steps = [
@@ -204,7 +205,7 @@ export default function LLMRunnerAIO() {
               </table>
             </div>
             <p className="mt-4 text-sm text-gray-500 dark:text-gray-400">
-              Every model ships with <strong>chat, vision and coding</strong> profiles. All presets can be added, edited, or removed directly from the GUI — no manual INI editing needed.
+              Most models ship with <strong>chat, vision and coding</strong> profiles (Ling-3.0-tiny, MiniCPM5-2B and Spark-X2.5-4B ship with a single profile). All presets can be added, edited, or removed directly from the GUI — no manual INI editing needed.
             </p>
           </div>
         </section>
