@@ -67,3 +67,11 @@ All filters visible horizontally above Sort By (Votes / PP Speed / TG Speed).
 | src/app/llm-runner-aio/page.tsx | "2 GB" -> "2.29 GB" in feature 1 | Consistency with download badges |
 - NOT done (waiting): v1.6 download URLs + "Latest: v1.6" badge — v1.6 artifacts not yet on HuggingFace (404 verified). Will switch when user uploads.
 - Commit: `6124f9f` — pushed to origin/main
+
+## 2026-08-25 - LLM Runner AIO v1.6 Release Links
+| File | Change | Reason |
+|------|--------|--------|
+| src/app/llm-runner-aio/page.tsx | exe/rar URLs v1.5 -> v1.6 | User uploaded v1.6 artifacts to HuggingFace (verified 302) |
+| src/app/llm-runner-aio/page.tsx | Added green "Latest: v1.6" badge next to hero pill | Version trust signal |
+| src/app/llm-runner-aio/page.tsx | Size labels 2.29 GB -> 2.28 GB (6 places) | Actual v1.6 file size: 2,450,307,092 B = 2.28 GiB |
+- Commit: `a65fd5c` — pushed to origin/main
