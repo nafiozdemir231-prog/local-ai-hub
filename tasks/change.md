@@ -54,3 +54,16 @@ All filters visible horizontally above Sort By (Votes / PP Speed / TG Speed).
   - `/models/rankings` → complete 79-model table extracted
   - `/llm-runner-aio` → full page incl. Wan2GP, presets table, run.bat flow
 - `web_reader_search_web` for "aihublocal.com" → still not surfaced (aggregator index lag; expected, sitemap submitted 2026-08-23). Re-test in a few days.
+
+## 2026-08-25 - LLM Runner AIO Page Refresh (pre-v1.6 content)
+| File | Change | Reason |
+|------|--------|--------|
+| src/app/llm-runner-aio/page.tsx | 4GB/6GB 16GB RAM preset rows: added MiniCPM5-2B + Spark-X2.5-4B | New INI entries |
+| src/app/llm-runner-aio/page.tsx | 16GB VRAM / 32GB RAM row: qwen3.8-27B marked "(DFlash2 draft)" | Speculative decoding in this preset only |
+| src/app/llm-runner-aio/page.tsx | "Every model ships with chat, vision and coding profiles" -> "Most models ..." + exception list | Ling-3.0-tiny/MiniCPM5-2B/Spark-X2.5-4B are single-profile |
+| src/app/llm-runner-aio/page.tsx | New feature card: "Speculative Decoding" (Gauge icon) | DFlash2 draft model highlight |
+| src/app/llm-runner-aio/page.tsx | GUI Model Manager desc: "+ including draft/speculative URLs" | Manager now handles draft URLs |
+| src/app/llm-runner-aio/page.tsx | SearXNG desc: "+ Yandex engine included" | New engine |
+| src/app/llm-runner-aio/page.tsx | "2 GB" -> "2.29 GB" in feature 1 | Consistency with download badges |
+- NOT done (waiting): v1.6 download URLs + "Latest: v1.6" badge — v1.6 artifacts not yet on HuggingFace (404 verified). Will switch when user uploads.
+- Commit: `6124f9f` — pushed to origin/main
