@@ -75,3 +75,12 @@ All filters visible horizontally above Sort By (Votes / PP Speed / TG Speed).
 | src/app/llm-runner-aio/page.tsx | Added green "Latest: v1.6" badge next to hero pill | Version trust signal |
 | src/app/llm-runner-aio/page.tsx | Size labels 2.29 GB -> 2.28 GB (6 places) | Actual v1.6 file size: 2,450,307,092 B = 2.28 GiB |
 - Commit: `a65fd5c` — pushed to origin/main
+
+## 2026-08-25 - Auto-Version Title for LLM Runner AIO Page
+| File | Change | Reason |
+|------|--------|--------|
+| src/app/llm-runner-aio/page.tsx | `appVersion` derived from exe URL via regex (`-(v[\d.]+)\.exe$`) | Single source of truth = download link |
+| src/app/llm-runner-aio/page.tsx | H1 renders "LLM Runner AIO v1.6" | Version visible in title |
+| src/app/llm-runner-aio/page.tsx | "Latest:" badge uses derived version (hidden if missing) | Stays in sync automatically |
+- Workflow: future releases only need the exe/rar URL update — title & badge follow.
+- Commit: `3fd1703` — pushed to origin/main
