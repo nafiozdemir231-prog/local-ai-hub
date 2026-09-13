@@ -84,3 +84,10 @@ All filters visible horizontally above Sort By (Votes / PP Speed / TG Speed).
 | src/app/llm-runner-aio/page.tsx | "Latest:" badge uses derived version (hidden if missing) | Stays in sync automatically |
 - Workflow: future releases only need the exe/rar URL update — title & badge follow.
 - Commit: `3fd1703` — pushed to origin/main
+
+## 2026-08-25 - Fix: Version Not Rendered (Regex Bug)
+| File | Change | Reason |
+|------|--------|--------|
+| src/app/llm-runner-aio/page.tsx | Regex `-(v[\d.]+)\.exe$` -> `AIO(v[\d.]+)\.exe$` | Filename is `AIOv1.6` (no dash before version); old regex yielded empty string |
+- Verified live via MCP web-reader: H1 = "LLM Runner AIO v1.6", badge = "Latest: v1.6"
+- Commit: `23920f8` — pushed to origin/main
