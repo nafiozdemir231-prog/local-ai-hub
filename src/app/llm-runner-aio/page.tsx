@@ -12,7 +12,7 @@ export default function LLMRunnerAIO() {
   const pythonDownload = "https://www.python.org/ftp/python/3.11.9/python-3.11.9-amd64.exe";
 
   // Version is auto-derived from the .exe download filename (e.g. LLM-Runner-AIOv1.6.exe -> "v1.6")
-  const appVersionMatch = exeDownload.match(/-(v[\d.]+)\.exe$/);
+  const appVersionMatch = exeDownload.match(/AIO(v[\d.]+)\.exe$/);
   const appVersion = appVersionMatch ? appVersionMatch[1] : "";
   
   const features = [
