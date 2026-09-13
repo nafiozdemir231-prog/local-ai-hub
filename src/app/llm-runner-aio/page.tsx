@@ -10,6 +10,10 @@ export default function LLMRunnerAIO() {
   const rarDownload = "https://huggingface.co/vincespeed/llm-runner-aio/resolve/main/LLM-Runner-AIOv1.6.rar";
   const nodeDownload = "https://nodejs.org/en/download";
   const pythonDownload = "https://www.python.org/ftp/python/3.11.9/python-3.11.9-amd64.exe";
+
+  // Version is auto-derived from the .exe download filename (e.g. LLM-Runner-AIOv1.6.exe -> "v1.6")
+  const appVersionMatch = exeDownload.match(/-(v[\d.]+)\.exe$/);
+  const appVersion = appVersionMatch ? appVersionMatch[1] : "";
   
   const features = [
     { icon: Package, title: "No Manual Installation Required", desc: "A single 2.28 GB .exe file — double-click and wait. Everything is set up automatically within a local virtual environment (venv)." },
@@ -60,12 +64,14 @@ export default function LLMRunnerAIO() {
               <Zap className="h-4 w-4" />
               All-in-One Package
             </span>
-            <span className="inline-flex items-center gap-2 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 px-4 py-2 rounded-full text-sm font-medium">
-              Latest: v1.6
-            </span>
+            {appVersion && (
+              <span className="inline-flex items-center gap-2 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 px-4 py-2 rounded-full text-sm font-medium">
+                Latest: {appVersion}
+              </span>
+            )}
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            LLM Runner AIO
+            LLM Runner AIO{appVersion ? ` ${appVersion}` : ""}
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-400 mb-8">
             All Local LLM Tools — In a Single .exe File
