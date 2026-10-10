@@ -6,12 +6,12 @@ import { useState, useEffect } from "react";
 export default function LLMRunnerAIO() {
   const githubRepo = "https://github.com/nafiozdemir231-prog/llm-runner-aio/tree/main";
   const hfPage = "https://huggingface.co/vincespeed/llm-runner-aio";
-  const exeDownload = "https://huggingface.co/vincespeed/llm-runner-aio/resolve/main/LLM-Runner-AIOv1.9.exe";
-  const rarDownload = "https://huggingface.co/vincespeed/llm-runner-aio/resolve/main/LLM-Runner-AIOv1.9.exe";
+  const exeDownload = "https://huggingface.co/vincespeed/llm-runner-aio/resolve/main/LLM-Runner-AIOv2.0.exe";
+  const rarDownload = "https://huggingface.co/vincespeed/llm-runner-aio/resolve/main/LLM-Runner-AIOv2.0.exe";
   const nodeDownload = "https://nodejs.org/en/download";
   const pythonDownload = "https://www.python.org/ftp/python/3.11.9/python-3.11.9-amd64.exe";
 
-  // Version is auto-derived from the .exe download filename (e.g. LLM-Runner-AIOv1.9.exe -> "v1.9")
+  // Version is auto-derived from the .exe download filename (e.g. LLM-Runner-AIOv2.0.exe -> "v2.0")
   const appVersionMatch = exeDownload.match(/AIO(v[\d.]+)\.exe$/);
   const appVersion = appVersionMatch ? appVersionMatch[1] : "";
   
