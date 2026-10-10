@@ -1,13 +1,13 @@
 "use client";
 
-import { Download, Package, Zap, Settings, Cpu, GitFork, ExternalLink, Code2, MessageSquare, Send, User, Gauge } from "lucide-react";
+import { Download, Package, Zap, Settings, Cpu, GitFork, ExternalLink, Code2, MessageSquare, Send, User, Gauge, Network } from "lucide-react";
 import { useState, useEffect } from "react";
 
 export default function LLMRunnerAIO() {
   const githubRepo = "https://github.com/nafiozdemir231-prog/llm-runner-aio/tree/main";
   const hfPage = "https://huggingface.co/vincespeed/llm-runner-aio";
   const exeDownload = "https://huggingface.co/vincespeed/llm-runner-aio/resolve/main/LLM-Runner-AIOv2.0.exe";
-  const rarDownload = "https://huggingface.co/vincespeed/llm-runner-aio/resolve/main/LLM-Runner-AIOv2.0.exe";
+  const rarDownload = "https://huggingface.co/vincespeed/llm-runner-aio/resolve/main/LLM-Runner-AIOv2.0.rar";
   const nodeDownload = "https://nodejs.org/en/download";
   const pythonDownload = "https://www.python.org/ftp/python/3.11.9/python-3.11.9-amd64.exe";
 
@@ -16,23 +16,25 @@ export default function LLMRunnerAIO() {
   const appVersion = appVersionMatch ? appVersionMatch[1] : "";
   
   const features = [
-    { icon: Package, title: "No Manual Installation Required", desc: "A single 2.28 GB .exe file — double-click and wait. Everything is set up automatically within a local virtual environment (venv)." },
+    { icon: Package, title: "No Manual Installation Required", desc: "A single 2.26 GB .exe file — double-click and wait. All dependencies install automatically within a local virtual environment (venv)." },
     { icon: Cpu, title: "Automatic Hardware Detection", desc: "Detects your GPU/VRAM and applies the matching hardware profile (VRAM options: 4, 6, 8, 12, 16, 24, 32 GB)." },
-    { icon: Download, title: "Smart Model Downloader", desc: "Select your auto-detection profile and click Model Download — only models that fit your VRAM are downloaded and configured." },
-    { icon: Settings, title: "GUI Model Manager", desc: "Add, edit, or remove models straight from the System tab — including draft/speculative URLs. Preset INIs are rewritten safely and download URLs stay in sync." },
-    { icon: Zap, title: "Built-in Video Generation", desc: "Wan2GP: install, start, stop and monitor the AI image/video server from the same screen (default port 7860)." },
+    { icon: Download, title: "Smart Model Downloader", desc: "Select your auto-detection profile and click Model Download — only models that fit your VRAM (including any speculative draft models defined in the preset) are downloaded and llama.cpp is configured accordingly." },
+    { icon: Settings, title: "GUI Model Manager", desc: "Add, edit, or remove models straight from the System tab. Preset INIs are rewritten safely (comments and order preserved), main/MMProj/draft URLs stay in sync in model_urls.json, with one-click URL health checks per model or for all at once." },
+    { icon: Zap, title: "Built-in Video Generation", desc: "Wan2GP: detects your GPU generation (NVIDIA GTX 10xx–RTX 50xx, AMD RX 6xxx/7xxx/9xxx/APU, Intel Arc), installs the matching package and lets you start, stop and monitor the server from the same screen (default port 7860)." },
+    { icon: Network, title: "Multi-Model Local Gateway", desc: "Strata (48 GB+ machines): one API port serves a general and a coding persona of the same Qwen3.8-Flash-Next MoE model on a shared engine — hardware calibration, idle unload and one-click safe updates included." },
     { icon: Code2, title: "Optimized for Coding Agents", desc: "Parameters fine-tuned for Qwen and Gemma models to maximize token speed and eliminate formatting or context loop issues." },
-    { icon: Gauge, title: "Speculative Decoding", desc: "qwen3.8-27B ships with a DFlash2 draft model for higher token speed in supported presets." },
+    { icon: Gauge, title: "Speculative Decoding", desc: "The 16 GB preset runs qwen3.8-27B together with a DFlash2 draft model for higher token speed; drafts are downloaded, listed and managed alongside the main model." },
     { icon: GitFork, title: "100% Open Source", desc: "You can review the entire source code on GitHub." },
   ];
 
   const components = [
-    { name: "Open WebUI", desc: "Frontend interface for chatting with local LLMs", license: "MIT", link: "https://github.com/open-webui/open-webui" },
+    { name: "Open WebUI", desc: "Frontend interface for chatting with local LLMs — SearXNG & llama.cpp settings pre-configured; loadable functions included (EasySearch, PDF/Excel/DOCX export, thinking toggle)", license: "MIT", link: "https://github.com/open-webui/open-webui" },
     { name: "llama.cpp", desc: "Pre-compiled CUDA 13 + Vulkan inference engine", license: "MIT", link: "https://github.com/ggml-org/llama.cpp" },
     { name: "SearXNG", desc: "Completely private local web search — Yandex engine included", license: "GPLv3", link: "https://github.com/searxng/searxng" },
     { name: "Pi Coding", desc: "Minimal agent harness — Web search & Advisor pre-installed (bring your own API key)", license: "Open Source", link: "https://github.com/earendil-works/pi" },
     { name: "Vane", desc: "Web search integration — llama.cpp & SearXNG settings pre-configured", license: "Open Source", link: "https://github.com/ItzCrazyKns/Vane" },
-    { name: "Wan2GP", desc: "Optional AI image/video generation, runs locally — one-click Setup from the System tab", license: "Open Source", link: "https://github.com/deepbeepmeep/Wan2GP" },
+    { name: "Wan2GP", desc: "Optional AI image/video generation, runs locally — one-click Setup from the System tab; Deepy assistant can optionally offload reasoning to another PC (Remote LLM mode)", license: "Open Source", link: "https://github.com/deepbeepmeep/Wan2GP" },
+    { name: "Strata", desc: "Optional multi-model local gateway for 48 GB+ machines — Qwen3.8-Flash-Next MoE served on one shared engine via OpenAI + Anthropic API (default port 1235)", license: "Open Source", link: "https://github.com/Niko1221/Strata" },
   ];
 
   const presets = [
@@ -48,7 +50,7 @@ export default function LLMRunnerAIO() {
   ];
 
   const steps = [
-    { num: "1", title: "Download", desc: "Download LLM-Runner-AIO.exe (2.28 GB) from Hugging Face" },
+    { num: "1", title: "Download", desc: "Download LLM-Runner-AIO.exe (2.26 GB) from Hugging Face" },
     { num: "2", title: "Run", desc: ".exe: double-click to execute. .RAR: extract, then run run.bat first — it installs dependencies, configures Pi Coding and creates a desktop shortcut" },
     { num: "3", title: "Detect & Download Models", desc: "Click System Detection, then Model Download — models are auto-configured for your VRAM" },
     { num: "4", title: "Start Servers", desc: "Launch all services and access at http://localhost:3000" },
@@ -85,7 +87,7 @@ export default function LLMRunnerAIO() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-indigo-600 dark:bg-indigo-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-indigo-700 dark:hover:bg-indigo-700 shadow-lg shadow-indigo-200 dark:shadow-none transition-all duration-200 hover:-translate-y-0.5">
               <Download className="h-5 w-5" />
-              Download LLM-Runner-AIO.exe (2.28 GB)
+              Download LLM-Runner-AIO.exe (2.26 GB)
             </a>
             <a
               href={rarDownload}
@@ -93,7 +95,7 @@ export default function LLMRunnerAIO() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-white dark:bg-gray-800 text-indigo-600 dark:text-indigo-400 border-2 border-indigo-600 dark:border-indigo-500 px-6 py-3 rounded-xl text-base font-semibold hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-all duration-200">
               <Download className="h-5 w-5" />
-              Download .RAR (2.28 GB)
+              Download .RAR (2.26 GB)
             </a>
           </div>
           
@@ -159,8 +161,8 @@ export default function LLMRunnerAIO() {
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Overview</h2>
             <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
               LLM Runner AIO is a comprehensive, self-contained desktop application that bundles every tool you need 
-              to run local AI models on your own hardware: Open WebUI, llama.cpp, SearXNG, Pi Coding, Vane and 
-              optional Wan2GP video generation. No complex setup, no dependency hell — just download, run, and start 
+              to run local AI models on your own hardware: Open WebUI, llama.cpp, SearXNG, Pi Coding, Vane,
+              optional Wan2GP video generation and the Strata multi-model gateway. No complex setup, no dependency hell — just download, run, and start 
               using AI locally. 100% open source.
             </p>
           </div>
@@ -272,6 +274,10 @@ export default function LLMRunnerAIO() {
                 <div className="h-2 w-2 rounded-full bg-indigo-600 mt-2 flex-shrink-0" />
                 <span className="text-gray-700 dark:text-gray-300"><strong>Wan2GP</strong> (optional) serves AI image/video generation at <code className="bg-gray-100 dark:bg-gray-800 px-2 py-0.5 rounded text-sm">http://localhost:7860</code></span>
               </li>
+              <li className="flex items-start gap-3">
+                <div className="h-2 w-2 rounded-full bg-indigo-600 mt-2 flex-shrink-0" />
+                <span className="text-gray-700 dark:text-gray-300"><strong>Strata</strong> (optional) serves the multi-model local gateway at <code className="bg-gray-100 dark:bg-gray-800 px-2 py-0.5 rounded text-sm">http://localhost:1235</code> (OpenAI + Anthropic API)</span>
+              </li>
             </ul>
           </div>
         </section>
@@ -337,11 +343,16 @@ export default function LLMRunnerAIO() {
                     <td className="py-3 px-4 text-gray-700 dark:text-gray-300">N/A</td>
                     <td className="py-3 px-4 text-gray-700 dark:text-gray-300">Few extra GB disk + CUDA/driver matching your GPU generation</td>
                   </tr>
+                  <tr>
+                    <td className="py-3 px-4 text-gray-700 dark:text-gray-300">Strata (optional)</td>
+                    <td className="py-3 px-4 text-gray-700 dark:text-gray-300">48 GB RAM + 12 GB VRAM</td>
+                    <td className="py-3 px-4 text-gray-700 dark:text-gray-300">~58–84 GB free disk for the MoE model download</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
             <p className="mt-4 text-sm text-gray-500 dark:text-gray-400">
-              <strong>Note:</strong> Python 3.11 and Node.js must be installed on your system before running the app. The optional Wan2GP video service needs a few extra GB of disk space and the CUDA/driver version matching your GPU generation (exact requirements are shown in the setup confirmation window).
+              <strong>Note:</strong> Python 3.11 and Node.js must be installed on your system before running the app. The optional Wan2GP video service needs a few extra GB of disk space and the CUDA/driver version matching your GPU generation (exact requirements are shown in the setup confirmation window). The optional Strata gateway requires at least 48 GB RAM and 12 GB VRAM — its card only appears on machines that meet these thresholds.
             </p>
           </div>
         </section>
@@ -413,7 +424,7 @@ export default function LLMRunnerAIO() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-indigo-600 dark:bg-indigo-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-indigo-700 dark:hover:bg-indigo-700 shadow-lg shadow-indigo-200 dark:shadow-none transition-all duration-200 hover:-translate-y-0.5">
               <Download className="h-5 w-5" />
-              Download .exe (2.28 GB)
+              Download .exe (2.26 GB)
             </a>
             <a
               href={rarDownload}
@@ -421,7 +432,7 @@ export default function LLMRunnerAIO() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-white dark:bg-gray-800 text-indigo-600 dark:text-indigo-400 border-2 border-indigo-600 dark:border-indigo-500 px-6 py-3 rounded-xl text-base font-semibold hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-all duration-200">
               <Download className="h-5 w-5" />
-              Download .RAR (2.28 GB)
+              Download .RAR (2.26 GB)
             </a>
           </div>
         </section>
