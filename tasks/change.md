@@ -91,3 +91,17 @@ All filters visible horizontally above Sort By (Votes / PP Speed / TG Speed).
 | src/app/llm-runner-aio/page.tsx | Regex `-(v[\d.]+)\.exe$` -> `AIO(v[\d.]+)\.exe$` | Filename is `AIOv1.6` (no dash before version); old regex yielded empty string |
 - Verified live via MCP web-reader: H1 = "LLM Runner AIO v1.6", badge = "Latest: v1.6"
 - Commit: `23920f8` — pushed to origin/main
+
+## 2026-10-09 - LLM Runner AIO v2.0 Page Update (from tasks/README.md)
+| File | Change | Reason |
+|------|--------|--------|
+| src/app/llm-runner-aio/page.tsx | FIXED: rarDownload pointed to .exe file (user bat bug) -> .rar | Broken download link |
+| src/app/llm-runner-aio/page.tsx | New component card + feature card + How It Works entry (port 1235) + System Reqs row (48 GB RAM/12 GB VRAM, ~58-84 GB disk) + note: Strata | v2.0 adds Strata multi-model gateway |
+| src/app/llm-runner-aio/page.tsx | Open WebUI desc: loadable functions (EasySearch, exports, thinking toggle) | README v2.0 detail |
+| src/app/llm-runner-aio/page.tsx | Wan2GP: GPU generation packages + Deepy Remote LLM mode | README v2.0 detail |
+| src/app/llm-runner-aio/page.tsx | GUI Model Manager: model_urls.json (main/MMProj/draft), URL health checks | README v2.0 detail |
+| src/app/llm-runner-aio/page.tsx | Smart Model Downloader: includes speculative draft models | README v2.0 detail |
+| src/app/llm-runner-aio/page.tsx | Speculative Decoding: 16 GB preset wording, draft management | README v2.0 detail |
+| src/app/llm-runner-aio/page.tsx | Size labels 2.28 -> 2.26 GB (v2.0 files: 2,424,598,384 B = 2.26 GiB) | Actual v2.0 size |
+- v2.0 HF artifacts verified live (HTTP 200). Title/badge auto-switch to v2.0 via derived version regex.
+- Commit: `6ff34e8` — pushed to origin/main
