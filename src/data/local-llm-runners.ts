@@ -88,6 +88,14 @@ export const localLLMRunners = [
     explanation: "CUDA-optimized LLM inference engine. Faster than llama.cpp for FP16/A16. Supports GPTQ, AWQ, FP16 models. Best performance for NVIDIA GPUs 10XX+.",
   },
   {
+    name: "Strata",
+    os: "Windows / Linux",
+    platform: "CUDA / ROCm (NVIDIA & AMD GPU)",
+    supported: "LLM, Vision, MCP, API",
+    websiteUrl: "https://github.com/Niko1221/Strata",
+    explanation: "Runs the 125B Qwen3.8-Flash-Next MoE model on consumer PCs (12 GB+ VRAM, 32 GB+ RAM). One-click installer, OpenAI + Anthropic API on localhost, MCP server for coding agents, multi-GPU sharing and IQ quantization presets.",
+  },
+  {
     name: "llama.cpp Forks — Aquila",
     os: "Windows / macOS / Linux",
     platform: "CUDA / CPU",
