@@ -16,7 +16,7 @@ export default function LLMRunnerAIO() {
   const appVersion = appVersionMatch ? appVersionMatch[1] : "";
   
   const features = [
-    { icon: Package, title: "No Manual Installation Required", desc: "A single 2.26 GB .exe file — double-click and wait. All dependencies install automatically within a local virtual environment (venv)." },
+    { icon: Package, title: "No Manual Installation Required", desc: "A single 2.28 GB .exe file — double-click and wait. All dependencies install automatically within a local virtual environment (venv)." },
     { icon: Cpu, title: "Automatic Hardware Detection", desc: "Detects your GPU/VRAM and applies the matching hardware profile (VRAM options: 4, 6, 8, 12, 16, 24, 32 GB)." },
     { icon: Download, title: "Smart Model Downloader", desc: "Select your auto-detection profile and click Model Download — only models that fit your VRAM (including any speculative draft models defined in the preset) are downloaded and llama.cpp is configured accordingly." },
     { icon: Settings, title: "GUI Model Manager", desc: "Add, edit, or remove models straight from the System tab. Preset INIs are rewritten safely (comments and order preserved), main/MMProj/draft URLs stay in sync in model_urls.json, with one-click URL health checks per model or for all at once." },
@@ -50,7 +50,7 @@ export default function LLMRunnerAIO() {
   ];
 
   const steps = [
-    { num: "1", title: "Download", desc: "Download LLM-Runner-AIO.exe (2.26 GB) from Hugging Face" },
+    { num: "1", title: "Download", desc: "Download LLM-Runner-AIO.exe (2.28 GB) from Hugging Face" },
     { num: "2", title: "Run", desc: ".exe: double-click to execute. .RAR: extract, then run run.bat first — it installs dependencies, configures Pi Coding and creates a desktop shortcut" },
     { num: "3", title: "Detect & Download Models", desc: "Click System Detection, then Model Download — models are auto-configured for your VRAM" },
     { num: "4", title: "Start Servers", desc: "Launch all services and access at http://localhost:3000" },
@@ -87,7 +87,7 @@ export default function LLMRunnerAIO() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-indigo-600 dark:bg-indigo-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-indigo-700 dark:hover:bg-indigo-700 shadow-lg shadow-indigo-200 dark:shadow-none transition-all duration-200 hover:-translate-y-0.5">
               <Download className="h-5 w-5" />
-              Download LLM-Runner-AIO.exe (2.26 GB)
+              Download LLM-Runner-AIO.exe (2.28 GB)
             </a>
             <a
               href={rarDownload}
@@ -95,7 +95,7 @@ export default function LLMRunnerAIO() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-white dark:bg-gray-800 text-indigo-600 dark:text-indigo-400 border-2 border-indigo-600 dark:border-indigo-500 px-6 py-3 rounded-xl text-base font-semibold hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-all duration-200">
               <Download className="h-5 w-5" />
-              Download .RAR (2.26 GB)
+              Download .RAR (2.28 GB)
             </a>
           </div>
           
@@ -424,7 +424,7 @@ export default function LLMRunnerAIO() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-indigo-600 dark:bg-indigo-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-indigo-700 dark:hover:bg-indigo-700 shadow-lg shadow-indigo-200 dark:shadow-none transition-all duration-200 hover:-translate-y-0.5">
               <Download className="h-5 w-5" />
-              Download .exe (2.26 GB)
+              Download .exe (2.28 GB)
             </a>
             <a
               href={rarDownload}
@@ -432,7 +432,7 @@ export default function LLMRunnerAIO() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-white dark:bg-gray-800 text-indigo-600 dark:text-indigo-400 border-2 border-indigo-600 dark:border-indigo-500 px-6 py-3 rounded-xl text-base font-semibold hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-all duration-200">
               <Download className="h-5 w-5" />
-              Download .RAR (2.26 GB)
+              Download .RAR (2.28 GB)
             </a>
           </div>
         </section>
