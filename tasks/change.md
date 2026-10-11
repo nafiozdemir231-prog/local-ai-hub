@@ -105,3 +105,11 @@ All filters visible horizontally above Sort By (Votes / PP Speed / TG Speed).
 | src/app/llm-runner-aio/page.tsx | Size labels 2.28 -> 2.26 GB (v2.0 files: 2,424,598,384 B = 2.26 GiB) | Actual v2.0 size |
 - v2.0 HF artifacts verified live (HTTP 200). Title/badge auto-switch to v2.0 via derived version regex.
 - Commit: `6ff34e8` — pushed to origin/main
+
+## 2026-10-11 - LLM Runner AIO v2.1 screenshot + labels
+| File | Change | Reason |
+|------|--------|--------|
+| public/2.png | Replaced with new Server Management screenshot (1568x924, shows Strata Gateway sidebar + startup options) | User updated app UI |
+| src/app/llm-runner-aio/page.tsx | Size labels 2.26 -> 2.28 GB (v2.1 exe: 2,449,395,116 B = 2.28 GiB) | Actual v2.1 size |
+- Bat already switched download URLs to v2.1 (commit 71e496a); HF v2.1 files verified live (HTTP 200). Title/badge auto-derive "v2.1".
+- Commit pushed; note: app sidebar now shows "Wan2GP / ComfyUI" - page copy does not mention ComfyUI yet (pending user decision).
