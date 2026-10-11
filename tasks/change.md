@@ -113,3 +113,8 @@ All filters visible horizontally above Sort By (Votes / PP Speed / TG Speed).
 | src/app/llm-runner-aio/page.tsx | Size labels 2.26 -> 2.28 GB (v2.1 exe: 2,449,395,116 B = 2.28 GiB) | Actual v2.1 size |
 - Bat already switched download URLs to v2.1 (commit 71e496a); HF v2.1 files verified live (HTTP 200). Title/badge auto-derive "v2.1".
 - Commit pushed; note: app sidebar now shows "Wan2GP / ComfyUI" - page copy does not mention ComfyUI yet (pending user decision).
+
+## 2026-10-11 - Strata added to LLM Runners tab
+| File | Change | Reason |
+|------|--------|--------|
+| src/data/local-llm-runners.ts | Added "Strata" row (after ExLlamaV2, before llama.cpp forks group): Windows/Linux, CUDA/ROCm, LLM+Vision+MCP+API, github.com/Niko1221/Strata | User request; facts verified from Strata repo README (125B Qwen3.8-Flash-Next MoE, 12 GB+ VRAM, 32 GB+ RAM, OpenAI/Anthropic localhost API, MCP server, multi-GPU) |
