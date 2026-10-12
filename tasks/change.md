@@ -141,3 +141,9 @@ All filters visible horizontally above Sort By (Votes / PP Speed / TG Speed).
 |------|--------|--------|
 | .../gen1.js gen2.js gen3.js + index.html | Logo "▮ localaihub" -> "▮ aihublocal.com" (amber "ai", soluk ".com"); index <title> güncellendi | Kullanıcı: site adı domain ile aynı olsun |
 - 8 mockup sayfasının tümünde yeni marka; footer zaten aihublocal.com idi. Gerçek sitenin Navbar/metadata adı henüz değişmedi (onay bekleniyor).
+
+## 2026-10-11 - Language: everything English (branch + mockup)
+| File | Change | Reason |
+|------|--------|--------|
+| llama-hq (branch) page.tsx, layout.tsx metadata | Hero/terminal/stats/card copy + title/description -> English | User: "herşey ingilizce olsun" |
+| tasks/arayuz/tasarim2-obsidian/* | gen1/2/3 + index.html all visible copy and code comments -> English; pages regenerated | Consistency with site language |
