@@ -41,49 +41,6 @@ export function Navbar() {
           </span>
         </Link>
 
-        {/* Theme Toggle Desktop */}
-        <button
-          onClick={toggleTheme}
-          className="rounded-lg p-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200"
-          title="Toggle theme"
-        >
-          {theme === "light" ? (
-            <Moon className="h-5 w-5" />
-          ) : (
-            <Sun className="h-5 w-5" />
-          )}
-        </button>
-
-        {/* Language selector — 8 languages, matches the app */}
-        <div className="relative">
-          <button
-            onClick={() => setLangMenuOpen(!langMenuOpen)}
-            className="flex items-center gap-1.5 rounded-lg border border-border px-2.5 py-1.5 font-mono text-xs transition hover:bg-accent"
-            title="Language"
-          >
-            <Globe className="h-3.5 w-3.5" />
-            <span className="font-bold uppercase">{lang}</span>
-          </button>
-          {langMenuOpen && (
-            <div className="absolute left-0 top-full z-50 mt-1 w-40 rounded-lg border border-border bg-popover p-1 shadow-xl">
-              {LANGS.map((l) => (
-                <button
-                  key={l.code}
-                  onClick={() => {
-                    setLang(l.code);
-                    setLangMenuOpen(false);
-                  }}
-                  className={`flex w-full items-center gap-2 rounded-md px-3 py-2 text-left text-sm transition ${
-                    l.code === lang ? "bg-accent font-semibold text-primary" : "text-muted-foreground hover:bg-accent/60"
-                  }`}
-                >
-                  <span>{l.flag}</span> {l.name}
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
-
         {/* Desktop Navigation */}
         <div className="hidden items-center gap-1 md:flex">
           {navLinks.map((link) => (
@@ -176,6 +133,49 @@ export function Navbar() {
               </button>
             </div>
           )}
+        </div>
+
+        {/* Language + Theme — far right cluster (mockup order) */}
+        <div className="flex items-center gap-1.5">
+          <div className="relative">
+            <button
+              onClick={() => setLangMenuOpen(!langMenuOpen)}
+              className="flex items-center gap-1.5 rounded-lg border border-border px-2.5 py-1.5 font-mono text-xs transition hover:bg-accent"
+              title="Language"
+            >
+              <Globe className="h-3.5 w-3.5" />
+              <span className="font-bold uppercase">{lang}</span>
+            </button>
+            {langMenuOpen && (
+              <div className="absolute right-0 top-full z-50 mt-1 w-40 rounded-lg border border-border bg-popover p-1 shadow-xl">
+                {LANGS.map((l) => (
+                  <button
+                    key={l.code}
+                    onClick={() => {
+                      setLang(l.code);
+                      setLangMenuOpen(false);
+                    }}
+                    className={`flex w-full items-center gap-2 rounded-md px-3 py-2 text-left text-sm transition ${
+                      l.code === lang ? "bg-accent font-semibold text-primary" : "text-muted-foreground hover:bg-accent/60"
+                    }`}
+                  >
+                    <span>{l.flag}</span> {l.name}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+          <button
+            onClick={toggleTheme}
+            className="rounded-lg border border-border p-2 text-muted-foreground transition-all duration-200 hover:bg-accent hover:text-primary"
+            title="Toggle theme"
+          >
+            {theme === "light" ? (
+              <Moon className="h-4 w-4" />
+            ) : (
+              <Sun className="h-4 w-4" />
+            )}
+          </button>
         </div>
       </div>
 
