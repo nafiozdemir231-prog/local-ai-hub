@@ -1,23 +1,24 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Sora, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { Providers } from "@/components/providers";
 
-const geistSans = Geist({
+// Obsidian fontları — değişken adları korunuyor (diğer bileşenler referans veriyor)
+const geistSans = Sora({
   variable: "--font-geist-sans",
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
 });
 
-const geistMono = Geist_Mono({
+const geistMono = JetBrains_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "Local AI Hub",
-  description: "Discover and share local LLM configurations",
+  title: "Aihublocal — Yerel Yapay Zekâ Hub’ı",
+  description: "LLM Runner AIO ile kendi PC'nde yerel yapay zekâ: Open WebUI, llama.cpp, SearXNG, Strata ve 121 model sıralaması.",
 };
 
 export default function RootLayout({
