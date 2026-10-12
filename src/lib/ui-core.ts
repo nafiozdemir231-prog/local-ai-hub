@@ -65,6 +65,7 @@ export const UI_SHARE: Record<string, L> = {
   "cfg.back": { en: "Back", tr: "Geri", es: "Volver", de: "Zurück", fr: "Retour", pt: "Voltar", zh: "返回", ja: "戻る" },
   "cfg.shareSub": { en: "Share your local LLM configuration with the community.", tr: "Yerel LLM yapılandırmanı toplulukla paylaş.", es: "Comparte tu configuración de LLM local con la comunidad.", de: "Teile deine lokale LLM-Konfiguration mit der Community.", fr: "Partagez votre configuration LLM locale avec la communauté.", pt: "Compartilhe sua configuração de LLM local com a comunidade.", zh: "与社区分享你的本地 LLM 配置。", ja: "ローカル LLM 構成をコミュニティと共有しましょう。" },
   "cfg.editSub": { en: "Update your configuration.", tr: "Yapılandırmanı güncelle.", es: "Actualiza tu configuración.", de: "Aktualisiere deine Konfiguration.", fr: "Mettez à jour votre configuration.", pt: "Atualize sua configuração.", zh: "更新你的配置。", ja: "構成を更新します。" },
+  "cfg.clearFilters": { en: "Clear filters", tr: "Filtreleri temizle", es: "Borrar filtros", de: "Filter zurücksetzen", fr: "Effacer les filtres", pt: "Limpar filtros", zh: "清除筛选", ja: "フィルターをクリア" },
 };
 
 export const UI_NAV: Record<string, L> = {

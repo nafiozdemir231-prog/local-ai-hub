@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Search, ChevronDown } from "lucide-react";
 import { useLang } from "@/lib/i18n";
 
 interface FilterPanelProps {
@@ -62,152 +63,103 @@ export function FilterPanel({
     );
   };
 
+  const searchBox = (value: string, setter: (v: string) => void) => (
+    <div className="relative">
+      <Search className="pointer-events-none absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-muted-foreground" />
+      <input
+        type="text"
+        value={value}
+        onChange={(e) => setter(e.target.value)}
+        placeholder={t("fp.search")}
+        className="w-full rounded-lg border border-input bg-card py-1.5 pl-8 pr-2 text-xs text-foreground placeholder:text-muted-foreground/60 focus:border-primary/50 focus:outline-none"
+      />
+    </div>
+  );
+
+  const groupHeader = (label: string, count: number, open: boolean, onToggle: () => void) => (
+    <button
+      onClick={onToggle}
+      className="mb-2 flex w-full items-center justify-between text-xs font-semibold text-muted-foreground transition hover:text-foreground"
+    >
+      <span>
+        {label}
+        {count > 0 && <span className="ml-1.5 rounded-full bg-primary px-1.5 py-0.5 text-[10px] font-bold text-primary-foreground">{count}</span>}
+      </span>
+      <ChevronDown className={`h-3 w-3 transition-transform ${open ? "rotate-180" : ""}`} />
+    </button>
+  );
+
+  const chip = (value: string, active: boolean, onClick: () => void) => (
+    <button
+      key={value}
+      type="button"
+      onClick={onClick}
+      className={`rounded-full border px-2.5 py-1 font-mono text-[11px] transition-all duration-150 ${
+        active
+          ? "border-transparent bg-primary text-primary-foreground shadow-sm"
+          : "border-border bg-secondary/60 text-muted-foreground hover:border-primary/40 hover:text-foreground"
+      }`}
+    >
+      {value}
+    </button>
+  );
+
   return (
-    <div className="lg:grid lg:grid-cols-7 gap-4">
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-7">
       {/* Hardware Model Search */}
-      <div className="lg:col-span-1">
-        <h3 className="mb-2 text-xs font-semibold text-gray-700 dark:text-gray-200">{t("fp.hardware")}</h3>
-        <input
-          type="text"
-          value={hardwareSearch}
-          onChange={(e) => setHardwareSearch(e.target.value)}
-          placeholder={t("fp.search")}
-          className="w-full rounded-md border border-input bg-card px-2 py-1.5 text-xs text-foreground placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-primary/50 dark:focus:border-primary/50 focus:outline-none"
-        />
+      <div>
+        <h3 className="mb-2 text-xs font-semibold text-muted-foreground">{t("fp.hardware")}</h3>
+        {searchBox(hardwareSearch, setHardwareSearch)}
       </div>
 
       {/* Model Name Search */}
-      <div className="lg:col-span-1">
-        <h3 className="mb-2 text-xs font-semibold text-gray-700 dark:text-gray-200">{t("fp.model")}</h3>
-        <input
-          type="text"
-          value={modelSearch}
-          onChange={(e) => setModelSearch(e.target.value)}
-          placeholder={t("fp.search")}
-          className="w-full rounded-md border border-input bg-card px-2 py-1.5 text-xs text-foreground placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-primary/50 dark:focus:border-primary/50 focus:outline-none"
-        />
+      <div>
+        <h3 className="mb-2 text-xs font-semibold text-muted-foreground">{t("fp.model")}</h3>
+        {searchBox(modelSearch, setModelSearch)}
       </div>
 
       {/* LLM Runner Search */}
-      <div className="lg:col-span-1">
-        <h3 className="mb-2 text-xs font-semibold text-gray-700 dark:text-gray-200">{t("fp.runner")}</h3>
-        <input
-          type="text"
-          value={llmRunnerSearch}
-          onChange={(e) => setLlmRunnerSearch(e.target.value)}
-          placeholder={t("fp.search")}
-          className="w-full rounded-md border border-input bg-card px-2 py-1.5 text-xs text-foreground placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-primary/50 dark:focus:border-primary/50 focus:outline-none"
-        />
+      <div>
+        <h3 className="mb-2 text-xs font-semibold text-muted-foreground">{t("fp.runner")}</h3>
+        {searchBox(llmRunnerSearch, setLlmRunnerSearch)}
       </div>
 
       {/* Platform */}
-      <div className="lg:col-span-1">
-        <button
-          onClick={() => setExpandedPlatforms(!expandedPlatforms)}
-          className="mb-2 flex w-full items-center justify-between text-xs font-semibold text-gray-700 dark:text-gray-200"
-        >
-          {t("fp.platform")}
-          <svg className={`h-3 w-3 transition-transform ${expandedPlatforms ? "rotate-180" : ""}`} fill="currentColor" viewBox="0 0 20 20">
-            <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-          </svg>
-        </button>
+      <div>
+        {groupHeader(t("fp.platform"), selectedPlatforms.length, expandedPlatforms, () => setExpandedPlatforms(!expandedPlatforms))}
         {expandedPlatforms && (
-          <div className="space-y-1">
-            {platforms.map((platform) => (
-              <label key={platform} className="flex items-center gap-1.5">
-                <input
-                  type="checkbox"
-                  checked={selectedPlatforms.includes(platform)}
-                  onChange={() => toggleSelect(selectedPlatforms, platform, setSelectedPlatforms)}
-                  className="rounded border-gray-300 text-gray-900 focus:ring-gray-500"
-                />
-                <span className="text-xs text-gray-600 dark:text-gray-300">{platform}</span>
-              </label>
-            ))}
+          <div className="flex flex-wrap gap-1.5">
+            {platforms.map((p) => chip(p, selectedPlatforms.includes(p), () => toggleSelect(selectedPlatforms, p, setSelectedPlatforms)))}
           </div>
         )}
       </div>
 
       {/* VRAM */}
-      <div className="lg:col-span-1">
-        <button
-          onClick={() => setExpandedVrams(!expandedVrams)}
-          className="mb-2 flex w-full items-center justify-between text-xs font-semibold text-gray-700 dark:text-gray-200"
-        >
-          VRAM (GB)
-          <svg className={`h-3 w-3 transition-transform ${expandedVrams ? "rotate-180" : ""}`} fill="currentColor" viewBox="0 0 20 20">
-            <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-          </svg>
-        </button>
+      <div>
+        {groupHeader("VRAM (GB)", selectedVrams.length, expandedVrams, () => setExpandedVrams(!expandedVrams))}
         {expandedVrams && (
-          <div className="space-y-1">
-            {vrams.map((vram) => (
-              <label key={vram} className="flex items-center gap-1.5">
-                <input
-                  type="checkbox"
-                  checked={selectedVrams.includes(vram)}
-                  onChange={() => toggleSelect(selectedVrams, vram, setSelectedVrams)}
-                  className="rounded border-gray-300 text-gray-900 focus:ring-gray-500"
-                />
-                <span className="text-xs text-gray-600 dark:text-gray-300">{vram}</span>
-              </label>
-            ))}
+          <div className="flex max-h-40 flex-wrap gap-1.5 overflow-y-auto">
+            {vrams.map((v) => chip(v, selectedVrams.includes(v), () => toggleSelect(selectedVrams, v, setSelectedVrams)))}
           </div>
         )}
       </div>
 
       {/* RAM */}
-      <div className="lg:col-span-1">
-        <button
-          onClick={() => setExpandedRams(!expandedRams)}
-          className="mb-2 flex w-full items-center justify-between text-xs font-semibold text-gray-700 dark:text-gray-200"
-        >
-          RAM (GB)
-          <svg className={`h-3 w-3 transition-transform ${expandedRams ? "rotate-180" : ""}`} fill="currentColor" viewBox="0 0 20 20">
-            <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-          </svg>
-        </button>
+      <div>
+        {groupHeader("RAM (GB)", selectedRams.length, expandedRams, () => setExpandedRams(!expandedRams))}
         {expandedRams && (
-          <div className="space-y-1">
-            {rams.map((ram) => (
-              <label key={ram} className="flex items-center gap-1.5">
-                <input
-                  type="checkbox"
-                  checked={selectedRams.includes(ram)}
-                  onChange={() => toggleSelect(selectedRams, ram, setSelectedRams)}
-                  className="rounded border-gray-300 text-gray-900 focus:ring-gray-500"
-                />
-                <span className="text-xs text-gray-600 dark:text-gray-300">{ram}</span>
-              </label>
-            ))}
+          <div className="flex max-h-40 flex-wrap gap-1.5 overflow-y-auto">
+            {rams.map((r) => chip(r, selectedRams.includes(r), () => toggleSelect(selectedRams, r, setSelectedRams)))}
           </div>
         )}
       </div>
 
       {/* Quantization */}
-      <div className="lg:col-span-1">
-        <button
-          onClick={() => setExpandedQuantizations(!expandedQuantizations)}
-          className="mb-2 flex w-full items-center justify-between text-xs font-semibold text-gray-700 dark:text-gray-200"
-        >
-          {t("fp.quant")}
-          <svg className={`h-3 w-3 transition-transform ${expandedQuantizations ? "rotate-180" : ""}`} fill="currentColor" viewBox="0 0 20 20">
-            <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-          </svg>
-        </button>
+      <div>
+        {groupHeader(t("fp.quant"), selectedQuantizations.length, expandedQuantizations, () => setExpandedQuantizations(!expandedQuantizations))}
         {expandedQuantizations && (
-          <div className="space-y-1">
-            {quantizations.map((quant) => (
-              <label key={quant} className="flex items-center gap-1.5">
-                <input
-                  type="checkbox"
-                  checked={selectedQuantizations.includes(quant)}
-                  onChange={() => toggleSelect(selectedQuantizations, quant, setSelectedQuantizations)}
-                  className="rounded border-gray-300 text-gray-900 focus:ring-gray-500"
-                />
-                <span className="text-xs text-gray-600 dark:text-gray-300">{quant}</span>
-              </label>
-            ))}
+          <div className="flex max-h-40 flex-wrap gap-1.5 overflow-y-auto">
+            {quantizations.map((q) => chip(q, selectedQuantizations.includes(q), () => toggleSelect(selectedQuantizations, q, setSelectedQuantizations)))}
           </div>
         )}
       </div>

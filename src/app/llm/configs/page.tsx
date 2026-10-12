@@ -198,6 +198,22 @@ export default function LLMConfigsPage() {
           >
             {t("cfg.tgSpeed")}
           </button>
+          {(selectedPlatforms.length > 0 || selectedVrams.length > 0 || selectedRams.length > 0 || selectedQuantizations.length > 0 || hardwareSearch !== "" || modelSearch !== "" || llmRunnerSearch !== "") && (
+            <button
+              onClick={() => {
+                setSelectedPlatforms([]);
+                setSelectedVrams([]);
+                setSelectedRams([]);
+                setSelectedQuantizations([]);
+                setHardwareSearch("");
+                setModelSearch("");
+                setLlmRunnerSearch("");
+              }}
+              className="ml-auto rounded-lg border border-border px-4 py-2 text-sm font-medium text-muted-foreground transition-all duration-200 hover:border-primary/50 hover:text-primary"
+            >
+              ✕ {t("cfg.clearFilters")}
+            </button>
+          )}
         </div>
 
 

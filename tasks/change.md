@@ -212,3 +212,10 @@ All filters visible horizontally above Sort By (Votes / PP Speed / TG Speed).
 | File | Change | Reason |
 |------|--------|--------|
 | src/app/llm/configs/page.tsx | Banner: amber->dark gradient replaced with obsidian card (bg-card + border-primary/40, icon tile bg-accent/text-primary) | User screenshot: "LLM Runner AIO" text unreadable on amber background |
+
+## 2026-10-12 - Configs filter UX redesign (chips + clear)
+| File | Change | Reason |
+|------|--------|--------|
+| configs/components/FilterPanel.tsx | Checkbox columns -> compact pill/chip toggles (mono, amber when active); search inputs get Search icon + rounded obsidian style; group headers with active-count badge + ChevronDown; VRAM/RAM/Quant lists capped at max-h-40 scroll | User: "arama ayarlarını daha iyi bir seçenek varsa değiştir" — old checkbox columns were tall/plain |
+| configs/page.tsx | Added "Clear filters" button (shown only when any filter/search active; resets all 7); fixed string>0 predicate bug | One-click reset UX |
+| src/lib/ui-core.ts | cfg.clearFilters key x8 langs | i18n |
