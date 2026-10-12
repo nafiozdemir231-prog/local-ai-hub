@@ -118,3 +118,10 @@ All filters visible horizontally above Sort By (Votes / PP Speed / TG Speed).
 | File | Change | Reason |
 |------|--------|--------|
 | src/data/local-llm-runners.ts | Added "Strata" row (after ExLlamaV2, before llama.cpp forks group): Windows/Linux, CUDA/ROCm, LLM+Vision+MCP+API, github.com/Niko1221/Strata | User request; facts verified from Strata repo README (125B Qwen3.8-Flash-Next MoE, 12 GB+ VRAM, 32 GB+ RAM, OpenAI/Anthropic localhost API, MCP server, multi-GPU) |
+
+## 2026-10-11 - Obsidian homepage port reverted + multi-page HTML mockup
+| File | Change | Reason |
+|------|--------|--------|
+| src/app/page.tsx | Reverted obsidian redesign (commit a6561d7) — production back to bento | User wanted HTML preview FIRST, not live change |
+| tasks/arayuz/tasarim2-obsidian/ | New multi-page mockup site: 8 pages + obsidian.css + gen1/2/3.js generators reading real src/data/*.ts (121 models, 17 runners, 17 webuis, 29 agents, 6 multimodal) | User request: full-site obsidian preview with real static data |
+- Lesson applied: preview as standalone HTML first; port to Next.js only after explicit approval.
