@@ -12,7 +12,8 @@
 - [ ] 6. llm-runner-aio sayfası obsidian stili (tüm gerçek içerik/veriler korunur: v2.1 linkler, preset matrisi, portlar)
 - [ ] 7. Tablo/kart sayfaları obsidian: rankings, local-llm-runners, local-llm-webuis, multimodal, chat-clients (data dosyaları aynı; sadece giydirme)
 - [ ] 8. llm/configs sayfası kabuğu obsidian (DB içerikleri olduğu gibi kalır)
-- [ ] 9. Marka/metadata: layout.tsx title/description → aihublocal.com odaklı
+- [x] 9. Marka/metadata: layout.tsx title/description → aihublocal.com odaklı
+- [x] 9.5 i18n v1: 8 dilli seçici (en/tr/es/de/fr/pt/zh/ja) — LanguageProvider + localStorage, navbar dropdown + mobil bayrak grid'i, chrome/home/footer çevirisi
 - [ ] 10. Build + rota rotası kontrolü (her route derleniyor; lokal `npm run dev -p -3100` opsiyonel)
 - [ ] 11. Branch push -> Vercel PREVIEW URL'den kullanıcı incelemesi (düzeltme döngüsü)
 - [ ] 12. Onay -> main merge -> production deploy + canlı doğrulama
@@ -31,6 +32,7 @@
 ```
 
 ## Notes
+- KURAL: Sitedeki tüm görünen metinler ve kod yorumları İNGİLİZCE (kullanıcı isteği 2026-10-11).
 - Veriler değişmez: src/data/*.ts + DB aynı; yalnızca sunum katmanı.
 - Mockup'taki light override mantığı CSS değişkenleriyle Next'e taşınır (utility hack yerine semantik token).
 - Her adım sonrası build kontrolü; preview URL kullanıcı onay döngüsü için kritik.

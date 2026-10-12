@@ -147,3 +147,12 @@ All filters visible horizontally above Sort By (Votes / PP Speed / TG Speed).
 |------|--------|--------|
 | llama-hq (branch) page.tsx, layout.tsx metadata | Hero/terminal/stats/card copy + title/description -> English | User: "herşey ingilizce olsun" |
 | tasks/arayuz/tasarim2-obsidian/* | gen1/2/3 + index.html all visible copy and code comments -> English; pages regenerated | Consistency with site language |
+
+## 2026-10-11 - i18n v1: 8-language support (site matches app languages)
+| File | Change | Reason |
+|------|--------|--------|
+| src/lib/i18n.tsx | NEW LanguageProvider + dictionary (en/tr/es/de/fr/pt/zh/ja), localStorage "lang", EN fallback | User: site should support the app's 8 languages |
+| providers.tsx | LanguageProvider wrapper | global availability |
+| navbar.tsx | desktop lang dropdown (flag+code) + mobile flag grid; nav labels localized via t() | language switching UI |
+| footer.tsx, page.tsx | "use client" + localized tagline/home copy via t() | localized chrome/home |
+- v1 scope: chrome + home + footer translated; product/model names & data tables stay EN (technical). Phase B options: localized URLs (/tr..) + hreflang for SEO, deeper per-page dictionaries.
