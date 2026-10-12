@@ -184,3 +184,9 @@ All filters visible horizontally above Sort By (Votes / PP Speed / TG Speed).
 | globals.css | .container override in @layer utilities: max-width 1400px (mockup parity); fixes page overflow / oversized cards | Preview table wider than mockup, horizontal scroll |
 | navbar.tsx | inner width max-w-7xl -> max-w-[1400px]; nav labels short lowercase tokens (configs, runner aio, rankings, agents, runners, web ui, multimodal); all links + support/google/github font-mono 13px whitespace-nowrap | Match mockup tab typography; prevent wrap/overflow |
 | footer.tsx | max-w-7xl -> max-w-[1400px] | Align with container width |
+
+## 2026-10-11 - review.bat (local preview, no Vercel wait)
+| File | Change | Reason |
+|------|--------|--------|
+| llama-hq/review.bat | New: [1] dev hot-reload / [2] prod build+serve on port 3100, auto-opens browser | User: Vercel preview takes ~2 min; local review is instant |
+| (fs) .next_broken_1787544928 | Corrupt NTFS dir (error 1392) broke Turbopack -> renamed & moved out of llama-hq to ../broken_next_tmp; deletion fails, needs chkdsk D: /f (admin) | Dev server 500'd until removed |
