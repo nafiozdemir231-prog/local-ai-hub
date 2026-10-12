@@ -28,11 +28,11 @@ const categoryIcons: Record<string, React.ReactNode> = {
 
 export default function ChatClientsPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950">
+    <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-12">
         <div className="text-center mb-10">
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-3">Coding Agents</h1>
-          <p className="text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
+          <h1 className="text-4xl font-bold text-foreground mb-3">Coding Agents</h1>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Discover the best AI-powered coding tools and agents for your workflow
           </p>
         </div>
@@ -44,28 +44,28 @@ export default function ChatClientsPage() {
               href={tool.websiteUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group block p-6 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:border-indigo-300 dark:hover:border-indigo-600 hover:shadow-lg hover:shadow-indigo-100/50 dark:hover:shadow-indigo-900/30 transition-all duration-300 hover:-translate-y-1"
+              className="group block p-6 rounded-xl border border-border bg-card hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 hover:-translate-y-1"
             >
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-100 group-hover:bg-indigo-200 transition-colors duration-300">
-                    {categoryIcons[tool.category] || <Cpu className="h-5 w-5 text-indigo-600" />}
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent group-hover:bg-accent/70 transition-colors duration-300">
+                    {categoryIcons[tool.category] || <Cpu className="h-5 w-5 text-primary" />}
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 dark:text-white">{tool.name}</h3>
-                    <p className="text-xs text-gray-500 dark:text-gray-400">{tool.category}</p>
+                    <h3 className="font-bold text-foreground">{tool.name}</h3>
+                    <p className="text-xs text-muted-foreground">{tool.category}</p>
                   </div>
                 </div>
-                <ExternalLink className="h-4 w-4 text-gray-400 group-hover:text-indigo-500 transition-colors" />
+                <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
               </div>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">{tool.description}</p>
+              <p className="text-sm text-muted-foreground mb-4">{tool.description}</p>
               <div className="flex flex-wrap gap-1.5">
                 {tool.platforms.map((platform) => {
                   const icon = platformIcons[platform];
                   return (
                     <span
                       key={platform}
-                      className="inline-flex items-center gap-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2.5 py-1 rounded-md font-medium"
+                      className="inline-flex items-center gap-1 text-xs bg-secondary text-muted-foreground px-2.5 py-1 rounded-md font-medium"
                     >
                       {icon?.icon || "💻"}
                       {icon?.label || platform}

@@ -11,22 +11,22 @@ function ModelRow({ model, index }: { model: ModelRanking; index: number }) {
   };
 
   return (
-    <tr className="border-b border-gray-100 dark:border-gray-700 hover:bg-indigo-50/50 dark:hover:bg-indigo-900/20 transition-all duration-150">
+    <tr className="border-b border-border/60 hover:bg-accent/60 transition-all duration-150">
       <td className="py-4 px-5">
         <span className={`inline-flex items-center justify-center w-10 h-10 rounded-full text-sm font-bold ${
-          index < 3 ? medalColors[index as keyof typeof medalColors] : "bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400"
+          index < 3 ? medalColors[index as keyof typeof medalColors] : "bg-secondary text-muted-foreground"
         }`}>
           {index < 3 ? ["🥇", "🥈", "🥉"][index] : index + 1}
         </span>
       </td>
       <td className="py-4 px-5">
         <div className="flex items-center gap-2">
-          <span className="font-semibold text-gray-900 dark:text-white">{model.name}</span>
+          <span className="font-semibold text-foreground">{model.name}</span>
           {index === 0 && <span className="text-xs bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400 px-2 py-0.5 rounded-full font-medium">Top 1</span>}
         </div>
       </td>
       <td className="py-4 px-5">
-        <span className="inline-flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400">
+        <span className="inline-flex items-center gap-1 text-sm text-muted-foreground">
           {model.creator}
         </span>
       </td>
@@ -36,8 +36,8 @@ function ModelRow({ model, index }: { model: ModelRanking; index: number }) {
           {model.intelligence}
         </span>
       </td>
-      <td className="py-4 px-5 text-sm text-gray-600 dark:text-gray-400 font-mono">{model.parameters}</td>
-      <td className="py-4 px-5 text-sm text-gray-600 dark:text-gray-400 font-mono">{model.contextWindow}</td>
+      <td className="py-4 px-5 text-sm text-muted-foreground font-mono">{model.parameters}</td>
+      <td className="py-4 px-5 text-sm text-muted-foreground font-mono">{model.contextWindow}</td>
       <td className="py-4 px-5">
         <span className="inline-flex items-center gap-1 text-sm font-semibold text-green-600 dark:text-green-400">
           <DollarSign className="h-3.5 w-3.5" />
@@ -45,7 +45,7 @@ function ModelRow({ model, index }: { model: ModelRanking; index: number }) {
         </span>
       </td>
       <td className="py-4 px-5">
-        <span className="inline-flex items-center gap-1 text-sm text-gray-700 dark:text-gray-300 font-mono">
+        <span className="inline-flex items-center gap-1 text-sm text-muted-foreground font-mono">
           <Zap className="h-3.5 w-3.5 text-amber-500" />
           {model.speed}
         </span>
@@ -57,7 +57,7 @@ function ModelRow({ model, index }: { model: ModelRanking; index: number }) {
             Open Weights
           </span>
         ) : (
-          <span className="inline-flex items-center gap-1.5 bg-gray-100 dark:bg-gray-700/50 text-gray-500 dark:text-gray-400 px-3 py-1.5 rounded-full text-xs font-medium">
+          <span className="inline-flex items-center gap-1.5 bg-secondary text-muted-foreground px-3 py-1.5 rounded-full text-xs font-medium">
             Closed
           </span>
         )}
@@ -68,31 +68,31 @@ function ModelRow({ model, index }: { model: ModelRanking; index: number }) {
 
 export default function ModelRankingsPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950">
+    <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-12">
         <div className="text-center mb-10">
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-3">Model Rankings</h1>
-          <p className="text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
+          <h1 className="text-4xl font-bold text-foreground mb-3">Model Rankings</h1>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             See the best-performing models based on Artificial Analysis benchmarks
           </p>
         </div>
 
-        <div className="overflow-x-auto rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm">
+        <div className="overflow-x-auto rounded-xl border border-border bg-card shadow-sm">
           <table className="w-full border-collapse">
             <thead>
-              <tr className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900">
-                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Rank</th>
-                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Model Name</th>
-                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Model Creator</th>
-                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Intelligence</th>
-                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Parameters</th>
-                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Context Window</th>
-                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Price</th>
-                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Output Speed</th>
-                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Weights</th>
+              <tr className="bg-secondary/60">
+                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-muted-foreground">Rank</th>
+                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-muted-foreground">Model Name</th>
+                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-muted-foreground">Model Creator</th>
+                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-muted-foreground">Intelligence</th>
+                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-muted-foreground">Parameters</th>
+                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-muted-foreground">Context Window</th>
+                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-muted-foreground">Price</th>
+                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-muted-foreground">Output Speed</th>
+                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-muted-foreground">Weights</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-100 dark:divide-gray-700">
+            <tbody className="divide-y divide-border/50">
               {modelRankings.map((model, index) => (
                 <ModelRow key={model.name} model={model} index={index} />
               ))}
