@@ -1,64 +1,41 @@
 "use client";
 
 import { modelRankings, type ModelRanking } from "@/data/model-rankings";
-import { TrendingUp, Zap, DollarSign, BookOpen } from "lucide-react";
+
+// Obsidian table design (matches tasks/arayuz/tasarim2-obsidian/rankings.html)
+function rankClass(index: number) {
+  if (index === 0) return "text-primary"; // gold
+  if (index === 1) return "text-foreground/80"; // silver
+  if (index === 2) return "text-orange-600 dark:text-orange-500"; // bronze
+  return "text-muted-foreground";
+}
+
+const TH = "py-4 px-3 text-left font-mono text-[11px] uppercase tracking-[0.15em] text-muted-foreground";
+const TD = "px-3 py-6 align-middle font-mono text-sm";
 
 function ModelRow({ model, index }: { model: ModelRanking; index: number }) {
-  const medalColors = {
-    0: "bg-gradient-to-br from-yellow-400 to-amber-500 text-white shadow-lg shadow-yellow-200",
-    1: "bg-gradient-to-br from-gray-300 to-gray-400 text-white shadow-lg shadow-gray-200",
-    2: "bg-gradient-to-br from-amber-600 to-orange-700 text-white shadow-lg shadow-amber-200",
-  };
-
   return (
-    <tr className="border-b border-border/60 hover:bg-accent/60 transition-all duration-150">
-      <td className="py-4 px-5">
-        <span className={`inline-flex items-center justify-center w-10 h-10 rounded-full text-sm font-bold ${
-          index < 3 ? medalColors[index as keyof typeof medalColors] : "bg-secondary text-muted-foreground"
-        }`}>
-          {index < 3 ? ["🥇", "🥈", "🥉"][index] : index + 1}
-        </span>
+    <tr className="border-b border-border/50 transition-colors hover:bg-accent/40">
+      <td className={`${TD} pl-6 pr-2`}>
+        <span className={`font-bold ${rankClass(index)}`}>{index + 1}</span>
       </td>
-      <td className="py-4 px-5">
-        <div className="flex items-center gap-2">
-          <span className="font-semibold text-foreground">{model.name}</span>
-          {index === 0 && <span className="text-xs bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400 px-2 py-0.5 rounded-full font-medium">Top 1</span>}
-        </div>
+      <td className="px-3 py-6 align-middle">
+        <div className="font-semibold text-foreground">{model.name}</div>
+        {model.creator && <div className="mt-0.5 text-xs text-muted-foreground">{model.creator}</div>}
       </td>
-      <td className="py-4 px-5">
-        <span className="inline-flex items-center gap-1 text-sm text-muted-foreground">
-          {model.creator}
-        </span>
-      </td>
-      <td className="py-4 px-5">
-        <span className="inline-flex items-center gap-1.5 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-400 px-3 py-1.5 rounded-full text-sm font-bold">
-          <TrendingUp className="h-3.5 w-3.5" />
-          {model.intelligence}
-        </span>
-      </td>
-      <td className="py-4 px-5 text-sm text-muted-foreground font-mono">{model.parameters}</td>
-      <td className="py-4 px-5 text-sm text-muted-foreground font-mono">{model.contextWindow}</td>
-      <td className="py-4 px-5">
-        <span className="inline-flex items-center gap-1 text-sm font-semibold text-green-600 dark:text-green-400">
-          <DollarSign className="h-3.5 w-3.5" />
-          {model.price}
-        </span>
-      </td>
-      <td className="py-4 px-5">
-        <span className="inline-flex items-center gap-1 text-sm text-muted-foreground font-mono">
-          <Zap className="h-3.5 w-3.5 text-amber-500" />
-          {model.speed}
-        </span>
-      </td>
-      <td className="py-4 px-5">
+      <td className={`${TD} font-bold text-primary`}>{model.intelligence}</td>
+      <td className={`${TD} text-muted-foreground`}>{model.parameters || "—"}</td>
+      <td className={`${TD} text-muted-foreground`}>{model.contextWindow}</td>
+      <td className={`${TD} text-foreground`}>{model.price}</td>
+      <td className={`${TD} text-muted-foreground`}>{model.speed}</td>
+      <td className={`${TD} pl-3 pr-6`}>
         {model.weights ? (
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-green-600/40 bg-green-500/10 px-3 py-1.5 text-xs font-medium text-green-700 dark:text-green-400">
-            <BookOpen className="h-3.5 w-3.5" />
-            Open Weights
+          <span className="inline-flex items-center rounded-full border border-green-600/40 bg-green-500/10 px-2.5 py-1 text-[11px] tracking-wider text-green-700 dark:text-green-400">
+            weights
           </span>
         ) : (
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-medium text-muted-foreground">
-            Closed
+          <span className="inline-flex items-center rounded-full border border-border px-2.5 py-1 text-[11px] tracking-wider text-muted-foreground">
+            closed
           </span>
         )}
       </td>
@@ -81,19 +58,18 @@ export default function ModelRankingsPage() {
         <div className="overflow-x-auto rounded-xl border border-border bg-card shadow-sm">
           <table className="w-full border-collapse">
             <thead>
-              <tr className="bg-secondary/60">
-                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-muted-foreground">Rank</th>
-                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-muted-foreground">Model Name</th>
-                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-muted-foreground">Model Creator</th>
-                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-muted-foreground">Intelligence</th>
-                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-muted-foreground">Parameters</th>
-                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-muted-foreground">Context Window</th>
-                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-muted-foreground">Price</th>
-                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-muted-foreground">Output Speed</th>
-                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-muted-foreground">Weights</th>
+              <tr className="border-b border-border">
+                <th className={`${TH} pl-6 pr-2`}>#</th>
+                <th className={TH}>Model</th>
+                <th className={TH}>Int</th>
+                <th className={TH}>Params</th>
+                <th className={TH}>Context</th>
+                <th className={TH}>$ / M</th>
+                <th className={TH}>Tok/s</th>
+                <th className={`${TH} pl-3 pr-6`}>Weights</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-border/50">
+            <tbody>
               {modelRankings.map((model, index) => (
                 <ModelRow key={model.name} model={model} index={index} />
               ))}

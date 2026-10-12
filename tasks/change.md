@@ -172,3 +172,8 @@ All filters visible horizontally above Sort By (Votes / PP Speed / TG Speed).
 | mockup gen1.js | parse(): params via quoted-string regex (was numeric) -> PARAMS no longer "undefined"; rankings.html regenerated | Screenshot showed undefined params in mockup |
 | models/rankings/page.tsx | Header -> kicker + left-aligned "121 models, one table." obsidian style; Open Weights/Closed badges -> outline tags (green/neutral) | Match mockup design language |
 | navbar.tsx | whitespace-nowrap on nav links; language trigger = Globe icon + EN code (flag emoji shows as "GB" letters on Windows); mobile flags now flag+code | Preview screenshot showed wrapped labels + GB artifact |
+
+## 2026-10-11 - Rankings table -> exact mockup layout
+| File | Change | Reason |
+|------|--------|--------|
+| models/rankings/page.tsx | Table rewritten to mirror taslak2 rankings.html: columns # / MODEL(name+creator sub) / INT(amber mono) / PARAMS / CONTEXT / $ / M / TOK/S / weights(closed tags); medal circles, Top1 chip and lucide icons removed; gold/silver/bronze rank numbers; mono headers | User: "tablolar ayni gorunsun taslak ile" |
