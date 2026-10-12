@@ -135,3 +135,9 @@ All filters visible horizontally above Sort By (Votes / PP Speed / TG Speed).
 | .../index.html | obsidian.css + theme.js bağlandı, nav'a düğme eklendi | El yazımı ana sayfa da dahil |
 - Tercih localStorage'da kalıcı; sayfa açılışında FOUC yok (script head'de blocking).
 - NOT: Gerçek Next.js sitesinde zaten çalışan bir tema sistemi var (layout.tsx pre-paint script + Navbar theme butonu, localStorage "theme"). Mockup bağımsız çalıştığı için ayrı "obs-theme" key kullanıyor — port sırasında tek key'e birleştirilir.
+
+## 2026-10-11 - Mockup marka adı domain ile eşitlendi
+| File | Change | Reason |
+|------|--------|--------|
+| .../gen1.js gen2.js gen3.js + index.html | Logo "▮ localaihub" -> "▮ aihublocal.com" (amber "ai", soluk ".com"); index <title> güncellendi | Kullanıcı: site adı domain ile aynı olsun |
+- 8 mockup sayfasının tümünde yeni marka; footer zaten aihublocal.com idi. Gerçek sitenin Navbar/metadata adı henüz değişmedi (onay bekleniyor).
