@@ -6,7 +6,7 @@ export function Footer() {
   const { t } = useLang();
   return (
     <footer className="mt-auto w-full border-t border-border bg-secondary/60 py-8">
-      <div className="mx-auto flex max-w-7xl flex-col items-center gap-6 px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-[1400px] flex-col items-center gap-6 px-4 sm:px-6 lg:px-8">
         <a
           href="https://ko-fi.com/vincespeed"
           target="_blank"

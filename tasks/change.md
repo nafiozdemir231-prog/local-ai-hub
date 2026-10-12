@@ -177,3 +177,10 @@ All filters visible horizontally above Sort By (Votes / PP Speed / TG Speed).
 | File | Change | Reason |
 |------|--------|--------|
 | models/rankings/page.tsx | Table rewritten to mirror taslak2 rankings.html: columns # / MODEL(name+creator sub) / INT(amber mono) / PARAMS / CONTEXT / $ / M / TOK/S / weights(closed tags); medal circles, Top1 chip and lucide icons removed; gold/silver/bronze rank numbers; mono headers | User: "tablolar ayni gorunsun taslak ile" |
+
+## 2026-10-11 - Review round 2 (fit + tab typography)
+| File | Change | Reason |
+|------|--------|--------|
+| globals.css | .container override in @layer utilities: max-width 1400px (mockup parity); fixes page overflow / oversized cards | Preview table wider than mockup, horizontal scroll |
+| navbar.tsx | inner width max-w-7xl -> max-w-[1400px]; nav labels short lowercase tokens (configs, runner aio, rankings, agents, runners, web ui, multimodal); all links + support/google/github font-mono 13px whitespace-nowrap | Match mockup tab typography; prevent wrap/overflow |
+| footer.tsx | max-w-7xl -> max-w-[1400px] | Align with container width |

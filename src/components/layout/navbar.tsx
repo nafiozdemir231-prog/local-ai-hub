@@ -17,13 +17,13 @@ export function Navbar() {
   const [langMenuOpen, setLangMenuOpen] = useState(false);
 
   const navLinks = [
-    { href: "/llm/configs", label: t("nav.configs") },
-    { href: "/llm-runner-aio", label: "LLM Runner AIO" },
-    { href: "/models/rankings", label: t("nav.rankings") },
-    { href: "/chat-clients", label: t("nav.agents") },
-    { href: "/local-llm-runners", label: t("nav.runners") },
-    { href: "/local-llm-webuis", label: t("nav.webui") },
-    { href: "/multimodal", label: t("nav.multimodal") },
+    { href: "/llm/configs", label: "configs" },
+    { href: "/llm-runner-aio", label: "runner aio" },
+    { href: "/models/rankings", label: "rankings" },
+    { href: "/chat-clients", label: "agents" },
+    { href: "/local-llm-runners", label: "runners" },
+    { href: "/local-llm-webuis", label: "web ui" },
+    { href: "/multimodal", label: "multimodal" },
   ];
 
   const isActive = (href: string) => {
@@ -33,7 +33,7 @@ export function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50 w-full border-b border-border bg-background/85 backdrop-blur-xl">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-between gap-2 px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 font-mono">
           <span className="text-lg font-bold tracking-tight text-foreground">
@@ -90,7 +90,7 @@ export function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className={`whitespace-nowrap rounded-lg px-3 py-2 text-sm font-medium transition-all duration-200 ${
+              className={`whitespace-nowrap rounded-lg px-2.5 py-2 font-mono text-[13px] tracking-wide transition-all duration-200 ${
                 isActive(link.href)
                   ? "bg-accent text-primary font-semibold"
                   : "text-muted-foreground hover:bg-accent/60 hover:text-primary"
@@ -103,7 +103,7 @@ export function Navbar() {
             href="https://ko-fi.com/vincespeed"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative ml-2 rounded-lg bg-primary px-4 py-2 text-sm font-bold text-primary-foreground shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105"
+            className="group relative ml-2 whitespace-nowrap rounded-lg bg-primary px-4 py-2 font-mono text-[13px] font-bold text-primary-foreground shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105"
           >
             <span className="flex items-center gap-1.5">
               ☕
@@ -162,14 +162,14 @@ export function Navbar() {
             <div className="flex items-center gap-2">
               <button
                 onClick={() => signIn("google", { callbackUrl: "/" })}
-                className="flex items-center gap-2 rounded-lg bg-gray-900 dark:bg-gray-700 px-4 py-2 text-sm font-medium text-white hover:bg-gray-800 dark:hover:bg-gray-600 transition-all duration-200 hover:shadow-md cursor-pointer"
+                className="flex items-center gap-2 whitespace-nowrap rounded-lg bg-gray-900 dark:bg-gray-700 px-3 py-2 font-mono text-[13px] font-medium text-white hover:bg-gray-800 dark:hover:bg-gray-600 transition-all duration-200 hover:shadow-md cursor-pointer"
               >
                 <LogIn className="h-4 w-4" />
                 Google
               </button>
               <button
                 onClick={() => signIn("github", { callbackUrl: "/" })}
-                className="flex items-center gap-2 rounded-lg border border-gray-300 dark:border-gray-600 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-gray-400 dark:hover:border-gray-500 transition-all duration-200 cursor-pointer"
+                className="flex items-center gap-2 whitespace-nowrap rounded-lg border border-gray-300 dark:border-gray-600 px-3 py-2 font-mono text-[13px] font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-gray-400 dark:hover:border-gray-500 transition-all duration-200 cursor-pointer"
               >
                 <LogIn className="h-4 w-4" />
                 GitHub
@@ -182,7 +182,7 @@ export function Navbar() {
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="border-t border-border bg-background md:hidden">
-          <div className="mx-auto max-w-7xl px-4 py-4 space-y-1">
+          <div className="mx-auto max-w-[1400px] px-4 py-4 space-y-1">
             {navLinks.map((link) => (
               <Link
                 key={link.href}

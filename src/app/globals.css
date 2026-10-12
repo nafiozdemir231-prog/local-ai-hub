@@ -151,4 +151,10 @@
   html:not(.dark) .grain {
     opacity: 0.035;
   }
+  /* Sabit içer genişliği — mockup ile birebir (1400px) */
+  .container {
+    width: 100%;
+    max-width: 1400px;
+    margin-inline: auto;
+  }
 }
