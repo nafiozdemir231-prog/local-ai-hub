@@ -11,14 +11,14 @@ export default function Home() {
         {/* Hero */}
         <header className="grid items-center gap-12 py-20 md:py-24 md:grid-cols-[1.2fr_1fr]">
           <div>
-            <p className="kicker mono mb-5">{"// yerel yapay zekâ istasyonu"}</p>
+            <p className="kicker mono mb-5">{"// your local AI station"}</p>
             <h1 className="text-4xl font-bold leading-[1.08] text-foreground sm:text-5xl md:text-6xl">
-              Sunucuya gerek yok.<br />
-              <span className="text-primary">125B model</span>, kendi PC'nde.
+              No servers needed.<br />
+              A <span className="text-primary">125B model</span> on your own PC.
             </h1>
             <p className="mt-6 max-w-xl leading-relaxed text-muted-foreground">
-              LLM Runner AIO; Open WebUI, llama.cpp, SearXNG ve Strata gateway'i otomatik kurar.
-              Donanımın algılanır, modelin indirilir, portların açılır.
+              LLM Runner AIO installs Open WebUI, llama.cpp, SearXNG and the Strata gateway for you.
+              Hardware detected, models downloaded, ports opened — automatically.
             </p>
             <div className="mt-9 flex flex-wrap gap-4">
               <Link
@@ -31,7 +31,7 @@ export default function Home() {
                 href="/models/rankings"
                 className="rounded-md border border-border px-7 py-3.5 font-mono text-sm transition hover:bg-accent"
               >
-                121 model sıralaması →
+                121 model rankings →
               </Link>
             </div>
           </div>
@@ -45,14 +45,14 @@ export default function Home() {
             </div>
             <div className="font-mono text-[13px] leading-relaxed text-muted-foreground">
               <div><span className="opacity-50">$</span> run.bat</div>
-              <div><span className="text-primary">✓</span> GPU algılandı&nbsp; : RTX 5080 · 15.9 GB VRAM</div>
-              <div><span className="text-primary">✓</span> Profil&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 16 GB preset</div>
+              <div><span className="text-primary">✓</span> GPU detected&nbsp; : RTX 5080 · 15.9 GB VRAM</div>
+              <div><span className="text-primary">✓</span> Profile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 16 GB preset</div>
               <div><span className="text-primary">✓</span> Model&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : qwen3.8-27B + DFlash2 draft</div>
               <div><span className="text-primary">✓</span> llama.cpp&nbsp;&nbsp;&nbsp;&nbsp; : <span className="text-foreground">localhost:1234</span></div>
               <div><span className="text-primary">✓</span> Open WebUI&nbsp;&nbsp;&nbsp; : <span className="text-foreground">localhost:3000</span></div>
               <div><span className="text-primary">✓</span> Strata&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <span className="text-foreground">localhost:1235</span> (OpenAI+Anthropic)</div>
               <div>
-                <span className="text-green-500">hazır.</span>{" "}
+                <span className="text-green-500">ready.</span>{" "}
                 <span className="animate-pulse">▊</span>
               </div>
             </div>
@@ -62,10 +62,10 @@ export default function Home() {
         {/* Rakamlar */}
         <section className="grid grid-cols-2 gap-4 border-y border-border py-8 text-center md:grid-cols-4">
           {[
-            ["121+", "ranked model"],
-            ["v2.1", "AIO sürümü"],
-            ["7", "paketli servis"],
-            ["%100", "açık kaynak"],
+            ["121+", "ranked models"],
+            ["v2.1", "AIO version"],
+            ["7", "bundled services"],
+            ["100%", "open source"],
           ].map(([n, l]) => (
             <div key={l}>
               <div className="font-mono text-3xl font-bold text-primary">{n}</div>
@@ -76,15 +76,15 @@ export default function Home() {
 
         {/* Neler dahil — rota kartları */}
         <section className="py-14">
-          <p className="kicker mono mb-8">{"// neler dahil"}</p>
+          <p className="kicker mono mb-8">{"// what's included"}</p>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {[
-              ["/llm-runner-aio", "LLM Runner AIO", "Tek .exe ile otomatik kurulum; donanım tespiti, GUI Model Manager, preset matrisi."],
-              ["/models/rankings", "Model Rankings", "121 GGUF model; intelligence index, parametre, context ve hız karşılaştırması."],
-              ["/llm/configs", "LLM Configs", "Donanım profilinize hazır chat / vision / coding konfigürasyonları."],
-              ["/local-llm-runners", "LLM Runners", "Ollama'dan Strata'ya 17 runner; OS · platform · yetenek tablosu."],
-              ["/local-llm-webuis", "LLM Web UI", "Open WebUI, LibreChat, LobeChat... self-hosted arayüzler GitHub star'larıyla."],
-              ["/multimodal", "Multimodal", "Wan2GP, ComfyUI ve yerel görsel / video / ses üretim servisleri."],
+              ["/llm-runner-aio", "LLM Runner AIO", "One-click setup, hardware detection, GUI Model Manager and the full VRAM preset matrix."],
+              ["/models/rankings", "Model Rankings", "121 GGUF models compared by intelligence index, parameters, context window and speed."],
+              ["/llm/configs", "LLM Configs", "Ready-made chat / vision / coding configurations matched to your hardware profile."],
+              ["/local-llm-runners", "LLM Runners", "17 runners from Ollama to Strata; OS · platform · capability comparison table."],
+              ["/local-llm-webuis", "LLM Web UI", "Open WebUI, LibreChat, LobeChat... self-hosted interfaces with GitHub star counts."],
+              ["/multimodal", "Multimodal", "Wan2GP, ComfyUI and local image / video / audio generation services."],
             ].map(([href, title, desc]) => (
               <Link key={title} href={href} className="block rounded-lg border border-border bg-card p-5 transition duration-200 hover:-translate-y-0.5 hover:border-primary/40 hover:bg-accent">
                 <h3 className="font-mono font-semibold text-card-foreground">{title}</h3>

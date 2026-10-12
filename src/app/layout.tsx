@@ -17,8 +17,8 @@ const geistMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Aihublocal — Yerel Yapay Zekâ Hub’ı",
-  description: "LLM Runner AIO ile kendi PC'nde yerel yapay zekâ: Open WebUI, llama.cpp, SearXNG, Strata ve 121 model sıralaması.",
+  title: "Aihublocal — Run Local AI on Your Own Hardware",
+  description: "LLM Runner AIO runs local AI on your PC: Open WebUI, llama.cpp, SearXNG, Strata gateway and 121 ranked models — no cloud, no telemetry.",
 };
 
 export default function RootLayout({
