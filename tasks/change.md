@@ -165,3 +165,10 @@ All filters visible horizontally above Sort By (Votes / PP Speed / TG Speed).
 | llm/configs: page, share, edit + ConfigCard/FilterPanel/ShareForm | Tokens; CTA buttons primary; chips accent | Step8 |
 - Verification: grep indigo/purple count = 0 in all restyled files (medals excluded); build PASS; profile/login already clean.
 - Preview available: Vercel commit status target https://vercel.com/vincespeed/local-ai-hub/FouYmomMFygdhz3B4S4PosrBP2tj ; preview domain requires Vercel login (Deployment Protection).
+
+## 2026-10-11 - Review round 1 (user screenshots: mockup vs preview)
+| File | Change | Reason |
+|------|--------|--------|
+| mockup gen1.js | parse(): params via quoted-string regex (was numeric) -> PARAMS no longer "undefined"; rankings.html regenerated | Screenshot showed undefined params in mockup |
+| models/rankings/page.tsx | Header -> kicker + left-aligned "121 models, one table." obsidian style; Open Weights/Closed badges -> outline tags (green/neutral) | Match mockup design language |
+| navbar.tsx | whitespace-nowrap on nav links; language trigger = Globe icon + EN code (flag emoji shows as "GB" letters on Windows); mobile flags now flag+code | Preview screenshot showed wrapped labels + GB artifact |
