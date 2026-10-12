@@ -39,7 +39,7 @@ const rams = ["8", "16", "24", "32", "48", "64", "96", "128+"];
 const quantizations = ["Q4_0", "Q4_K_M", "Q4_K_S", "Q5_0", "Q5_K_M", "Q6_K", "Q8_0", "F16", "F32"];
 
 function getSpeedColor(speed: number, min: number, max: number): string {
-  if (max === min) return "text-gray-600 dark:text-gray-400";
+  if (max === min) return "text-muted-foreground";
   const ratio = (speed - min) / (max - min);
   if (ratio > 0.75) return "text-green-600 dark:text-green-400 font-semibold";
   if (ratio > 0.5) return "text-lime-600 dark:text-lime-400 font-medium";
@@ -108,7 +108,7 @@ export default function LLMConfigsPage() {
 
   const platformColors: Record<string, string> = {
     CUDA: "bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-400 border border-blue-200 dark:border-blue-700",
-    MLX: "bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-400 border border-purple-200 dark:border-purple-700",
+    MLX: "bg-accent text-primary border border-primary/50 dark:border-primary/50",
     ROCm: "bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-400 border border-orange-200 dark:border-orange-700",
     Vulkan: "bg-teal-100 dark:bg-teal-900/30 text-teal-800 dark:text-teal-400 border border-teal-200 dark:border-teal-700",
     "Multi-GPU": "bg-pink-100 dark:bg-pink-900/30 text-pink-800 dark:text-pink-400 border border-pink-200 dark:border-pink-700",
@@ -125,14 +125,14 @@ export default function LLMConfigsPage() {
       <div className="flex-1 p-4 md:p-8">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900 dark:text-white">LLM Configs</h1>
-            <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">Browse and filter local LLM configurations</p>
+            <h1 className="text-3xl font-bold text-foreground">LLM Configs</h1>
+            <p className="mt-1 text-sm text-muted-foreground">Browse and filter local LLM configurations</p>
           </div>
           <div className="flex items-center gap-4">
-            <span className="text-sm text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full">{filteredConfigs.length} results</span>
+            <span className="text-sm text-muted-foreground bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full">{filteredConfigs.length} results</span>
             <Link
               href="/llm/configs/share"
-              className="rounded-lg bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-indigo-700 shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5"
+              className="rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground hover:brightness-110 shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5"
             >
               Share Config
             </Link>
@@ -165,13 +165,13 @@ export default function LLMConfigsPage() {
 
         {/* Sort Options */}
         <div className="mt-6 flex items-center gap-3">
-          <span className="text-sm text-gray-600 dark:text-gray-400 font-medium">Sort by:</span>
+          <span className="text-sm text-muted-foreground font-medium">Sort by:</span>
           <button
             onClick={() => setSortOption("votes")}
             className={`rounded-lg px-4 py-2 text-sm font-medium transition-all duration-200 ${
               sortOption === "votes"
-                ? "bg-indigo-600 text-white shadow-sm"
-                : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600"
+                ? "bg-primary text-primary-foreground shadow-sm"
+                : "bg-card text-muted-foreground hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600"
             }`}
           >
             Votes
@@ -180,8 +180,8 @@ export default function LLMConfigsPage() {
             onClick={() => setSortOption("pp")}
             className={`rounded-lg px-4 py-2 text-sm font-medium transition-all duration-200 ${
               sortOption === "pp"
-                ? "bg-indigo-600 text-white shadow-sm"
-                : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600"
+                ? "bg-primary text-primary-foreground shadow-sm"
+                : "bg-card text-muted-foreground hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600"
             }`}
           >
             PP Speed
@@ -190,8 +190,8 @@ export default function LLMConfigsPage() {
             onClick={() => setSortOption("tg")}
             className={`rounded-lg px-4 py-2 text-sm font-medium transition-all duration-200 ${
               sortOption === "tg"
-                ? "bg-indigo-600 text-white shadow-sm"
-                : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600"
+                ? "bg-primary text-primary-foreground shadow-sm"
+                : "bg-card text-muted-foreground hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600"
             }`}
           >
             TG Speed
@@ -200,20 +200,20 @@ export default function LLMConfigsPage() {
 
 
         {/* LLM Runner AIO Banner */}
-        <div className="mt-6 rounded-xl border-2 border-indigo-200 dark:border-indigo-800 bg-gradient-to-r from-indigo-50 to-white dark:from-indigo-950 dark:to-gray-800 p-6">
+        <div className="mt-6 rounded-xl border-2 border-primary/50 dark:border-primary/50 bg-gradient-to-r from-primary to-white dark:from-primary dark:to-gray-800 p-6">
           <div className="flex flex-col md:flex-row items-center gap-6">
-            <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-indigo-600 flex-shrink-0">
+            <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-primary">
               <Download className="h-8 w-8 text-white" />
             </div>
             <div className="flex-1 text-center md:text-left">
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white">LLM Runner AIO — All-in-One Package</h3>
-              <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
+              <h3 className="text-xl font-bold text-foreground">LLM Runner AIO — All-in-One Package</h3>
+              <p className="mt-1 text-sm text-muted-foreground">
                 Open WebUI, llama.cpp, Vane & SearXNG in a single 2.5 GB .exe. Automatic setup, 7 languages, Windows integration.
               </p>
             </div>
             <Link
               href="/llm-runner-aio"
-              className="flex-shrink-0 inline-flex items-center gap-2 bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 shadow-sm transition-all duration-200 hover:-translate-y-0.5"
+              className="flex-shrink-0 inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 shadow-sm transition-all duration-200 hover:-translate-y-0.5"
             >
               <Download className="h-4 w-4" />
               Download AIO
@@ -222,57 +222,57 @@ export default function LLMConfigsPage() {
         </div>
 
         {/* Config Table */}
-        <div className="mt-6 overflow-x-auto rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm">
+        <div className="mt-6 overflow-x-auto rounded-xl border border-border bg-card shadow-sm">
           <table className="w-full border-collapse">
             <thead>
               <tr className="bg-gradient-to-r from-gray-100 to-gray-50 dark:from-gray-800 dark:to-gray-900">
-                <th className="border-b border-gray-200 dark:border-gray-700 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Rank</th>
-                <th className="border-b border-gray-200 dark:border-gray-700 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Model Name</th>
-                <th className="border-b border-gray-200 dark:border-gray-700 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Hardware Model</th>
-                <th className="border-b border-gray-200 dark:border-gray-700 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Platform</th>
-                <th className="border-b border-gray-200 dark:border-gray-700 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">LLM Runner</th>
-                <th className="border-b border-gray-200 dark:border-gray-700 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">VRAM</th>
-                <th className="border-b border-gray-200 dark:border-gray-700 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">RAM</th>
-                <th className="border-b border-gray-200 dark:border-gray-700 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Quantization</th>
-                <th className="border-b border-gray-200 dark:border-gray-700 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Context</th>
-                <th className="border-b border-gray-200 dark:border-gray-700 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">PP</th>
-                <th className="border-b border-gray-200 dark:border-gray-700 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">TG</th>
-                <th className="border-b border-gray-200 dark:border-gray-700 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Votes</th>
-                <th className="border-b border-gray-200 dark:border-gray-700 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">User</th>
-                {(isAdmin || session) && <th className="border-b border-gray-200 dark:border-gray-700 px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Actions</th>}
+                <th className="border-b border-border px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Rank</th>
+                <th className="border-b border-border px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Model Name</th>
+                <th className="border-b border-border px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Hardware Model</th>
+                <th className="border-b border-border px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Platform</th>
+                <th className="border-b border-border px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">LLM Runner</th>
+                <th className="border-b border-border px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">VRAM</th>
+                <th className="border-b border-border px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">RAM</th>
+                <th className="border-b border-border px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Quantization</th>
+                <th className="border-b border-border px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Context</th>
+                <th className="border-b border-border px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">PP</th>
+                <th className="border-b border-border px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">TG</th>
+                <th className="border-b border-border px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Votes</th>
+                <th className="border-b border-border px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">User</th>
+                {(isAdmin || session) && <th className="border-b border-border px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Actions</th>}
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100 dark:divide-gray-700">
               {filteredConfigs.map((config, index) => (
-                <tr key={config.id} className="transition-all duration-150 hover:bg-indigo-50/50 dark:hover:bg-indigo-900/20">
+                <tr key={config.id} className="transition-all duration-150 hover:bg-accent/60">
                   <td className="px-5 py-4">
                     <span className={`inline-flex items-center justify-center w-8 h-8 rounded-full text-sm font-bold ${
                       index === 0 ? "bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400 ring-2 ring-yellow-300 dark:ring-yellow-700" :
-                      index === 1 ? "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 ring-2 ring-gray-300 dark:ring-gray-600" :
+                      index === 1 ? "bg-gray-100 dark:bg-gray-700 text-muted-foreground ring-2 ring-gray-300 dark:ring-gray-600" :
                       index === 2 ? "bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400 ring-2 ring-orange-300 dark:ring-orange-700" :
-                      "bg-gray-50 dark:bg-gray-800 text-gray-500 dark:text-gray-400"
+                      "bg-gray-50 dark:bg-gray-800 text-muted-foreground"
                     }`}>
                       {index + 1}
                     </span>
                   </td>
                   <td className="px-5 py-4">
-                    <Link href={`/llm/${config.id}`} className="text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 hover:underline transition-colors">
+                    <Link href={`/llm/${config.id}`} className="text-sm font-semibold text-primary hover:text-primary hover:underline transition-colors">
                       {config.modelName}
                     </Link>
                   </td>
-                  <td className="px-5 py-4 text-sm text-gray-700 dark:text-gray-300 font-mono">{config.hardwareModel}</td>
+                  <td className="px-5 py-4 text-sm text-muted-foreground font-mono">{config.hardwareModel}</td>
                   <td className="px-5 py-4">
                     <span className={`inline-block rounded-md px-2.5 py-1 text-xs font-medium ${
-                      platformColors[config.platform] || "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-600"
+                      platformColors[config.platform] || "bg-gray-100 dark:bg-gray-700 text-muted-foreground border border-gray-200 dark:border-gray-600"
                     }`}>
                       {config.platform}
                     </span>
                   </td>
-                  <td className="px-5 py-4 text-sm text-gray-600 dark:text-gray-400">{config.llmRunner || "-"}</td>
-                  <td className="px-5 py-4 text-sm text-gray-700 dark:text-gray-300 font-mono">{config.vram}GB</td>
-                  <td className="px-5 py-4 text-sm text-gray-700 dark:text-gray-300 font-mono">{config.ram}GB</td>
-                  <td className="px-5 py-4 text-sm text-gray-600 dark:text-gray-400 font-mono">{config.quantization}</td>
-                  <td className="px-5 py-4 text-sm text-gray-600 dark:text-gray-400 font-mono">{config.contextSize}</td>
+                  <td className="px-5 py-4 text-sm text-muted-foreground">{config.llmRunner || "-"}</td>
+                  <td className="px-5 py-4 text-sm text-muted-foreground font-mono">{config.vram}GB</td>
+                  <td className="px-5 py-4 text-sm text-muted-foreground font-mono">{config.ram}GB</td>
+                  <td className="px-5 py-4 text-sm text-muted-foreground font-mono">{config.quantization}</td>
+                  <td className="px-5 py-4 text-sm text-muted-foreground font-mono">{config.contextSize}</td>
                   <td className="px-5 py-4">
                     <span className={`inline-block rounded-md px-2.5 py-1 text-sm font-mono ${getSpeedBg(config.ppSpeed, minPP, maxPP)} ${getSpeedColor(config.ppSpeed, minPP, maxPP)}`}>
                       {config.ppSpeed}
@@ -284,7 +284,7 @@ export default function LLMConfigsPage() {
                     </span>
                   </td>
                   <td className="px-5 py-4 text-sm font-semibold text-gray-800 dark:text-gray-200">{config.starCount}</td>
-                  <td className="px-5 py-4 text-sm text-gray-600 dark:text-gray-400">{config.user.name || "Anonymous"}</td>
+                  <td className="px-5 py-4 text-sm text-muted-foreground">{config.user.name || "Anonymous"}</td>
                   {(isAdmin || isOwner(config.userId)) && (
                     <td className="px-5 py-4">
                       <div className="flex gap-2">
@@ -323,7 +323,7 @@ export default function LLMConfigsPage() {
 
         {filteredConfigs.length === 0 && (
           <div className="mt-12 text-center">
-            <p className="text-lg text-gray-500 dark:text-gray-400">No configs found matching your filters.</p>
+            <p className="text-lg text-muted-foreground">No configs found matching your filters.</p>
           </div>
         )}
       </div>

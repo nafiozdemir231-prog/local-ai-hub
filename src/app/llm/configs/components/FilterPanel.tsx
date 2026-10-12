@@ -70,7 +70,7 @@ export function FilterPanel({
           value={hardwareSearch}
           onChange={(e) => setHardwareSearch(e.target.value)}
           placeholder="Search..."
-          className="w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-2 py-1.5 text-xs text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-indigo-500 dark:focus:border-indigo-400 focus:outline-none"
+          className="w-full rounded-md border border-input bg-card px-2 py-1.5 text-xs text-foreground placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-primary/50 dark:focus:border-primary/50 focus:outline-none"
         />
       </div>
 
@@ -82,7 +82,7 @@ export function FilterPanel({
           value={modelSearch}
           onChange={(e) => setModelSearch(e.target.value)}
           placeholder="Search..."
-          className="w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-2 py-1.5 text-xs text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-indigo-500 dark:focus:border-indigo-400 focus:outline-none"
+          className="w-full rounded-md border border-input bg-card px-2 py-1.5 text-xs text-foreground placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-primary/50 dark:focus:border-primary/50 focus:outline-none"
         />
       </div>
 
@@ -94,7 +94,7 @@ export function FilterPanel({
           value={llmRunnerSearch}
           onChange={(e) => setLlmRunnerSearch(e.target.value)}
           placeholder="Search..."
-          className="w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-2 py-1.5 text-xs text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-indigo-500 dark:focus:border-indigo-400 focus:outline-none"
+          className="w-full rounded-md border border-input bg-card px-2 py-1.5 text-xs text-foreground placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-primary/50 dark:focus:border-primary/50 focus:outline-none"
         />
       </div>
 

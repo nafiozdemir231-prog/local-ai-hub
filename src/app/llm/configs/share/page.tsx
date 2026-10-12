@@ -18,15 +18,15 @@ export default function ShareConfigPage() {
         <div className="flex items-center gap-4">
           <button
             onClick={() => router.back()}
-            className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+            className="flex items-center gap-1 text-sm text-muted-foreground hover:text-gray-900 dark:hover:text-white"
           >
             <ArrowLeft className="h-4 w-4" />
             Back
           </button>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Share Config</h1>
+          <h1 className="text-2xl font-bold text-foreground">Share Config</h1>
         </div>
 
-        <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
+        <p className="mt-2 text-sm text-muted-foreground">
           Share your local LLM configuration with the community
         </p>
 

@@ -129,57 +129,57 @@ export default function EditConfigPage() {
           <h2 className="text-xl font-semibold text-gray-800 dark:text-white">Model Info</h2>
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
-              <label className="mb-1 block text-sm font-medium text-gray-700 dark:text-gray-300">Model Name</label>
+              <label className="mb-1 block text-sm font-medium text-muted-foreground">Model Name</label>
               <input
                 type="text"
                 value={formData.modelName}
                 onChange={(e) => handleChange("modelName", e.target.value)}
-                className="w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm focus:border-gray-500 dark:focus:border-indigo-500 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500"
+                className="w-full rounded-md border border-input bg-card px-3 py-2 text-sm focus:border-gray-500 dark:focus:border-primary/50 text-foreground placeholder:text-gray-400 dark:placeholder:text-gray-500"
               />
             </div>
             <div>
-              <label className="mb-1 block text-sm font-medium text-gray-700 dark:text-gray-300">Hardware Model</label>
+              <label className="mb-1 block text-sm font-medium text-muted-foreground">Hardware Model</label>
               <input
                 type="text"
                 value={formData.hardwareModel}
                 onChange={(e) => handleChange("hardwareModel", e.target.value)}
-                className="w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm focus:border-gray-500 dark:focus:border-indigo-500 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500"
+                className="w-full rounded-md border border-input bg-card px-3 py-2 text-sm focus:border-gray-500 dark:focus:border-primary/50 text-foreground placeholder:text-gray-400 dark:placeholder:text-gray-500"
               />
             </div>
             <div>
-              <label className="mb-1 block text-sm font-medium text-gray-700 dark:text-gray-300">Platform</label>
+              <label className="mb-1 block text-sm font-medium text-muted-foreground">Platform</label>
               <input
                 type="text"
                 value={formData.platform}
                 onChange={(e) => handleChange("platform", e.target.value)}
-                className="w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm focus:border-gray-500 dark:focus:border-indigo-500 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500"
+                className="w-full rounded-md border border-input bg-card px-3 py-2 text-sm focus:border-gray-500 dark:focus:border-primary/50 text-foreground placeholder:text-gray-400 dark:placeholder:text-gray-500"
               />
             </div>
             <div>
-              <label className="mb-1 block text-sm font-medium text-gray-700 dark:text-gray-300">Quantization</label>
+              <label className="mb-1 block text-sm font-medium text-muted-foreground">Quantization</label>
               <input
                 type="text"
                 value={formData.quantization}
                 onChange={(e) => handleChange("quantization", e.target.value)}
-                className="w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm focus:border-gray-500 dark:focus:border-indigo-500 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500"
+                className="w-full rounded-md border border-input bg-card px-3 py-2 text-sm focus:border-gray-500 dark:focus:border-primary/50 text-foreground placeholder:text-gray-400 dark:placeholder:text-gray-500"
               />
             </div>
             <div>
-              <label className="mb-1 block text-sm font-medium text-gray-700 dark:text-gray-300">Context Size</label>
+              <label className="mb-1 block text-sm font-medium text-muted-foreground">Context Size</label>
               <input
                 type="number"
                 value={formData.contextSize}
                 onChange={(e) => handleChange("contextSize", parseInt(e.target.value) || 0)}
-                className="w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm focus:border-gray-500 dark:focus:border-indigo-500 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500"
+                className="w-full rounded-md border border-input bg-card px-3 py-2 text-sm focus:border-gray-500 dark:focus:border-primary/50 text-foreground placeholder:text-gray-400 dark:placeholder:text-gray-500"
               />
             </div>
             <div>
-              <label className="mb-1 block text-sm font-medium text-gray-700 dark:text-gray-300">KV Cache</label>
+              <label className="mb-1 block text-sm font-medium text-muted-foreground">KV Cache</label>
               <input
                 type="text"
                 value={formData.kvCache}
                 onChange={(e) => handleChange("kvCache", e.target.value)}
-                className="w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm focus:border-gray-500 dark:focus:border-indigo-500 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500"
+                className="w-full rounded-md border border-input bg-card px-3 py-2 text-sm focus:border-gray-500 dark:focus:border-primary/50 text-foreground placeholder:text-gray-400 dark:placeholder:text-gray-500"
               />
             </div>
           </div>
@@ -190,41 +190,41 @@ export default function EditConfigPage() {
           <h2 className="text-xl font-semibold text-gray-800 dark:text-white">Performance</h2>
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
-              <label className="mb-1 block text-sm font-medium text-gray-700 dark:text-gray-300">VRAM (GB)</label>
+              <label className="mb-1 block text-sm font-medium text-muted-foreground">VRAM (GB)</label>
               <input
                 type="text"
                 value={formData.vram}
                 onChange={(e) => handleChange("vram", e.target.value)}
-                className="w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm focus:border-gray-500 dark:focus:border-indigo-500 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500"
+                className="w-full rounded-md border border-input bg-card px-3 py-2 text-sm focus:border-gray-500 dark:focus:border-primary/50 text-foreground placeholder:text-gray-400 dark:placeholder:text-gray-500"
               />
             </div>
             <div>
-              <label className="mb-1 block text-sm font-medium text-gray-700 dark:text-gray-300">RAM (GB)</label>
+              <label className="mb-1 block text-sm font-medium text-muted-foreground">RAM (GB)</label>
               <input
                 type="text"
                 value={formData.ram}
                 onChange={(e) => handleChange("ram", e.target.value)}
-                className="w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm focus:border-gray-500 dark:focus:border-indigo-500 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500"
+                className="w-full rounded-md border border-input bg-card px-3 py-2 text-sm focus:border-gray-500 dark:focus:border-primary/50 text-foreground placeholder:text-gray-400 dark:placeholder:text-gray-500"
               />
             </div>
             <div>
-              <label className="mb-1 block text-sm font-medium text-gray-700 dark:text-gray-300">PP Speed</label>
+              <label className="mb-1 block text-sm font-medium text-muted-foreground">PP Speed</label>
               <input
                 type="number"
                 step="0.01"
                 value={formData.ppSpeed}
                 onChange={(e) => handleChange("ppSpeed", parseFloat(e.target.value) || 0)}
-                className="w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm focus:border-gray-500 dark:focus:border-indigo-500 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500"
+                className="w-full rounded-md border border-input bg-card px-3 py-2 text-sm focus:border-gray-500 dark:focus:border-primary/50 text-foreground placeholder:text-gray-400 dark:placeholder:text-gray-500"
               />
             </div>
             <div>
-              <label className="mb-1 block text-sm font-medium text-gray-700 dark:text-gray-300">TG Speed</label>
+              <label className="mb-1 block text-sm font-medium text-muted-foreground">TG Speed</label>
               <input
                 type="number"
                 step="0.01"
                 value={formData.tgSpeed}
                 onChange={(e) => handleChange("tgSpeed", parseFloat(e.target.value) || 0)}
-                className="w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm focus:border-gray-500 dark:focus:border-indigo-500 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500"
+                className="w-full rounded-md border border-input bg-card px-3 py-2 text-sm focus:border-gray-500 dark:focus:border-primary/50 text-foreground placeholder:text-gray-400 dark:placeholder:text-gray-500"
               />
             </div>
           </div>
@@ -234,12 +234,12 @@ export default function EditConfigPage() {
         <div className="space-y-4">
           <h2 className="text-xl font-semibold text-gray-800 dark:text-white">General Settings</h2>
           <div>
-            <label className="mb-1 block text-sm font-medium text-gray-700 dark:text-gray-300">General Settings (INI Format)</label>
+            <label className="mb-1 block text-sm font-medium text-muted-foreground">General Settings (INI Format)</label>
             <textarea
               value={formData.generalSettings}
               onChange={(e) => handleChange("generalSettings", e.target.value)}
               rows={6}
-              className="w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm focus:border-gray-500 dark:focus:border-indigo-500 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500"
+              className="w-full rounded-md border border-input bg-card px-3 py-2 text-sm focus:border-gray-500 dark:focus:border-primary/50 text-foreground placeholder:text-gray-400 dark:placeholder:text-gray-500"
             />
           </div>
         </div>
@@ -248,12 +248,12 @@ export default function EditConfigPage() {
         <div className="space-y-4">
           <h2 className="text-xl font-semibold text-gray-800 dark:text-white">Note</h2>
           <div>
-            <label className="mb-1 block text-sm font-medium text-gray-700 dark:text-gray-300">Note</label>
+            <label className="mb-1 block text-sm font-medium text-muted-foreground">Note</label>
             <textarea
               value={formData.note}
               onChange={(e) => handleChange("note", e.target.value)}
               rows={4}
-              className="w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm focus:border-gray-500 dark:focus:border-indigo-500 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500"
+              className="w-full rounded-md border border-input bg-card px-3 py-2 text-sm focus:border-gray-500 dark:focus:border-primary/50 text-foreground placeholder:text-gray-400 dark:placeholder:text-gray-500"
             />
           </div>
         </div>
@@ -269,7 +269,7 @@ export default function EditConfigPage() {
           <button
             type="button"
             onClick={() => router.back()}
-            className="rounded-md bg-gray-100 dark:bg-gray-800 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
+            className="rounded-md bg-secondary px-4 py-2 text-sm font-medium text-muted-foreground hover:bg-gray-200 dark:hover:bg-gray-700"
           >
             Cancel
           </button>
