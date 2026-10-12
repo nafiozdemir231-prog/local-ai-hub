@@ -1,6 +1,15 @@
-import Link from "next/link";
 import { localLLMWebUIs } from "@/data/local-llm-webuis";
-import { ExternalLink, Star } from "lucide-react";
+import { Monitor, ExternalLink } from "lucide-react";
+
+const osIcons: Record<string, string> = {
+  Windows: "🪟",
+  macOS: "🍎",
+  Linux: "🐧",
+  Docker: "🐳",
+  Android: "🤖",
+};
+
+const chips = (s: string) => s.split(/[,/]/).map((x) => x.trim()).filter(Boolean);
 
 export default function LocalLLMWebUIsPage() {
   return (
@@ -13,54 +22,54 @@ export default function LocalLLMWebUIsPage() {
           </p>
         </div>
 
-        <div className="overflow-x-auto rounded-xl border border-border bg-card shadow-sm">
-          <table className="w-full border-collapse">
-            <thead>
-              <tr className="bg-secondary/60">
-                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-muted-foreground">Rank</th>
-                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-muted-foreground">App Name</th>
-                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-muted-foreground">OS</th>
-                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-muted-foreground">Platform</th>
-                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-muted-foreground">Supported</th>
-                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-muted-foreground">GitHub</th>
-                <th className="text-left py-4 px-5 text-xs font-bold uppercase tracking-wider text-muted-foreground">Explanation</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-border/50">
-              {localLLMWebUIs.map((app, index) => (
-                <tr key={app.name} className="transition-all duration-150 hover:bg-accent/60">
-                  <td className="py-4 px-5">
-                    <span className={`inline-flex items-center justify-center w-10 h-10 rounded-full text-sm font-bold ${
-                      index === 0 ? "bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400 ring-2 ring-yellow-300 dark:ring-yellow-700" :
-                      index === 1 ? "bg-secondary text-muted-foreground ring-2 ring-border" :
-                      index === 2 ? "bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400 ring-2 ring-orange-300 dark:ring-orange-700" :
-                      "bg-secondary/60 text-muted-foreground"
-                    }`}>
-                      {index + 1}
-                    </span>
-                  </td>
-                  <td className="py-4 px-5">
-                    <div className="flex items-center gap-2">
-                      <Link href={app.websiteUrl} target="_blank" rel="noopener noreferrer" className="font-semibold text-primary hover:text-primary hover:underline transition-colors">
-                        {app.name}
-                      </Link>
-                      <ExternalLink className="h-3.5 w-3.5 text-muted-foreground" />
-                    </div>
-                  </td>
-                  <td className="py-4 px-5 text-sm text-muted-foreground font-mono">{app.os}</td>
-                  <td className="py-4 px-5 text-sm text-muted-foreground">{app.platform}</td>
-                  <td className="py-4 px-5 text-sm text-muted-foreground">{app.supported}</td>
-                  <td className="py-4 px-5">
-                    <span className="inline-flex items-center gap-1 bg-accent text-primary px-3 py-1.5 rounded-lg text-sm font-semibold">
-                      <Star className="h-3.5 w-3.5 fill-primary" />
-                      {app.stars}
-                    </span>
-                  </td>
-                  <td className="py-4 px-5 text-sm text-muted-foreground max-w-xs">{app.explanation}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {localLLMWebUIs.map((ui) => (
+            <a
+              key={ui.name}
+              href={ui.websiteUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block p-6 rounded-xl border border-border bg-card hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 hover:-translate-y-1"
+            >
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent group-hover:bg-accent/70 transition-colors duration-300">
+                    <Monitor className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-foreground">{ui.name}</h3>
+                    <p className="text-xs text-muted-foreground">{ui.platform}</p>
+                  </div>
+                </div>
+                <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+              </div>
+              <p className="text-sm text-muted-foreground mb-4">{ui.explanation}</p>
+              <div className="flex flex-wrap gap-1.5">
+                {chips(ui.os).map((os) => (
+                  <span
+                    key={os}
+                    className="inline-flex items-center gap-1 text-xs bg-secondary text-muted-foreground px-2.5 py-1 rounded-md font-medium"
+                  >
+                    {osIcons[os] || "💻"}
+                    {os}
+                  </span>
+                ))}
+                {chips(ui.supported).map((s) => (
+                  <span
+                    key={s}
+                    className="inline-flex items-center gap-1 text-xs bg-secondary text-muted-foreground px-2.5 py-1 rounded-md font-medium"
+                  >
+                    • {s}
+                  </span>
+                ))}
+                {ui.stars && (
+                  <span className="inline-flex items-center gap-1 text-xs bg-secondary text-amber-600 dark:text-amber-400 px-2.5 py-1 rounded-md font-medium">
+                    ⭐ {ui.stars}
+                  </span>
+                )}
+              </div>
+            </a>
+          ))}
         </div>
       </div>
     </div>

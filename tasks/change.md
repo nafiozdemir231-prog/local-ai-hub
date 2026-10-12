@@ -190,3 +190,10 @@ All filters visible horizontally above Sort By (Votes / PP Speed / TG Speed).
 |------|--------|--------|
 | llama-hq/review.bat | New: [1] dev hot-reload / [2] prod build+serve on port 3100, auto-opens browser | User: Vercel preview takes ~2 min; local review is instant |
 | (fs) .next_broken_1787544928 | Corrupt NTFS dir (error 1392) broke Turbopack -> renamed & moved out of llama-hq to ../broken_next_tmp; deletion fails, needs chkdsk D: /f (admin) | Dev server 500'd until removed |
+
+## 2026-10-11 - Runners/WebUI/Multimodal -> agents-style card grid
+| File | Change | Reason |
+|------|--------|--------|
+| src/app/local-llm-runners/page.tsx | Table -> identical Coding Agents card grid (icon tile, name+platform sub, ExternalLink, explanation, OS emoji + supported chips) | User: same list look as agents tab |
+| src/app/local-llm-webuis/page.tsx | Same card grid + amber ⭐ stars chip | Consistency with agents design |
+| src/app/multimodal/page.tsx | Same card grid; icon auto-picked by capability (Film/AudioLines/ImageIcon/Sparkles) | Consistency with agents design |
