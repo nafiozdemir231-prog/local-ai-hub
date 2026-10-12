@@ -1,6 +1,11 @@
-current_step: 11
-status: awaiting_user_review
-last_action: step6-8 tamam (AIO + 5 tablo sayfası + configs ailesi obsidian token; indigo/gray kalmıyor — madalya renkleri hariç); build PASS tüm route'lar; profile/login zaten temiz
-next_action: kullanıcı Vercel PREVIEW'i inceleyecek: https://local-ai-hub-git-obsidian-redesign-vincespeed.vercel.app (Deployment Protection nedeniyle Vercel hesabıyla giriş gerekir) veya dashboard: https://vercel.com/vincespeed/local-ai-hub/FouYmomMFygdhz3B4S4PosrBP2tj — geri bildirim döngüsü, sonra step12 merge
+current_step: done (i18n task)
+status: complete
+verdict: PASS
+last_action: Tüm sekmeler 8 dile çevrildi — yeni sözlük modülleri (src/lib/ui-core.ts + ui-aio1..5, ~90 anahtar x en/tr/es/de/fr/pt/zh/ja), navbar kısa çevirili mono etiketler, rankings/agents/runners/webui/multimodal başlık+alt metin, configs liste+FilterPanel+ShareForm+share+edit, AIO sayfası komple chrome (hero, features/components/steps dizileri, tüm bölüm başlıkları, overview/preset/sysreq notları, privacy, Supported Languages LANGS'tan, credits, CTA, FeedbackForm + locale-duyarlı tarih). Build PASS, 6 route lokalde 200, commit+push I18N_OK.
+next_action: Kullanıcı preview/lokal inceleme -> geri bildirim veya "merge et" (obsidian-redesign -> main -> production)
 blocked: false
-notes: production (main) hâlâ eski tasarım; merge yok. Preview'da dil seçici 8 dilli çalışmalı. Düzeltme istenirse branch'te commit'lenir.
+notes: |
+  - SSR varsayılan dil EN; kullanıcı seçimi localStorage'da (istemci tarafı geçiş).
+  - Model/ürün adları, data dosyalarındaki açıklamalar, komutlar, URL'ler, birimler bilinçli EN.
+  - Üretim (main) hâlâ eski tasarım; merge yapılmadı. Preview: https://local-ai-hub-git-obsidian-redesign-vincespeed.vercel.app
+  - Lokal inceleme: llama-hq/review.bat (:3100). Disk notu: D:\OpenCode\Local-AI-Hub\broken_next_tmp silinemiyor (NTFS hasarı) -> chkdsk D: /f önerisi bekliyor.
