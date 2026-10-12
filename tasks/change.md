@@ -207,3 +207,8 @@ All filters visible horizontally above Sort By (Votes / PP Speed / TG Speed).
 | rankings / chat-clients / runners / webuis / multimodal pages | useLang; titles+subs+t(); weights/closed tags localized; agents page converted to client component | Localization |
 | llm/configs page + FilterPanel + ShareForm + share + edit pages | All labels/buttons/headers/placeholders via t() | Localization |
 | llm-runner-aio page | Hero, data arrays (features/components/steps), all section headings, overview/presets/sysreq notes, privacy items, Supported Languages rendered from LANGS, credits, CTA, FeedbackForm (+locale-aware date) via t() | Localization |
+
+## 2026-10-12 - Configs AIO banner contrast fix
+| File | Change | Reason |
+|------|--------|--------|
+| src/app/llm/configs/page.tsx | Banner: amber->dark gradient replaced with obsidian card (bg-card + border-primary/40, icon tile bg-accent/text-primary) | User screenshot: "LLM Runner AIO" text unreadable on amber background |

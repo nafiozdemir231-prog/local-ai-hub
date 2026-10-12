@@ -202,10 +202,10 @@ export default function LLMConfigsPage() {
 
 
         {/* LLM Runner AIO Banner */}
-        <div className="mt-6 rounded-xl border-2 border-primary/50 dark:border-primary/50 bg-gradient-to-r from-primary to-white dark:from-primary dark:to-gray-800 p-6">
+        <div className="mt-6 rounded-xl border border-primary/40 bg-card p-6">
           <div className="flex flex-col md:flex-row items-center gap-6">
-            <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-primary">
-              <Download className="h-8 w-8 text-white" />
+            <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-accent">
+              <Download className="h-8 w-8 text-primary" />
             </div>
             <div className="flex-1 text-center md:text-left">
               <h3 className="text-xl font-bold text-foreground">{t("cfg.aioBanner")}</h3>
