@@ -156,3 +156,12 @@ All filters visible horizontally above Sort By (Votes / PP Speed / TG Speed).
 | navbar.tsx | desktop lang dropdown (flag+code) + mobile flag grid; nav labels localized via t() | language switching UI |
 | footer.tsx, page.tsx | "use client" + localized tagline/home copy via t() | localized chrome/home |
 - v1 scope: chrome + home + footer translated; product/model names & data tables stay EN (technical). Phase B options: localized URLs (/tr..) + hreflang for SEO, deeper per-page dictionaries.
+
+## 2026-10-11 - Steps 6-8: remaining pages restyled to obsidian (branch)
+| File(s) | Change | Reason |
+|---------|--------|--------|
+| src/app/llm-runner-aio/page.tsx | Full indigo/gray -> semantic tokens; buttons bg-primary + brightness hover; port bullets primary | Step6 |
+| rankings / local-llm-runners / local-llm-webuis / multimodal / chat-clients page.tsx | Tokens everywhere; medals (gold/silver/bronze) intentionally kept; star badges bg-accent/text-primary | Step7 |
+| llm/configs: page, share, edit + ConfigCard/FilterPanel/ShareForm | Tokens; CTA buttons primary; chips accent | Step8 |
+- Verification: grep indigo/purple count = 0 in all restyled files (medals excluded); build PASS; profile/login already clean.
+- Preview available: Vercel commit status target https://vercel.com/vincespeed/local-ai-hub/FouYmomMFygdhz3B4S4PosrBP2tj ; preview domain requires Vercel login (Deployment Protection).
