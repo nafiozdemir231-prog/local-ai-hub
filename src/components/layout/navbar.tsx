@@ -5,22 +5,25 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import { LogIn, LogOut, Shield, Menu, X, Sun, Moon } from "lucide-react";
 import { useState } from "react";
 import { useTheme } from "@/lib/theme-provider";
+import { LANGS, useLang } from "@/lib/i18n";
 import { usePathname } from "next/navigation";
 
 export function Navbar() {
   const { data: session } = useSession();
   const { theme, toggleTheme } = useTheme();
+  const { lang, setLang, t } = useLang();
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [langMenuOpen, setLangMenuOpen] = useState(false);
 
   const navLinks = [
-    { href: "/llm/configs", label: "LLM Configs" },
+    { href: "/llm/configs", label: t("nav.configs") },
     { href: "/llm-runner-aio", label: "LLM Runner AIO" },
-    { href: "/models/rankings", label: "Rankings" },
-    { href: "/chat-clients", label: "Coding Agents" },
-    { href: "/local-llm-runners", label: "LLM Runners" },
-    { href: "/local-llm-webuis", label: "LLM Web UI" },
-    { href: "/multimodal", label: "Multimodal" },
+    { href: "/models/rankings", label: t("nav.rankings") },
+    { href: "/chat-clients", label: t("nav.agents") },
+    { href: "/local-llm-runners", label: t("nav.runners") },
+    { href: "/local-llm-webuis", label: t("nav.webui") },
+    { href: "/multimodal", label: t("nav.multimodal") },
   ];
 
   const isActive = (href: string) => {
@@ -51,6 +54,36 @@ export function Navbar() {
           )}
         </button>
 
+        {/* Language selector — 8 languages, matches the app */}
+        <div className="relative">
+          <button
+            onClick={() => setLangMenuOpen(!langMenuOpen)}
+            className="flex items-center gap-1.5 rounded-lg border border-border px-2.5 py-1.5 font-mono text-xs transition hover:bg-accent"
+            title="Language"
+          >
+            <span>{LANGS.find((l) => l.code === lang)?.flag}</span>
+            <span className="uppercase">{lang}</span>
+          </button>
+          {langMenuOpen && (
+            <div className="absolute left-0 top-full z-50 mt-1 w-40 rounded-lg border border-border bg-popover p-1 shadow-xl">
+              {LANGS.map((l) => (
+                <button
+                  key={l.code}
+                  onClick={() => {
+                    setLang(l.code);
+                    setLangMenuOpen(false);
+                  }}
+                  className={`flex w-full items-center gap-2 rounded-md px-3 py-2 text-left text-sm transition ${
+                    l.code === lang ? "bg-accent font-semibold text-primary" : "text-muted-foreground hover:bg-accent/60"
+                  }`}
+                >
+                  <span>{l.flag}</span> {l.name}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+
         {/* Desktop Navigation */}
         <div className="hidden items-center gap-1 md:flex">
           {navLinks.map((link) => (
@@ -74,7 +107,7 @@ export function Navbar() {
           >
             <span className="flex items-center gap-1.5">
               ☕
-              <span>Support</span>
+              <span>{t("nav.support")}</span>
             </span>
           </a>
           {session && (
@@ -164,13 +197,27 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
+            <div className="grid grid-cols-4 gap-1 py-2">
+              {LANGS.map((l) => (
+                <button
+                  key={l.code}
+                  onClick={() => setLang(l.code)}
+                  title={l.name}
+                  className={`rounded-md px-2 py-2 text-center text-base ${
+                    l.code === lang ? "bg-accent font-semibold text-primary" : "text-muted-foreground hover:bg-accent/60"
+                  }`}
+                >
+                  {l.flag}
+                </button>
+              ))}
+            </div>
             <a
               href="https://ko-fi.com/vincespeed"
               target="_blank"
               rel="noopener noreferrer"
               className="block rounded-lg bg-primary px-4 py-2.5 text-sm font-bold text-primary-foreground text-center hover:shadow-lg transition-all duration-300"
             >
-              ☕ Support
+              ☕ {t("nav.support")}
             </a>
             {session && (
               <Link

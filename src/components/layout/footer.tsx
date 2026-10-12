@@ -1,4 +1,9 @@
+"use client";
+
+import { useLang } from "@/lib/i18n";
+
 export function Footer() {
+  const { t } = useLang();
   return (
     <footer className="mt-auto w-full border-t border-border bg-secondary/60 py-8">
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-6 px-4 sm:px-6 lg:px-8">
@@ -18,7 +23,7 @@ export function Footer() {
           </span>
         </a>
         <p className="text-sm font-mono text-muted-foreground">
-          © {new Date().getFullYear()} ▮ <span className="text-primary">ai</span>hublocal.com — no cloud · no telemetry
+          © {new Date().getFullYear()} ▮ <span className="text-primary">ai</span>hublocal.com — {t("footer.tagline")}
         </p>
       </div>
     </footer>

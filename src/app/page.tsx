@@ -1,7 +1,11 @@
-import Link from "next/link";
+"use client";
 
-// Obsidian ana sayfa — mockup (tasks/arayuz/tasarim2-obsidian) birebir, token bazlı tema
+import Link from "next/link";
+import { useLang } from "@/lib/i18n";
+
+// Obsidian home — mockup-faithful, token-based theme; localized via LanguageProvider
 export default function Home() {
+  const { t } = useLang();
   return (
     <div className="relative w-full">
       {/* Film grain */}
@@ -11,14 +15,13 @@ export default function Home() {
         {/* Hero */}
         <header className="grid items-center gap-12 py-20 md:py-24 md:grid-cols-[1.2fr_1fr]">
           <div>
-            <p className="kicker mono mb-5">{"// your local AI station"}</p>
+            <p className="kicker mono mb-5">{t("home.kicker")}</p>
             <h1 className="text-4xl font-bold leading-[1.08] text-foreground sm:text-5xl md:text-6xl">
-              No servers needed.<br />
-              A <span className="text-primary">125B model</span> on your own PC.
+              {t("home.h1a")}<br />
+              {t("home.h1bA")}<span className="text-primary">125B model</span>{t("home.h1bB")}
             </h1>
             <p className="mt-6 max-w-xl leading-relaxed text-muted-foreground">
-              LLM Runner AIO installs Open WebUI, llama.cpp, SearXNG and the Strata gateway for you.
-              Hardware detected, models downloaded, ports opened — automatically.
+              {t("home.intro")}
             </p>
             <div className="mt-9 flex flex-wrap gap-4">
               <Link
@@ -31,7 +34,7 @@ export default function Home() {
                 href="/models/rankings"
                 className="rounded-md border border-border px-7 py-3.5 font-mono text-sm transition hover:bg-accent"
               >
-                121 model rankings →
+                {t("home.ctaRankings")}
               </Link>
             </div>
           </div>
@@ -62,10 +65,10 @@ export default function Home() {
         {/* Rakamlar */}
         <section className="grid grid-cols-2 gap-4 border-y border-border py-8 text-center md:grid-cols-4">
           {[
-            ["121+", "ranked models"],
-            ["v2.1", "AIO version"],
-            ["7", "bundled services"],
-            ["100%", "open source"],
+            ["121+", t("home.statModels")],
+            ["v2.1", t("home.statVersion")],
+            ["7", t("home.statServices")],
+            ["100%", t("home.statOpen")],
           ].map(([n, l]) => (
             <div key={l}>
               <div className="font-mono text-3xl font-bold text-primary">{n}</div>
@@ -76,7 +79,7 @@ export default function Home() {
 
         {/* Neler dahil — rota kartları */}
         <section className="py-14">
-          <p className="kicker mono mb-8">{"// what's included"}</p>
+          <p className="kicker mono mb-8">{t("home.included")}</p>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {[
               ["/llm-runner-aio", "LLM Runner AIO", "One-click setup, hardware detection, GUI Model Manager and the full VRAM preset matrix."],
@@ -94,10 +97,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Alt mono şerit */}
+        {/* Bottom strip */}
         <footer className="flex flex-wrap items-center justify-between gap-3 border-t border-border py-6 font-mono text-xs text-muted-foreground">
           <span>© {new Date().getFullYear()} aihublocal.com</span>
-          <span>no cloud · no telemetry · MIT</span>
+          <span>{t("footer.tagline")}</span>
         </footer>
       </main>
     </div>
