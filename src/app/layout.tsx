@@ -17,8 +17,10 @@ const geistMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.aihublocal.com"),
   title: "Aihublocal — Run Local AI on Your Own Hardware",
   description: "LLM Runner AIO runs local AI on your PC: Open WebUI, llama.cpp, SearXNG, Strata gateway and 121 ranked models — no cloud, no telemetry.",
+  alternates: { canonical: "/" },
 };
 
 export default function RootLayout({

@@ -1,5 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /llm/configs/share
+Disallow: /llm/configs/edit
+Disallow: /profile
 
 # Sitemap
-Sitemap: https://aihublocal.com/sitemap.xml
+Sitemap: https://www.aihublocal.com/sitemap.xml
