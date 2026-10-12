@@ -5,9 +5,9 @@
 
 ## Steps
 - [x] 1. Branch aç + temel doğruluk (mevcut build PASS referansı)
-- [ ] 2. Tema temeli: globals.css'e obsidian CSS değişkenleri (dark #0b0c0f / light #f6f5f1), grain overlay utility, mevcut "theme" localStorage sistemiyle birleştir (mockup'taki ayrı "obs-theme" key'i tek key'de birleşecek)
-- [ ] 3. Fontlar: Sora + JetBrains Mono next/font ile layout.tsx'e ekle (Geist korunabilir ama obsidian sayfalarda Sora baz)
-- [ ] 4. Navbar + Footer obsidian stili (marka: ▮ aihublocal.com — amber "ai", soluk ".com"; mevcut tema butonu tek düğmede birleşir)
+- [x] 2. Tema temeli: globals.css'e obsidian CSS değişkenleri (dark #0b0c0f / light #f6f5f1), grain overlay utility, mevcut "theme" localStorage sistemiyle birleştir (mockup'taki ayrı "obs-theme" key'i tek key'de birleşecek)
+- [x] 3. Fontlar: Sora + JetBrains Mono next/font ile layout.tsx'e ekle (Geist korunabilir ama obsidian sayfalarda Sora baz)
+- [x] 4. Navbar + Footer obsidian stili (marka: ▮ aihublocal.com — amber "ai", soluk ".com"; mevcut tema butonu tek düğmede birleşir)
 - [ ] 5. Ana sayfa: obsidian hero (kicker, 125B vurgu, CTA'lar) + canlı kurulum terminali + servis kartları (mevcut route'lara bağlanır)
 - [ ] 6. llm-runner-aio sayfası obsidian stili (tüm gerçek içerik/veriler korunur: v2.1 linkler, preset matrisi, portlar)
 - [ ] 7. Tablo/kart sayfaları obsidian: rankings, local-llm-runners, local-llm-webuis, multimodal, chat-clients (data dosyaları aynı; sadece giydirme)
