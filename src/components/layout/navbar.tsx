@@ -29,12 +29,12 @@ export function Navbar() {
   };
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-indigo-200 dark:border-indigo-800 bg-gradient-to-r from-white via-indigo-50/30 to-white dark:from-indigo-950/90 dark:via-indigo-900/70 dark:to-indigo-950/90 backdrop-blur-md shadow-md">
+    <nav className="sticky top-0 z-50 w-full border-b border-border bg-background/85 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
-          <span className="text-xl font-bold bg-gradient-to-r from-indigo-600 to-blue-600 dark:from-indigo-400 dark:to-blue-400 bg-clip-text text-transparent">
-            Local AI Hub
+        <Link href="/" className="flex items-center gap-2 font-mono">
+          <span className="text-lg font-bold tracking-tight text-foreground">
+            ▮ <span className="text-primary">ai</span>hublocal<span className="font-medium text-muted-foreground/70">.com</span>
           </span>
         </Link>
 
@@ -59,8 +59,8 @@ export function Navbar() {
               href={link.href}
               className={`rounded-lg px-3 py-2 text-sm font-medium transition-all duration-200 ${
                 isActive(link.href)
-                  ? "bg-indigo-100 dark:bg-indigo-800 text-indigo-900 dark:text-indigo-100 font-semibold shadow-sm"
-                  : "text-gray-700 dark:text-gray-300 hover:bg-indigo-100/50 dark:hover:bg-indigo-800/50 hover:text-indigo-700 dark:hover:text-indigo-200"
+                  ? "bg-accent text-primary font-semibold"
+                  : "text-muted-foreground hover:bg-accent/60 hover:text-primary"
               }`}
             >
               {link.label}
@@ -70,7 +70,7 @@ export function Navbar() {
             href="https://ko-fi.com/vincespeed"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative ml-2 rounded-lg bg-gradient-to-r from-orange-500 to-pink-500 px-4 py-2 text-sm font-bold text-white shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105"
+            className="group relative ml-2 rounded-lg bg-primary px-4 py-2 text-sm font-bold text-primary-foreground shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105"
           >
             <span className="flex items-center gap-1.5">
               ☕
@@ -148,7 +148,7 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="border-t border-indigo-200 dark:border-indigo-800 bg-gradient-to-b from-white to-indigo-50/50 dark:from-indigo-950/90 dark:to-indigo-900/70 md:hidden">
+        <div className="border-t border-border bg-background md:hidden">
           <div className="mx-auto max-w-7xl px-4 py-4 space-y-1">
             {navLinks.map((link) => (
               <Link
@@ -157,8 +157,8 @@ export function Navbar() {
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block rounded-lg px-3 py-2.5 text-sm font-medium transition-colors ${
                   isActive(link.href)
-                    ? "bg-indigo-100 dark:bg-indigo-800 text-indigo-900 dark:text-indigo-100 font-semibold shadow-sm"
-                    : "text-gray-700 dark:text-gray-300 hover:bg-indigo-100/50 dark:hover:bg-indigo-800/50 hover:text-indigo-700 dark:hover:text-indigo-200"
+                    ? "bg-accent text-primary font-semibold"
+                    : "text-muted-foreground hover:bg-accent/60 hover:text-primary"
                 }`}
               >
                 {link.label}
@@ -168,7 +168,7 @@ export function Navbar() {
               href="https://ko-fi.com/vincespeed"
               target="_blank"
               rel="noopener noreferrer"
-              className="block rounded-lg bg-gradient-to-r from-orange-500 to-pink-500 px-4 py-2.5 text-sm font-bold text-white text-center hover:shadow-lg transition-all duration-300"
+              className="block rounded-lg bg-primary px-4 py-2.5 text-sm font-bold text-primary-foreground text-center hover:shadow-lg transition-all duration-300"
             >
               ☕ Support
             </a>
@@ -178,8 +178,8 @@ export function Navbar() {
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block rounded-lg px-3 py-2.5 text-sm font-medium transition-colors ${
                   isActive("/profile")
-                    ? "bg-indigo-100 dark:bg-indigo-800 text-indigo-900 dark:text-indigo-100 font-semibold shadow-sm"
-                    : "text-gray-700 dark:text-gray-300 hover:bg-indigo-100/50 dark:hover:bg-indigo-800/50 hover:text-indigo-700 dark:hover:text-indigo-200"
+                    ? "bg-accent text-primary font-semibold"
+                    : "text-muted-foreground hover:bg-accent/60 hover:text-primary"
                 }`}
               >
                 Profile
