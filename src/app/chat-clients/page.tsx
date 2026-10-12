@@ -1,4 +1,7 @@
+"use client";
+
 import { clientTools } from "@/data/client-tools";
+import { useLang } from "@/lib/i18n";
 import { Monitor, Terminal, Globe, Cpu, ExternalLink } from "lucide-react";
 
 const platformIcons: Record<string, { icon: React.ReactNode; label: string }> = {
@@ -27,13 +30,14 @@ const categoryIcons: Record<string, React.ReactNode> = {
 };
 
 export default function ChatClientsPage() {
+  const { t } = useLang();
   return (
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-12">
         <div className="text-center mb-10">
-          <h1 className="text-4xl font-bold text-foreground mb-3">Coding Agents</h1>
+          <h1 className="text-4xl font-bold text-foreground mb-3">{t("nav.agents")}</h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Discover the best AI-powered coding tools and agents for your workflow
+            {t("agents.sub")}
           </p>
         </div>
 

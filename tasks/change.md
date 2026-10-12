@@ -197,3 +197,13 @@ All filters visible horizontally above Sort By (Votes / PP Speed / TG Speed).
 | src/app/local-llm-runners/page.tsx | Table -> identical Coding Agents card grid (icon tile, name+platform sub, ExternalLink, explanation, OS emoji + supported chips) | User: same list look as agents tab |
 | src/app/local-llm-webuis/page.tsx | Same card grid + amber ⭐ stars chip | Consistency with agents design |
 | src/app/multimodal/page.tsx | Same card grid; icon auto-picked by capability (Film/AudioLines/ImageIcon/Sparkles) | Consistency with agents design |
+
+## 2026-10-12 - Full 8-language localization (all tabs)
+| File | Change | Reason |
+|------|--------|--------|
+| src/lib/ui-core.ts (+ui-aio1..5) | New dictionary modules: ~90 keys x en/tr/es/de/fr/pt/zh/ja for rankings, card tabs, configs list+filters, share/edit forms, full AIO page chrome (hero/features/components/steps/sysreq/privacy/credits/feedback) + short nav labels | User: "tüm sekmeleri 8 dile ayarla" |
+| src/lib/i18n.tsx | Merges all UI_* dicts into DICT | Single t() source |
+| navbar.tsx | Nav labels -> t("nav.s.*") short translated tokens (lowercase mono kept) | Localize tabs w/o breaking width |
+| rankings / chat-clients / runners / webuis / multimodal pages | useLang; titles+subs+t(); weights/closed tags localized; agents page converted to client component | Localization |
+| llm/configs page + FilterPanel + ShareForm + share + edit pages | All labels/buttons/headers/placeholders via t() | Localization |
+| llm-runner-aio page | Hero, data arrays (features/components/steps), all section headings, overview/presets/sysreq notes, privacy items, Supported Languages rendered from LANGS, credits, CTA, FeedbackForm (+locale-aware date) via t() | Localization |

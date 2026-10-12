@@ -1,4 +1,7 @@
+"use client";
+
 import { multimodalModels } from "@/data/multimodal-models";
+import { useLang } from "@/lib/i18n";
 import { Film, ImageIcon, AudioLines, Sparkles, ExternalLink } from "lucide-react";
 
 const osIcons: Record<string, string> = {
@@ -18,13 +21,14 @@ function pickIcon(supported: string) {
 }
 
 export default function MultimodalPage() {
+  const { t } = useLang();
   return (
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-12">
         <div className="text-center mb-10">
-          <h1 className="text-4xl font-bold text-foreground mb-3">Multimodal</h1>
+          <h1 className="text-4xl font-bold text-foreground mb-3">{t("nav.multimodal")}</h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Discover the best apps for local AI multimedia generation
+            {t("mm.sub")}
           </p>
         </div>
 

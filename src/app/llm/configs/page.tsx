@@ -3,6 +3,7 @@
 import { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
 import { FilterPanel } from "./components/FilterPanel";
+import { useLang } from "@/lib/i18n";
 import { useSession } from "next-auth/react";
 import { Download, Package, Server, Zap, Globe, Settings, Cpu } from "lucide-react";
 
@@ -57,6 +58,7 @@ function getSpeedBg(speed: number, min: number, max: number): string {
 }
 
 export default function LLMConfigsPage() {
+  const { t } = useLang();
   const [selectedPlatforms, setSelectedPlatforms] = useState<string[]>([]);
   const [selectedVrams, setSelectedVrams] = useState<string[]>([]);
   const [selectedRams, setSelectedRams] = useState<string[]>([]);
@@ -125,16 +127,16 @@ export default function LLMConfigsPage() {
       <div className="flex-1 p-4 md:p-8">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
-            <h1 className="text-3xl font-bold text-foreground">LLM Configs</h1>
-            <p className="mt-1 text-sm text-muted-foreground">Browse and filter local LLM configurations</p>
+            <h1 className="text-3xl font-bold text-foreground">{t("nav.configs")}</h1>
+            <p className="mt-1 text-sm text-muted-foreground">{t("cfg.browse")}</p>
           </div>
           <div className="flex items-center gap-4">
-            <span className="text-sm text-muted-foreground bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full">{filteredConfigs.length} results</span>
+            <span className="text-sm text-muted-foreground bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full">{t("cfg.results").replace("{n}", String(filteredConfigs.length))}</span>
             <Link
               href="/llm/configs/share"
               className="rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground hover:brightness-110 shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5"
             >
-              Share Config
+              {t("cfg.share")}
             </Link>
           </div>
         </div>
@@ -165,7 +167,7 @@ export default function LLMConfigsPage() {
 
         {/* Sort Options */}
         <div className="mt-6 flex items-center gap-3">
-          <span className="text-sm text-muted-foreground font-medium">Sort by:</span>
+          <span className="text-sm text-muted-foreground font-medium">{t("cfg.sortBy")}</span>
           <button
             onClick={() => setSortOption("votes")}
             className={`rounded-lg px-4 py-2 text-sm font-medium transition-all duration-200 ${
@@ -174,7 +176,7 @@ export default function LLMConfigsPage() {
                 : "bg-card text-muted-foreground hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600"
             }`}
           >
-            Votes
+            {t("cfg.votes")}
           </button>
           <button
             onClick={() => setSortOption("pp")}
@@ -184,7 +186,7 @@ export default function LLMConfigsPage() {
                 : "bg-card text-muted-foreground hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600"
             }`}
           >
-            PP Speed
+            {t("cfg.ppSpeed")}
           </button>
           <button
             onClick={() => setSortOption("tg")}
@@ -194,7 +196,7 @@ export default function LLMConfigsPage() {
                 : "bg-card text-muted-foreground hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600"
             }`}
           >
-            TG Speed
+            {t("cfg.tgSpeed")}
           </button>
         </div>
 
@@ -206,9 +208,9 @@ export default function LLMConfigsPage() {
               <Download className="h-8 w-8 text-white" />
             </div>
             <div className="flex-1 text-center md:text-left">
-              <h3 className="text-xl font-bold text-foreground">LLM Runner AIO — All-in-One Package</h3>
+              <h3 className="text-xl font-bold text-foreground">{t("cfg.aioBanner")}</h3>
               <p className="mt-1 text-sm text-muted-foreground">
-                Open WebUI, llama.cpp, Vane & SearXNG in a single 2.5 GB .exe. Automatic setup, 7 languages, Windows integration.
+                {t("cfg.aioBannerDesc")}
               </p>
             </div>
             <Link
@@ -216,7 +218,7 @@ export default function LLMConfigsPage() {
               className="flex-shrink-0 inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 shadow-sm transition-all duration-200 hover:-translate-y-0.5"
             >
               <Download className="h-4 w-4" />
-              Download AIO
+              {t("cfg.downloadAio")}
             </Link>
           </div>
         </div>
@@ -227,19 +229,19 @@ export default function LLMConfigsPage() {
             <thead>
               <tr className="bg-gradient-to-r from-gray-100 to-gray-50 dark:from-gray-800 dark:to-gray-900">
                 <th className="border-b border-border px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Rank</th>
-                <th className="border-b border-border px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Model Name</th>
-                <th className="border-b border-border px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Hardware Model</th>
-                <th className="border-b border-border px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Platform</th>
-                <th className="border-b border-border px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">LLM Runner</th>
+                <th className="border-b border-border px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">{t("cfg.thModel")}</th>
+                <th className="border-b border-border px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">{t("cfg.thHardware")}</th>
+                <th className="border-b border-border px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">{t("cfg.thPlatform")}</th>
+                <th className="border-b border-border px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">{t("cfg.thRunner")}</th>
                 <th className="border-b border-border px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">VRAM</th>
                 <th className="border-b border-border px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">RAM</th>
-                <th className="border-b border-border px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Quantization</th>
+                <th className="border-b border-border px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">{t("fp.quant")}</th>
                 <th className="border-b border-border px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Context</th>
                 <th className="border-b border-border px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">PP</th>
                 <th className="border-b border-border px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">TG</th>
-                <th className="border-b border-border px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Votes</th>
-                <th className="border-b border-border px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">User</th>
-                {(isAdmin || session) && <th className="border-b border-border px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Actions</th>}
+                <th className="border-b border-border px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">{t("cfg.thVotes")}</th>
+                <th className="border-b border-border px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">{t("cfg.thUser")}</th>
+                {(isAdmin || session) && <th className="border-b border-border px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">{t("cfg.thActions")}</th>}
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100 dark:divide-gray-700">
@@ -284,7 +286,7 @@ export default function LLMConfigsPage() {
                     </span>
                   </td>
                   <td className="px-5 py-4 text-sm font-semibold text-gray-800 dark:text-gray-200">{config.starCount}</td>
-                  <td className="px-5 py-4 text-sm text-muted-foreground">{config.user.name || "Anonymous"}</td>
+                  <td className="px-5 py-4 text-sm text-muted-foreground">{config.user.name || t("cfg.anon")}</td>
                   {(isAdmin || isOwner(config.userId)) && (
                     <td className="px-5 py-4">
                       <div className="flex gap-2">
@@ -292,11 +294,11 @@ export default function LLMConfigsPage() {
                           href={`/llm/configs/edit/${config.id}`}
                           className="rounded-md bg-blue-50 dark:bg-blue-900/30 px-3 py-1.5 text-xs font-medium text-blue-600 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors"
                         >
-                          Edit
+                          {t("cfg.edit")}
                         </Link>
                         <button
                           onClick={async () => {
-                            if (!confirm("Are you sure you want to delete this config?")) return;
+                            if (!confirm(t("cfg.confirmDel"))) return;
                             setDeleting(config.id);
                             const res = await fetch(`/api/configs/${config.id}`, { method: "DELETE" });
                             setDeleting(null);
@@ -310,7 +312,7 @@ export default function LLMConfigsPage() {
                           disabled={deleting === config.id}
                           className="rounded-md bg-red-50 dark:bg-red-900/30 px-3 py-1.5 text-xs font-medium text-red-600 dark:text-red-400 hover:bg-red-100 dark:hover:bg-red-900/50 transition-colors disabled:opacity-50"
                         >
-                          {deleting === config.id ? "Deleting..." : "Delete"}
+                          {deleting === config.id ? t("cfg.deleting") : t("cfg.delete")}
                         </button>
                       </div>
                     </td>
@@ -323,7 +325,7 @@ export default function LLMConfigsPage() {
 
         {filteredConfigs.length === 0 && (
           <div className="mt-12 text-center">
-            <p className="text-lg text-muted-foreground">No configs found matching your filters.</p>
+            <p className="text-lg text-muted-foreground">{t("cfg.noResults")}</p>
           </div>
         )}
       </div>

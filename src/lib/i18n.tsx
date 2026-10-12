@@ -1,6 +1,14 @@
 "use client";
 
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
+import { UI_CORE, UI_SHARE, UI_NAV } from "./ui-core";
+import { UI_AIO1 } from "./ui-aio1";
+import { UI_AIO2A } from "./ui-aio2a";
+import { UI_AIO2B } from "./ui-aio2b";
+import { UI_AIO2C } from "./ui-aio2c";
+import { UI_AIO3 } from "./ui-aio3";
+import { UI_AIO4 } from "./ui-aio4";
+import { UI_AIO5 } from "./ui-aio5";
 
 export const LANGS = [
   { code: "en", flag: "🇬🇧", name: "English" },
@@ -47,6 +55,16 @@ const DICT: Record<string, Partial<Record<Lang, string>>> = {
   "home.statOpen": { en: "open source", tr: "açık kaynak", es: "código abierto", de: "Open Source", fr: "open source", pt: "código aberto", zh: "开源", ja: "オープンソース" },
   "home.included": { en: "// what's included", tr: "// neler dahil", es: "// qué incluye", de: "// was enthalten ist", fr: "// ce qui est inclus", pt: "// o que está incluído", zh: "// 包含内容", ja: "// 内容物" },
   "footer.tagline": { en: "no cloud · no telemetry · MIT", tr: "bulut yok · telemetri yok · MIT", es: "sin nube · sin telemetría · MIT", de: "keine Cloud · keine Telemetrie · MIT", fr: "sans cloud · sans télémétrie · MIT", pt: "sem nuvem · sem telemetria · MIT", zh: "无云端 · 无遥测 · MIT", ja: "クラウドなし · テレメトリなし · MIT" },
+  ...UI_CORE,
+  ...UI_SHARE,
+  ...UI_NAV,
+  ...UI_AIO1,
+  ...UI_AIO2A,
+  ...UI_AIO2B,
+  ...UI_AIO2C,
+  ...UI_AIO3,
+  ...UI_AIO4,
+  ...UI_AIO5,
 };
 
 type LangCtx = { lang: Lang; setLang: (l: Lang) => void; t: (key: string) => string };

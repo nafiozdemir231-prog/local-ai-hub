@@ -1,10 +1,12 @@
 "use client";
 
 import { ShareForm } from "../components/ShareForm";
+import { useLang } from "@/lib/i18n";
 import { useRouter } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 
 export default function ShareConfigPage() {
+  const { t } = useLang();
   const router = useRouter();
 
   const handleSuccess = () => {
@@ -21,13 +23,13 @@ export default function ShareConfigPage() {
             className="flex items-center gap-1 text-sm text-muted-foreground hover:text-gray-900 dark:hover:text-white"
           >
             <ArrowLeft className="h-4 w-4" />
-            Back
+            {t("cfg.back")}
           </button>
-          <h1 className="text-2xl font-bold text-foreground">Share Config</h1>
+          <h1 className="text-2xl font-bold text-foreground">{t("cfg.share")}</h1>
         </div>
 
         <p className="mt-2 text-sm text-muted-foreground">
-          Share your local LLM configuration with the community
+          {t("cfg.shareSub")}
         </p>
 
         <div className="mx-auto mt-8 max-w-2xl">

@@ -1,6 +1,7 @@
 "use client";
 
 import { modelRankings, type ModelRanking } from "@/data/model-rankings";
+import { useLang } from "@/lib/i18n";
 
 // Obsidian table design (matches tasks/arayuz/tasarim2-obsidian/rankings.html)
 function rankClass(index: number) {
@@ -14,6 +15,7 @@ const TH = "py-4 px-3 text-left font-mono text-[11px] uppercase tracking-[0.15em
 const TD = "px-3 py-6 align-middle font-mono text-sm";
 
 function ModelRow({ model, index }: { model: ModelRanking; index: number }) {
+  const { t } = useLang();
   return (
     <tr className="border-b border-border/50 transition-colors hover:bg-accent/40">
       <td className={`${TD} pl-6 pr-2`}>
@@ -31,11 +33,11 @@ function ModelRow({ model, index }: { model: ModelRanking; index: number }) {
       <td className={`${TD} pl-3 pr-6`}>
         {model.weights ? (
           <span className="inline-flex items-center rounded-full border border-green-600/40 bg-green-500/10 px-2.5 py-1 text-[11px] tracking-wider text-green-700 dark:text-green-400">
-            weights
+            {t("rank.weights")}
           </span>
         ) : (
           <span className="inline-flex items-center rounded-full border border-border px-2.5 py-1 text-[11px] tracking-wider text-muted-foreground">
-            closed
+            {t("rank.closed")}
           </span>
         )}
       </td>
@@ -44,15 +46,16 @@ function ModelRow({ model, index }: { model: ModelRanking; index: number }) {
 }
 
 export default function ModelRankingsPage() {
+  const { t } = useLang();
   return (
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-12">
         <div className="mb-10">
-          <p className="kicker mono mb-4">{"// model rankings"}</p>
-          <h1 className="text-4xl font-bold text-foreground mb-3 md:text-5xl">{modelRankings.length} models, one table.</h1>
-          <p className="max-w-2xl text-muted-foreground">
-            Intelligence index · parameters · context window · price ($/M tokens) · output speed — based on Artificial Analysis benchmarks.
-          </p>
+          <p className="kicker mono mb-4">{t("rank.kicker")}</p>
+          <h1 className="text-4xl font-bold text-foreground mb-3 md:text-5xl">
+            {t("rank.title").replaceAll("{n}", String(modelRankings.length))}
+          </h1>
+          <p className="max-w-2xl text-muted-foreground">{t("rank.sub")}</p>
         </div>
 
         <div className="overflow-x-auto rounded-xl border border-border bg-card shadow-sm">

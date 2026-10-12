@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useLang } from "@/lib/i18n";
 
 const platforms = ["CUDA", "MLX", "ROCm", "Vulkan", "Multi-GPU"] as const;
 const vrams = ["4", "6", "8", "12", "16", "24", "32", "64", "96", "128+"] as const;
@@ -14,6 +15,7 @@ interface ShareFormProps {
 }
 
 export function ShareForm({ onSuccess }: ShareFormProps) {
+  const { t } = useLang();
   const [platform, setPlatform] = useState<typeof platforms[number]>("CUDA");
   const [vram, setVram] = useState<typeof vrams[number]>("24");
   const [ram, setRam] = useState<typeof rams[number]>("64");
@@ -86,7 +88,7 @@ export function ShareForm({ onSuccess }: ShareFormProps) {
     <form onSubmit={handleSubmit} className="space-y-6">
       {/* Platform */}
       <div>
-        <label className="block text-sm font-medium text-muted-foreground">Platform</label>
+        <label className="block text-sm font-medium text-muted-foreground">{t("fp.platform")}</label>
         <div className="mt-2 flex flex-wrap gap-2">
           {platforms.map((p) => (
             <button
@@ -107,7 +109,7 @@ export function ShareForm({ onSuccess }: ShareFormProps) {
 
       {/* VRAM */}
       <div>
-        <label className="block text-sm font-medium text-muted-foreground">GPU VRAM (GB)</label>
+        <label className="block text-sm font-medium text-muted-foreground">{t("sf.gpuVram")}</label>
         <select
           value={vram}
           onChange={(e) => setVram(e.target.value as typeof vrams[number])}
@@ -121,7 +123,7 @@ export function ShareForm({ onSuccess }: ShareFormProps) {
 
       {/* RAM */}
       <div>
-        <label className="block text-sm font-medium text-muted-foreground">System RAM (GB)</label>
+        <label className="block text-sm font-medium text-muted-foreground">{t("sf.sysRam")}</label>
         <select
           value={ram}
           onChange={(e) => setRam(e.target.value as typeof rams[number])}
@@ -135,7 +137,7 @@ export function ShareForm({ onSuccess }: ShareFormProps) {
 
       {/* Hardware Model */}
       <div>
-        <label className="block text-sm font-medium text-muted-foreground">Hardware Model</label>
+        <label className="block text-sm font-medium text-muted-foreground">{t("cfg.thHardware")}</label>
         <input
           type="text"
           value={hardwareModel}
@@ -147,7 +149,7 @@ export function ShareForm({ onSuccess }: ShareFormProps) {
 
       {/* Model Name */}
       <div>
-        <label className="block text-sm font-medium text-muted-foreground">Model Name</label>
+        <label className="block text-sm font-medium text-muted-foreground">{t("cfg.thModel")}</label>
         <input
           type="text"
           value={modelName}
@@ -159,14 +161,14 @@ export function ShareForm({ onSuccess }: ShareFormProps) {
 
       {/* LLM Runner */}
       <div>
-        <label className="block text-sm font-medium text-muted-foreground">LLM Runner</label>
+        <label className="block text-sm font-medium text-muted-foreground">{t("cfg.thRunner")}</label>
         <div className="flex gap-2">
           <select
             value={llmRunner}
             onChange={(e) => setLlmRunner(e.target.value as typeof llmRunners[number] | "")}
             className="block w-full rounded-md border border-input bg-card px-3 py-2 text-sm focus:border-gray-500 dark:focus:border-primary/50 text-foreground"
           >
-            <option value="">Select runner...</option>
+            <option value="">{t("sf.selectRunner")}</option>
             {llmRunners.map((runner) => (
               <option key={runner} value={runner}>{runner}</option>
             ))}
@@ -196,7 +198,7 @@ export function ShareForm({ onSuccess }: ShareFormProps) {
 
       {/* Quantization */}
       <div>
-        <label className="block text-sm font-medium text-muted-foreground">Quantization</label>
+        <label className="block text-sm font-medium text-muted-foreground">{t("fp.quant")}</label>
         <div className="flex gap-2">
           <select
             value={quantization}
@@ -232,7 +234,7 @@ export function ShareForm({ onSuccess }: ShareFormProps) {
 
       {/* Context Size */}
       <div>
-        <label className="block text-sm font-medium text-muted-foreground">Context Size</label>
+        <label className="block text-sm font-medium text-muted-foreground">{t("sf.contextSize")}</label>
         <input
           type="number"
           value={contextSize}
@@ -244,7 +246,7 @@ export function ShareForm({ onSuccess }: ShareFormProps) {
 
       {/* KV Cache */}
       <div>
-        <label className="block text-sm font-medium text-muted-foreground">KV Cache</label>
+        <label className="block text-sm font-medium text-muted-foreground">{t("sf.kvCache")}</label>
         <div className="flex gap-2">
           <select
             value={kvCache}
@@ -280,7 +282,7 @@ export function ShareForm({ onSuccess }: ShareFormProps) {
 
       {/* PP Speed */}
       <div>
-        <label className="block text-sm font-medium text-muted-foreground">PP Speed (tokens/sec)</label>
+        <label className="block text-sm font-medium text-muted-foreground">{t("sf.ppSpeedT")}</label>
         <input
           type="number"
           step="0.01"
@@ -293,7 +295,7 @@ export function ShareForm({ onSuccess }: ShareFormProps) {
 
       {/* TG Speed */}
       <div>
-        <label className="block text-sm font-medium text-muted-foreground">TG Speed (tokens/sec)</label>
+        <label className="block text-sm font-medium text-muted-foreground">{t("sf.tgSpeedT")}</label>
         <input
           type="number"
           step="0.01"
@@ -306,7 +308,7 @@ export function ShareForm({ onSuccess }: ShareFormProps) {
 
       {/* General Settings */}
       <div>
-        <label className="block text-sm font-medium text-muted-foreground">General Settings</label>
+        <label className="block text-sm font-medium text-muted-foreground">{t("sf.general")}</label>
         <textarea
           value={generalSettings}
           onChange={(e) => setGeneralSettings(e.target.value)}
@@ -351,11 +353,11 @@ spec-draft-n-max = 32`}
 
       {/* Note */}
       <div>
-        <label className="block text-sm font-medium text-muted-foreground">Note (optional)</label>
+        <label className="block text-sm font-medium text-muted-foreground">{t("sf.note")}</label>
         <textarea
           value={note}
           onChange={(e) => setNote(e.target.value)}
-          placeholder="Any additional notes..."
+          placeholder={t("sf.anyNotes")}
           maxLength={500}
           rows={3}
           className="mt-1 block w-full rounded-md border border-input bg-card px-3 py-2 text-sm focus:border-gray-500 dark:focus:border-primary/50 text-foreground placeholder:text-gray-400 dark:placeholder:text-gray-500"
@@ -373,7 +375,7 @@ spec-draft-n-max = 32`}
         disabled={loading}
         className="w-full rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:brightness-110 disabled:opacity-50"
       >
-        {loading ? "Submitting..." : "Share Config"}
+        {loading ? t("fb.sending") : t("cfg.share")}
       </button>
     </form>
   );

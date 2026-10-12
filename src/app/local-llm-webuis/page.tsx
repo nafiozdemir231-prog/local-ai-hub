@@ -1,4 +1,7 @@
+"use client";
+
 import { localLLMWebUIs } from "@/data/local-llm-webuis";
+import { useLang } from "@/lib/i18n";
 import { Monitor, ExternalLink } from "lucide-react";
 
 const osIcons: Record<string, string> = {
@@ -12,13 +15,14 @@ const osIcons: Record<string, string> = {
 const chips = (s: string) => s.split(/[,/]/).map((x) => x.trim()).filter(Boolean);
 
 export default function LocalLLMWebUIsPage() {
+  const { t } = useLang();
   return (
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-12">
         <div className="text-center mb-10">
-          <h1 className="text-4xl font-bold text-foreground mb-3">LLM Web UI</h1>
+          <h1 className="text-4xl font-bold text-foreground mb-3">{t("nav.webui")}</h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Discover the best web interfaces for running and managing local LLMs
+            {t("webui.sub")}
           </p>
         </div>
 

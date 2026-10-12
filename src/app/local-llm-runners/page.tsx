@@ -1,4 +1,7 @@
+"use client";
+
 import { localLLMRunners } from "@/data/local-llm-runners";
+import { useLang } from "@/lib/i18n";
 import { Cpu, ExternalLink } from "lucide-react";
 
 const osIcons: Record<string, string> = {
@@ -12,13 +15,14 @@ const osIcons: Record<string, string> = {
 const chips = (s: string) => s.split(/[,/]/).map((x) => x.trim()).filter(Boolean);
 
 export default function LocalLLMRunnersPage() {
+  const { t } = useLang();
   return (
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-12">
         <div className="text-center mb-10">
-          <h1 className="text-4xl font-bold text-foreground mb-3">LLM Runners</h1>
+          <h1 className="text-4xl font-bold text-foreground mb-3">{t("nav.runners")}</h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Discover the best tools for running local LLMs on your own hardware
+            {t("runners.sub")}
           </p>
         </div>
 

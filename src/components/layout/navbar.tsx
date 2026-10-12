@@ -17,13 +17,13 @@ export function Navbar() {
   const [langMenuOpen, setLangMenuOpen] = useState(false);
 
   const navLinks = [
-    { href: "/llm/configs", label: "configs" },
-    { href: "/llm-runner-aio", label: "runner aio" },
-    { href: "/models/rankings", label: "rankings" },
-    { href: "/chat-clients", label: "agents" },
-    { href: "/local-llm-runners", label: "runners" },
-    { href: "/local-llm-webuis", label: "web ui" },
-    { href: "/multimodal", label: "multimodal" },
+    { href: "/llm/configs", label: t("nav.s.configs") },
+    { href: "/llm-runner-aio", label: t("nav.s.aio") },
+    { href: "/models/rankings", label: t("nav.s.rankings") },
+    { href: "/chat-clients", label: t("nav.s.agents") },
+    { href: "/local-llm-runners", label: t("nav.s.runners") },
+    { href: "/local-llm-webuis", label: t("nav.s.webui") },
+    { href: "/multimodal", label: t("nav.s.multimodal") },
   ];
 
   const isActive = (href: string) => {

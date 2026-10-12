@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useLang } from "@/lib/i18n";
 
 interface FilterPanelProps {
   platforms: string[];
@@ -43,6 +44,7 @@ export function FilterPanel({
   llmRunnerSearch,
   setLlmRunnerSearch,
 }: FilterPanelProps) {
+  const { t } = useLang();
   const [expandedPlatforms, setExpandedPlatforms] = useState(false);
   const [expandedVrams, setExpandedVrams] = useState(false);
   const [expandedRams, setExpandedRams] = useState(false);
@@ -64,36 +66,36 @@ export function FilterPanel({
     <div className="lg:grid lg:grid-cols-7 gap-4">
       {/* Hardware Model Search */}
       <div className="lg:col-span-1">
-        <h3 className="mb-2 text-xs font-semibold text-gray-700 dark:text-gray-200">Hardware</h3>
+        <h3 className="mb-2 text-xs font-semibold text-gray-700 dark:text-gray-200">{t("fp.hardware")}</h3>
         <input
           type="text"
           value={hardwareSearch}
           onChange={(e) => setHardwareSearch(e.target.value)}
-          placeholder="Search..."
+          placeholder={t("fp.search")}
           className="w-full rounded-md border border-input bg-card px-2 py-1.5 text-xs text-foreground placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-primary/50 dark:focus:border-primary/50 focus:outline-none"
         />
       </div>
 
       {/* Model Name Search */}
       <div className="lg:col-span-1">
-        <h3 className="mb-2 text-xs font-semibold text-gray-700 dark:text-gray-200">Model</h3>
+        <h3 className="mb-2 text-xs font-semibold text-gray-700 dark:text-gray-200">{t("fp.model")}</h3>
         <input
           type="text"
           value={modelSearch}
           onChange={(e) => setModelSearch(e.target.value)}
-          placeholder="Search..."
+          placeholder={t("fp.search")}
           className="w-full rounded-md border border-input bg-card px-2 py-1.5 text-xs text-foreground placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-primary/50 dark:focus:border-primary/50 focus:outline-none"
         />
       </div>
 
       {/* LLM Runner Search */}
       <div className="lg:col-span-1">
-        <h3 className="mb-2 text-xs font-semibold text-gray-700 dark:text-gray-200">Runner</h3>
+        <h3 className="mb-2 text-xs font-semibold text-gray-700 dark:text-gray-200">{t("fp.runner")}</h3>
         <input
           type="text"
           value={llmRunnerSearch}
           onChange={(e) => setLlmRunnerSearch(e.target.value)}
-          placeholder="Search..."
+          placeholder={t("fp.search")}
           className="w-full rounded-md border border-input bg-card px-2 py-1.5 text-xs text-foreground placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-primary/50 dark:focus:border-primary/50 focus:outline-none"
         />
       </div>
@@ -104,7 +106,7 @@ export function FilterPanel({
           onClick={() => setExpandedPlatforms(!expandedPlatforms)}
           className="mb-2 flex w-full items-center justify-between text-xs font-semibold text-gray-700 dark:text-gray-200"
         >
-          Platform
+          {t("fp.platform")}
           <svg className={`h-3 w-3 transition-transform ${expandedPlatforms ? "rotate-180" : ""}`} fill="currentColor" viewBox="0 0 20 20">
             <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
           </svg>
@@ -188,7 +190,7 @@ export function FilterPanel({
           onClick={() => setExpandedQuantizations(!expandedQuantizations)}
           className="mb-2 flex w-full items-center justify-between text-xs font-semibold text-gray-700 dark:text-gray-200"
         >
-          Quantization
+          {t("fp.quant")}
           <svg className={`h-3 w-3 transition-transform ${expandedQuantizations ? "rotate-180" : ""}`} fill="currentColor" viewBox="0 0 20 20">
             <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
           </svg>

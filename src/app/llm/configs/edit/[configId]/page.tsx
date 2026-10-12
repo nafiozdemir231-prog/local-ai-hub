@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
+import { useLang } from "@/lib/i18n";
 
 interface LLMConfig {
   id: string;
@@ -25,6 +26,7 @@ interface LLMConfig {
 }
 
 export default function EditConfigPage() {
+  const { t } = useLang();
   const params = useParams();
   const configId = params?.configId as string;
   const router = useRouter();
@@ -119,8 +121,8 @@ export default function EditConfigPage() {
   return (
     <div className="container mx-auto max-w-4xl p-4 md:p-6 lg:p-8">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">Edit Config</h1>
-        <p className="mt-1 text-sm text-gray-500">Update your configuration</p>
+        <h1 className="text-3xl font-bold text-gray-900">{t("cfg.editTitle")}</h1>
+        <p className="mt-1 text-sm text-gray-500">{t("cfg.editSub")}</p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
