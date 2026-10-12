@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { signIn, signOut, useSession } from "next-auth/react";
-import { LogIn, LogOut, Shield, Menu, X, Sun, Moon } from "lucide-react";
+import { LogIn, LogOut, Shield, Menu, X, Sun, Moon, Globe } from "lucide-react";
 import { useState } from "react";
 import { useTheme } from "@/lib/theme-provider";
 import { LANGS, useLang } from "@/lib/i18n";
@@ -61,8 +61,8 @@ export function Navbar() {
             className="flex items-center gap-1.5 rounded-lg border border-border px-2.5 py-1.5 font-mono text-xs transition hover:bg-accent"
             title="Language"
           >
-            <span>{LANGS.find((l) => l.code === lang)?.flag}</span>
-            <span className="uppercase">{lang}</span>
+            <Globe className="h-3.5 w-3.5" />
+            <span className="font-bold uppercase">{lang}</span>
           </button>
           {langMenuOpen && (
             <div className="absolute left-0 top-full z-50 mt-1 w-40 rounded-lg border border-border bg-popover p-1 shadow-xl">
@@ -90,7 +90,7 @@ export function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className={`rounded-lg px-3 py-2 text-sm font-medium transition-all duration-200 ${
+              className={`whitespace-nowrap rounded-lg px-3 py-2 text-sm font-medium transition-all duration-200 ${
                 isActive(link.href)
                   ? "bg-accent text-primary font-semibold"
                   : "text-muted-foreground hover:bg-accent/60 hover:text-primary"
@@ -208,6 +208,7 @@ export function Navbar() {
                   }`}
                 >
                   {l.flag}
+                  <span className="ml-1 align-middle text-[10px] uppercase tracking-wider">{l.code}</span>
                 </button>
               ))}
             </div>

@@ -52,12 +52,12 @@ function ModelRow({ model, index }: { model: ModelRanking; index: number }) {
       </td>
       <td className="py-4 px-5">
         {model.weights ? (
-          <span className="inline-flex items-center gap-1.5 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 px-3 py-1.5 rounded-full text-xs font-medium">
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-green-600/40 bg-green-500/10 px-3 py-1.5 text-xs font-medium text-green-700 dark:text-green-400">
             <BookOpen className="h-3.5 w-3.5" />
             Open Weights
           </span>
         ) : (
-          <span className="inline-flex items-center gap-1.5 bg-secondary text-muted-foreground px-3 py-1.5 rounded-full text-xs font-medium">
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-medium text-muted-foreground">
             Closed
           </span>
         )}
@@ -70,10 +70,11 @@ export default function ModelRankingsPage() {
   return (
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-12">
-        <div className="text-center mb-10">
-          <h1 className="text-4xl font-bold text-foreground mb-3">Model Rankings</h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            See the best-performing models based on Artificial Analysis benchmarks
+        <div className="mb-10">
+          <p className="kicker mono mb-4">{"// model rankings"}</p>
+          <h1 className="text-4xl font-bold text-foreground mb-3 md:text-5xl">{modelRankings.length} models, one table.</h1>
+          <p className="max-w-2xl text-muted-foreground">
+            Intelligence index · parameters · context window · price ($/M tokens) · output speed — based on Artificial Analysis benchmarks.
           </p>
         </div>
 
