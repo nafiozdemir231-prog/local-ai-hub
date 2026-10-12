@@ -125,3 +125,13 @@ All filters visible horizontally above Sort By (Votes / PP Speed / TG Speed).
 | src/app/page.tsx | Reverted obsidian redesign (commit a6561d7) — production back to bento | User wanted HTML preview FIRST, not live change |
 | tasks/arayuz/tasarim2-obsidian/ | New multi-page mockup site: 8 pages + obsidian.css + gen1/2/3.js generators reading real src/data/*.ts (121 models, 17 runners, 17 webuis, 29 agents, 6 multimodal) | User request: full-site obsidian preview with real static data |
 - Lesson applied: preview as standalone HTML first; port to Next.js only after explicit approval.
+
+## 2026-10-11 - Obsidian mockup: aydınlık/karanlık tema
+| File | Change | Reason |
+|------|--------|--------|
+| tasks/arayuz/tasarim2-obsidian/theme.js | NEW — theme motoru: html.light sınıfı + localStorage("obs-theme") kalıcılığı | Kullanıcı isteği |
+| .../obsidian.css | Light-mode override bloğu (utility substring selector'ları: bg-[#101216], text-zinc-*, border-white/5, divide, amber→#b45309, tag/rank/surface renkleri) + .theme-btn stilleri | 8 sayfada tek yerden tema desteği |
+| .../gen1.js gen2.js gen3.js | shell() artık theme.js yüklüyor + nav'da ☾ dark / ☀ light düğmesi | Üretilen tüm sayfalara otomatik |
+| .../index.html | obsidian.css + theme.js bağlandı, nav'a düğme eklendi | El yazımı ana sayfa da dahil |
+- Tercih localStorage'da kalıcı; sayfa açılışında FOUC yok (script head'de blocking).
+- NOT: Gerçek Next.js sitesinde zaten çalışan bir tema sistemi var (layout.tsx pre-paint script + Navbar theme butonu, localStorage "theme"). Mockup bağımsız çalıştığı için ayrı "obs-theme" key kullanıyor — port sırasında tek key'e birleştirilir.
