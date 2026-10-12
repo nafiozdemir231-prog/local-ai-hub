@@ -219,3 +219,8 @@ All filters visible horizontally above Sort By (Votes / PP Speed / TG Speed).
 | configs/components/FilterPanel.tsx | Checkbox columns -> compact pill/chip toggles (mono, amber when active); search inputs get Search icon + rounded obsidian style; group headers with active-count badge + ChevronDown; VRAM/RAM/Quant lists capped at max-h-40 scroll | User: "arama ayarlarını daha iyi bir seçenek varsa değiştir" — old checkbox columns were tall/plain |
 | configs/page.tsx | Added "Clear filters" button (shown only when any filter/search active; resets all 7); fixed string>0 predicate bug | One-click reset UX |
 | src/lib/ui-core.ts | cfg.clearFilters key x8 langs | i18n |
+
+## 2026-10-12 - Support button -> far right
+| File | Change | Reason |
+|------|--------|--------|
+| navbar.tsx | Ko-fi "Support" anchor moved from nav-links group to end of the far-right cluster (after language + theme) => now the rightmost element | User request |

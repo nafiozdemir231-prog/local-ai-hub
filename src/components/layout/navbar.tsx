@@ -56,17 +56,6 @@ export function Navbar() {
               {link.label}
             </Link>
           ))}
-          <a
-            href="https://ko-fi.com/vincespeed"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative ml-2 whitespace-nowrap rounded-lg bg-primary px-4 py-2 font-mono text-[13px] font-bold text-primary-foreground shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105"
-          >
-            <span className="flex items-center gap-1.5">
-              ☕
-              <span>{t("nav.support")}</span>
-            </span>
-          </a>
           {session && (
             <Link
               href="/profile"
@@ -176,6 +165,17 @@ export function Navbar() {
               <Sun className="h-4 w-4" />
             )}
           </button>
+          <a
+            href="https://ko-fi.com/vincespeed"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative ml-1 whitespace-nowrap rounded-lg bg-primary px-4 py-2 font-mono text-[13px] font-bold text-primary-foreground shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105"
+          >
+            <span className="flex items-center gap-1.5">
+              ☕
+              <span>{t("nav.support")}</span>
+            </span>
+          </a>
         </div>
       </div>
 
